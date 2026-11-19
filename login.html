@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catalyst Login Page</title>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    /* (kept your existing CSS - shortened here for brevity) */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+    body{overflow:hidden}
+    #particles-js{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:linear-gradient(135deg,#0d1b2a 0%,#1b263b 100%)}
+    .loading-screen{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.95);display:flex;align-items:center;justify-content:center;z-index:1000;transition:opacity .5s}
+    .loading-screen.hidden{opacity:0;pointer-events:none}
+    .spinner{width:60px;height:60px;border:6px solid #e0e0e0;border-top:6px solid #00ddeb;border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    .login-container{display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,.95);padding:40px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.3);width:100%;max-width:450px;animation:bounceIn .8s}
+    .login-container.visible{display:block}
+    .welcome-text{text-align:center;margin-bottom:20px;color:#1e3a8a;font-size:32px;font-weight:bold;display:inline-block;border-right:4px solid #1e3a8a;white-space:nowrap;overflow:hidden;animation:typing 2s steps(10,end),blink .5s step-end infinite}
+    @keyframes typing{from{width:0}to{width:100%}}@keyframes blink{50%{border-color:transparent}}
+    .login-container h2{text-align:center;margin-bottom:30px;color:#333;font-size:26px;text-transform:uppercase}
+    .input-group{margin-bottom:20px;position:relative}
+    .input-group label{display:block;margin-bottom:8px;color:#555;font-size:14px;font-weight:bold}
+    .input-group input{width:100%;padding:12px 15px;border:2px solid #e0e0e0;border-radius:8px;font-size:16px;background:rgba(255,255,255,.9)}
+    .input-group input:focus{outline:none;border-color:#00ddeb;box-shadow:0 0 10px rgba(0,221,235,.5)}
+    .login-btn{width:100%;padding:14px;background:linear-gradient(135deg,#00ddeb 0%,#007bff 100%);border:none;border-radius:8px;color:#fff;font-size:16px;font-weight:bold;cursor:pointer}
+    .forgot-ID{text-align:center;margin-top:15px}
+    .forgot-ID a{color:#007bff;text-decoration:none;font-size:14px}
+    .processing{display:none;text-align:center;margin:12px 0}
+    .processing .dots{display:inline-flex;gap:5px;margin-left:8px}
+    .processing .dots span{width:10px;height:10px;background:#38bdf8;border-radius:50%;animation:bounce 1s infinite}
+    .processing .dots span:nth-child(2){animation-delay:.2s}.processing .dots span:nth-child(3){animation-delay:.4s}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <div class="loading-screen" id="loadingScreen"><div class="spinner"></div></div>
+
+  <!-- Logo faces (kept from your file) -->
+  <div style="display:none">
+    <img src="logo.png" alt="logo" />
+  </div>
+
+  <div class="login-container" id="loginContainer">
+    <div class="welcome-text">Welcome to REACTION!</div>
+    <h2>Login</h2>
+
+    <div class="input-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your Full Name" required>
+    </div>
+
+    <div class="input-group">
+      <label for="ID">Membership ID</label>
+      <input id="ID" placeholder="Enter your ID" required>
+    </div>
+
+    <div class="processing" id="processing">
+      <span>Retrieving Data</span>
+      <div class="dots"><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- Login only (no public register) -->
+    <button class="login-btn" onclick="handleLogin()">Login</button>
+
+    <div class="forgot-ID">
+      <a href="#" onclick="handleForgotID(); return false;">Forgot ID?</a>
+    </div>
+  </div>
+
+  <!-- Firebase + Firestore client logic -->
+  <!-- You MUST replace the firebaseConfig object with your project's config (see steps below) -->
+  <script type="module">
+    // Initialize particles and UI
+    window.onload = function() {
+      // initialize particles
+      if (window.particlesJS) {
+        particlesJS('particles-js', {
+          particles: {
+            number:{value:120,density:{enable:true,value_area:800}},
+            color:{value:'#00ddeb'},
+            shape:{type:'circle'},
+            opacity:{value:0.6,random:true},
+            size:{value:4,random:true},
+            line_linked:{enable:true,distance:150,color:'#00ddeb',opacity:0.5,width:1.5},
+            move:{enable:true,speed:2.5,random:true,out_mode:'out'}
+          },
+          interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'grab'},onclick:{enable:true,mode:'push'},resize:true},modes:{grab:{distance:200,line_linked:{opacity:0.7}},push:{particles_nb:4}}},
+          retina_detect:true
+        });
+      }
+      setTimeout(()=>{
+        document.getElementById('loadingScreen').classList.add('hidden');
+        document.getElementById('loginContainer').classList.add('visible');
+      },900);
+    };
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+    // ---- REPLACE ONLY THIS CONFIG WITH YOUR FIREBASE WEB APP CONFIG ----
+    const firebaseConfig = {
+      apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+  authDomain: "catalyst-login1.firebaseapp.com",
+  projectId: "catalyst-login1",
+  storageBucket: "catalyst-login1.appspot.com",
+  messagingSenderId: "966641571185",
+  appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+  measurementId: "G-XRCWBMQF30"
+      // storageBucket, messagingSenderId, appId are optional for this example
+    };
+    // -------------------------------------------------------------------
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    function showProcessing(show) {
+      document.getElementById('processing').style.display = show ? 'block' : 'none';
+    }
+
+    // LOGIN: queries Firestore users collection for the given name + id
+    async function handleLogin() {
+      const name = document.getElementById('name').value.trim();
+      const ID = document.getElementById('ID').value.trim();
+      if (!name || !ID) { alert('Please fill both Name and ID.'); return; }
+
+      showProcessing(true);
+      try {
+        // Query by name only (avoids needing composite index). Then check ID client-side.
+        const q = query(collection(db, 'users'), where('name', '==', name));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+          alert('Name not found. If you were pre-registered, check exact spelling (case sensitive).');
+          showProcessing(false);
+          return;
+        }
+
+        // find document where id matches
+        let found = null;
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          if (String(data.id) === String(ID)) found = { id: data.id, docId: doc.id, ...data };
+        });
+
+        if (found) {
+          // store session info and redirect
+          sessionStorage.setItem('currentUser', JSON.stringify({ name: found.name, id: found.id }));
+          alert('Login successful — redirecting to dashboard');
+          window.location.href = 'dashboard.html';
+        } else {
+          alert('Invalid Membership ID for that name.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Error checking credentials. See console for details.');
+      } finally {
+        showProcessing(false);
+      }
+    }
+
+    // FORGOT ID: prompt for name and return stored ID(s)
+    async function handleForgotID() {
+      const name = prompt('Enter your full name to retrieve your ID:');
+      if (!name) return;
+      showProcessing(true);
+      try {
+        const q = query(collection(db, 'users'), where('name', '==', name));
+        const snapshot = await getDocs(q);
+        if (snapshot.empty) {
+          alert('No user found with that name.');
+        } else {
+          // show all matching IDs (if duplicates exist)
+          const ids = [];
+          snapshot.forEach(doc => ids.push(doc.data().id));
+          alert('Found ID(s): ' + ids.join(', '));
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Error retrieving ID.');
+      } finally {
+        showProcessing(false);
+      }
+    }
+
+    // expose to global scope so onclick handlers work
+    window.handleLogin = handleLogin;
+    window.handleForgotID = handleForgotID;
+  </script>
+</body>
+</html>

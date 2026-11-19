@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalyst Club - Ignite Ideas. Inspire Change.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+            import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+        
+            const firebaseConfig = {
+                apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+                authDomain: "catalyst-login1.firebaseapp.com",
+                projectId: "catalyst-login1",
+                storageBucket: "catalyst-login1.firebasestorage.app",
+                messagingSenderId: "966641571185",
+                appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+                measurementId: "G-XRCWBMQF30"
+            };
+        
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+        
+            window.sendContact = async (data) => {
+                return await addDoc(collection(db, "contact_us"), data);
+            };
+        </script>
+        <script src="script.js"></script>
+        
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-placeholder">
+                    <img src="logo.jpg" alt="Catalyst Club Logo">
+                </div>
+                <span class="brand-name">Catalyst Club</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#events" class="nav-link">Events & Meets</a>
+                <a href="#events" class="nav-link">Activities</a>
+                <a href="form.html" class="nav-link">Be a Member</a>
+                <a href="login.html" class="nav-link">Log-in</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-toggle-btn">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-left">
+                <div class="hero-eyebrow">Welcome to <strong>Catalyst Club</strong></div>
+                <h1 class="hero-title">Ignite Ideas. Inspire Change. <i><span class="hero-accent">Be the Catalyst.</span></h1></i>
+                <p class="hero-subtitle">Join a community of innovators, creators, and changemakers at Haldia Institute of Pharmacy.</p>
+
+                <div class="hero-actions">
+                    <a href="form.html" class="btn btn-primary">Get Involved <i class="fas fa-arrow-right"></i></a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+
+            <div class="hero-right" aria-hidden="false">
+                <img src="logo.jpg" alt="Catalyst Club logo" class="hero-image-simple">
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision-section">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="vision-card">
+                <h3>Empowering Tomorrow's Leaders</h3>
+                <p>At Catalyst Club, we believe in the power of collaboration, innovation, and positive change. Our
+                    mission is to create a platform where students can transform their ideas into impactful solutions,
+                    develop leadership skills, and build lasting connections that extend beyond their academic journey.
+                </p>
+                <div class="vision-highlights">
+                    <div class="highlight">
+                        <span class="highlight-icon"><i class="fas fa-lightbulb"></i></span>
+                        <span>Innovation</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Collaboration</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-icon"><i class="fas fa-rocket"></i></span>
+                        <span>Growth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posts Section -->
+    <section id="posts" class="posts-section">
+        <div class="container">
+            <h2 class="section-title">Latest Posts</h2>
+            <!-- Image Slider Container -->
+<div class="slider-container">
+    <div class="slider" id="slider">
+        <!-- Add your posters here -->
+        <img src="new_member_form_2025.jpg" alt="Poster 1" class="slide-img">
+        <img src="pharmacist_day_2025.jpg" alt="Poster 2" class="slide-img">
+        <img src="press_freedom_day_2025.jpg" alt="Poster 3" class="slide-img">
+        <img src="creativity_day_2025.jpg" alt="Poster 3" class="slide-img">
+    </div>
+</div>
+
+<!-- Popup / Lightbox -->
+<div class="lightbox" id="lightbox">
+    <img id="lightboxImg">
+</div>
+
+            <div class="posts-grid">
+                <article class="post-card">
+                    <div class="post-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Startup Pitch Competition Results</h3>
+                    <p>Congratulations to all participants in our annual startup pitch competition. Amazing innovative
+                        ideas presented!</p>
+                    <span class="post-date">March 15, 2024</span>
+                </article>
+                <article class="post-card">
+                    <div class="post-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Leadership Workshop Series</h3>
+                    <p>Join our upcoming leadership development workshops designed to enhance your management and
+                        communication skills.</p>
+                    <span class="post-date">March 10, 2024</span>
+                </article>
+                <article class="post-card">
+                    <div class="post-icon"><i class="fas fa-star"></i></div>
+                    <h3>New Member Orientation</h3>
+                    <p>Welcome to all our new members! Excited to have you join our community of innovators and
+                        changemakers.</p>
+                    <span class="post-date">March 5, 2024</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Meets Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2 class="section-title">Activities</h2>
+            <div class="events-info">
+                <div class="meet-schedule">
+                    <h3>Regular Meets</h3>
+                    <div class="schedule-details">
+                        <p><strong>When:</strong> Saturdays (except government holidays)</p>
+                        <p><strong>Where:</strong> College Building, Haldia Institute of Pharmacy</p>
+                    </div>
+                </div>
+                <div class="events-timeline">
+                    <h3>Activities</h3>
+                    <div class="timeline-content">
+                        <p class="coming-soon"> Upcoming Activity schedule coming soon!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    
+                    <section id="events" class="events-section">
+                        <div class="container">
+                            <h2 class="section-title">Events & Meets</h2>
+                            <div class="events-timeline">
+                                
+                                <div class="event-item past-event">
+                                    <div class="event-date">
+                                        <span class="date-day">12</span>
+                                        <span class="date-month">JULY</span>
+                                    </div>
+                                    <div class="event-content">
+                                        <h3>Virtual Talk On International Day For Human Space Flight</h3>
+                                        <p>How Pharmaceutical Sci and Tech Impact Space Sci and Exploration.</p>
+                                        <span class="event-time">6:30 PM - 9:15 PM</span>
+                                    </div>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <span class="date-day">12</span>
+                                        <span class="date-month">APRIL</span>
+                                    </div>
+                                    <div class="event-content">
+                                        <h3>Tech Talk: AI & Future</h3>
+                                        <p>Interactive session and PPT Presentaion by catalyst members on recent trends in pharmacy.</p>
+                                        <span class="event-time">7:00 PM - 9:00 PM</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="event-item">
+                                    <div class="event-date">
+                                        <span class="date-day">11</span>
+                                        <span class="date-month">OCT</span>
+                                    </div>
+                                    <div class="event-content">
+                                        <h3>Small Talk on Scientific Meta Analysis</h3>
+                                        <p>Small talks on meta anlysis, techniques, uses and future perspectives.</p>
+                                        <span class="event-time">10:30 AM - 12:00 PM</span>
+                                    </div>
+                                </div>
+                                <div class="event-item past-event">
+                                    <div class="event-date">
+                                        <span class="date-day">-</span>
+                                        <span class="date-month">-</span>
+                                    </div>
+                                    <div class="event-content">
+                                        <h3>Workshop</h3>
+                                        <p>2 day Hands-on workshop on Python 3.13.7</p>
+                                        <span class="event-time">Yet to be published</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Login Section -->
+    <!-- <section id="login" class="login-section">
+        <div class="container">
+            <h2 class="section-title">Member Login</h2>
+            <div class="login-content">
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="memberId">Membership ID</label>
+                        <input type="text" id="memberId" name="memberId" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="submit-button">Log In</button>
+                    <div class="forgot-password">
+                        <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                    </div>
+                </form>
+
+                <!-- Forgot Password Form (Hidden by default) -->
+               <!-- <form id="forgotPasswordForm" class="forgot-password-form hidden">
+                    <h3>Reset Password</h3>
+                    <div class="form-group">
+                        <label for="resetEmail">Email or Membership ID</label>
+                        <input type="text" id="resetEmail" name="resetEmail" required>
+                    </div>
+                    <button type="submit" class="submit-button">Request Reset</button>
+                    <button type="button" class="back-to-login">Back to Login</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Contact Us Section -->
+   <!-- <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="info-details">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>info.catalyst.hip@gmail.com</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>The Catalyst Club<br>Haldia Institute of Pharmacy<br>ICARE Complex, HIT Campus,<br>721657
+                                Haldia, West Bengal</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3695.7221421295363!2d88.0681663!3d22.0506083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02f0c0af956751%3A0x6d4186f2554dc5c!2sHaldia%20Institute%20of%20Pharmacy!5e0!3m2!1sen!2sin!4v1628805721234!5m2!1sen!2sin"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3>Leave Us Your Thoughts</h3>
+                    <form action="#" class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-tabs">
+                    <button class="tab-btn active" data-tab="code-conduct">Code of Conduct</button>
+                    <button class="tab-btn" data-tab="about-club">About Club</button>
+                    <button class="tab-btn" data-tab="members">Club Members</button>
+                </div>
+
+                <!-- Code of Conduct Tab -->
+                <div class="tab-content active" id="code-conduct">
+                    <h3>Code of Conduct</h3>
+                    <div class="conduct-content">
+                        <p>Our code of conduct ensures a positive and inclusive environment for all members:</p><br>
+                        <ul>
+                            <li>Respect for all members regardless of background</li>
+                            <li>Professional conduct during all club activities</li>
+                            <li>Active participation and engagement</li>
+                            <li>Commitment to learning and growth</li>
+                            <li>Support for fellow members</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- About Club Tab -->
+                <div class="tab-content" id="about-club">
+                    <h3>About Catalyst Club</h3>
+                    <div class="club-info">
+                        <p>The Catalyst Club at Haldia Institute of Pharmacy is a dynamic student organization dedicated
+                            to fostering innovation, leadership, and community engagement. Founded with the vision of
+                            creating positive change, we provide a platform for students to collaborate, learn, and grow
+                            together.</p>
+                        <div class="club-highlights">
+                            <div class="highlight-card">
+                                <h4>Our Mission</h4>
+                                <p>To empower students through innovative learning experiences and collaborative
+                                    projects.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4>Our Vision</h4>
+                                <p>Creating future leaders and innovators in the field of pharmacy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Members Tab -->
+                <div class="tab-content" id="members">
+                    <h3>Club Members</h3>
+                    <div class="year-selector">
+                        <label for="academic-year">Select Academic Year:</label>
+                        <select id="academic-year">
+                            <option value="2025">2024-2025</option>
+                            <option value="2024">2023-2024</option>
+                            <!-- <option value="2023">2022-2023</option> -->
+                        </select>
+                    </div>
+
+                    <div class="members-grid" id="members-list">
+                        <!-- Members will be dynamically loaded based on selected year -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Feedback Section -->
+<section id="feedback" class="feedback-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="feedback-content">
+            <div class="feedback-intro">
+                <div class="intro-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>We'd Love to Hear From You</h3>
+                <p>Have questions, suggestions, or want to get involved? Our team is ready to assist you with any inquiries about Catalyst Club's initiatives, events, or membership opportunities.</p>
+                <div class="feedback-highlights">
+                    <div class="feedback-highlight">
+                        <i class="fas fa-clock"></i>
+                        <span>Quick Response</span>
+                    </div>
+                    <div class="feedback-highlight">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Communication</span>
+                    </div>
+                    <div class="feedback-highlight">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Dedicated Team</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REMOVED action="..." -->
+            <form class="contact-form" id="contactForm">
+                <div class="form-header">
+                    <i class="fas fa-paper-plane"></i>
+                    <h4>Send Us a Message</h4>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Your email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+                    <span class="error-message" id="subjectError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment-alt"></i> Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Please describe your inquiry or feedback in detail..." required></textarea>
+                    <span class="error-message" id="messageError"></span>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="submit-button" id="submitButton">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    <span id="formStatus" class="form-status">
+                        <span class="loader" id="loader" style="display: none;"></span>
+                        <span id="statusText"></span>
+                    </span>
+                </div>
+            </form>
+
+            <div class="success-message" id="successMessage" style="display:none;">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h4>Thank You for Reaching Out!</h4>
+                <p>Your message has been successfully delivered to our team. We appreciate your interest and will respond within 24-48 hours.</p>
+                <button class="back-button" onclick="document.getElementById('successMessage').style.display='none';document.getElementById('contactForm').reset();document.getElementById('contactForm').style.display='block';">
+                    <i class="fas fa-arrow-left"></i> Send Another Message
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Firebase Firestore Submission -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+    authDomain: "catalyst-login1.firebaseapp.com",
+    projectId: "catalyst-login1",
+    storageBucket: "catalyst-login1.firebasestorage.app",
+    messagingSenderId: "966641571185",
+    appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+    measurementId: "G-XRCWBMQF30"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const loader = document.getElementById("loader");
+    const statusText = document.getElementById("statusText");
+
+    loader.style.display = "inline-block";
+    statusText.textContent = "Sending...";
+
+    const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+        timestamp: new Date().toISOString()
+    };
+
+    try {
+        await addDoc(collection(db, "contact_us"), data);
+
+loader.style.display = "none";
+statusText.textContent = ""; // CLEAR OLD ERROR
+document.getElementById("formStatus").style.display = "none"; // HIDE STATUS
+
+document.getElementById("contactForm").style.display = "none";
+document.getElementById("successMessage").style.display = "block";
+
+    } catch (err) {
+        loader.style.display = "none";
+        statusText.textContent = "Error sending message: " + err.message;
+    }
+});
+</script>
+
+        
+   
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-col">
+                    <div class="nav-brand">
+                        <div class="logo-placeholder">
+                            <img src="logo.jpg" alt="Catalyst Club Logo">
+                        </div>
+                        <span class="brand-name">Catalyst Club</span>
+                    </div>
+                    <p class="footer-tagline">Ignite Ideas. Inspire Change. Be the Catalyst.</p>
+                </div>
+                
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#events">Events & Meets</a></li>
+                        <li><a href="#events">Activities</a></li>
+                        <li><a href="https://docs.google.com/document/d/1Ttum9bZK0xm_f281TN_R1yViBMYnVyRd/edit?usp=sharing&ouid=106060528518563420636&rtpof=true&sd=true">Code Of Conduct</a></li>
+                        <li><a href="form.html">Join Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i> hello@catalystclub.in</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Haldia Institute of Pharmacy, ICARE Complex</li>
+                        <li><i class="fas fa-clock"></i> Saturday Meetings: 2:00 PM - 4:00 PM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/catalyst-club-hip" class="social-link"
+                            aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/catalyst_hip" class="social-link" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/catalystHip95070" class="social-link" aria-label="X"><i
+                                class="fa-brands fa-x"></i></a>
+                       <!-- <a href="https://www.facebook.com/catalyst.hip?rdid=4ON9SeosmASNsW4A&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BK9yurxXe%2F#"
+                            class="social-link" aria-label="Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+                        <a href="https://www.youtube.com/channel/UC-wUWUAKEZKxIgEMx85g47w" class="social-link"
+                            aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+            <style>
+                /* Compact Golden-Ratio Glass Box (50% smaller) */
+                #visitBox {
+                    position: relative;
+                    width: 200px;
+                    height: 60px;
+                    padding: 12px 16px;
+                    margin: 24px auto;
+                    border-radius: 18px;
+                    background: rgba(255,255,255,0.10);
+                    border: 1px solid rgba(255,255,255,0.20);
+                    box-shadow: 0 12px 25px rgba(0,0,0,0.28);
+                    backdrop-filter: blur(15px);
+                    -webkit-backdrop-filter: blur(15px);
+                    text-align: center;
+                    font-family: "Inter", sans-serif;
+                    color: #f0f0f0;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                
+                /* Bubbles */
+                .bubble {
+                    position: absolute;
+                    width: 12px;
+                    height: 12px;
+                    background: rgba(51, 166, 205, 0.408);
+                    border-radius: 50%;
+                    animation: rise 6s infinite ease-in;
+                    bottom: -20px;
+                }
+                
+                @keyframes rise {
+                    0% { transform: translateY(0) scale(1); opacity: 0.3; }
+                    50% { opacity: 1; }
+                    100% { transform: translateY(-180px) scale(1.6); opacity: 0; }
+                }
+                
+                /* Counter text */
+                #visitCounter {
+                    font-size: 24px;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                }
+                
+                #visitLabel {
+                    font-size: 14px;
+                    opacity: .8;
+                }
+                /* Slider wrapper */
+.slider-container {
+    width: 100%;
+    max-width: 680px; /* adjust as needed */
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Slider flexbox */
+.slider {
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Each image */
+.slide-img {
+    width: 100%;
+    flex-shrink: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Lightbox popup */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.2);
+}
+
+                </style>
+                
+                <div id="visitBox">
+                    <div id="visitLabel">Visits</div>
+                    <div id="visitCounter">0</div>
+                </div>
+                
+                <script>
+                // Spawn bubbles
+                function spawnBubbles() {
+                    const box = document.getElementById("visitBox");
+                    for (let i = 0; i < 10; i++) {
+                        const b = document.createElement("div");
+                        b.classList.add("bubble");
+                        b.style.left = Math.random() * 100 + "%";
+                        b.style.animationDelay = (Math.random() * 5) + "s";
+                        b.style.opacity = Math.random() * 0.8 + 0.2;
+                        box.appendChild(b);
+                    }
+                }
+                spawnBubbles();
+                
+                // Fetch from Cloudflare Worker
+                fetch("https://morning-butterfly-903.catalyst-hip-haldia.workers.dev/")
+                    .then(r => r.json())
+                    .then(data => {
+                        animateValue("visitCounter", 0, data.visits, 3000);
+                    })
+                    .catch(() => {
+                        document.getElementById("visitCounter").textContent = "ERR";
+                    });
+                
+                // Smooth animated counter-up
+                function animateValue(id, start, end, duration) {
+                    const obj = document.getElementById(id);
+                    let startTimestamp = null;
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                        obj.textContent = Math.floor(progress * (end - start) + start);
+                        if (progress < 1) window.requestAnimationFrame(step);
+                    };
+                    window.requestAnimationFrame(step);
+                }
+                </script>
+                
+                 <!--// Generate floating bubbles
+                 function spawnBubbles() {
+                     const box = document.getElementById("visitBox");
+                     for (let i = 0; i < 10; i++) {
+                         const b = document.createElement("div");
+                         b.classList.add("bubble");
+                         b.style.left = Math.random() * 100 + "%";
+                         b.style.animationDelay = (Math.random() * 5) + "s";
+                         b.style.opacity = Math.random() * 0.8 + 0.2;
+                         box.appendChild(b);
+                     }
+                 }
+                 spawnBubbles();
+                 
+                 // Fetch counter value
+                 fetch("https://pixelcounter.io/api/count?name=catalystclub")
+                     .then(r => r.json())
+                     .then(data => {
+                         animateValue("visitCounter", 1, data.count, 1200);
+                     })
+                     .catch(() => {
+                         document.getElementById("visitCounter").textContent = "ERR";
+                     });
+                 
+                 // Smooth animated counter-up
+                 function animateValue(id, start, end, duration) {
+                     const obj = document.getElementById(id);
+                     let startTimestamp = null;
+                     const step = (timestamp) => {
+                         if (!startTimestamp) startTimestamp = timestamp;
+                         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                         obj.textContent = Math.floor(progress * (end - start) + start);
+                         if (progress < 1) window.requestAnimationFrame(step);
+                     };
+                     window.requestAnimationFrame(step);
+                 }-->
+                 </script>
+                 <script>
+                    let index = 0;
+                    const slider = document.getElementById("slider");
+                    const slides = document.querySelectorAll(".slide-img");
+                    const lightbox = document.getElementById("lightbox");
+                    const lightboxImg = document.getElementById("lightboxImg");
+                    
+                    function showSlide(i) {
+                        index = (i + slides.length) % slides.length;
+                        slider.style.transform = `translateX(-${index * 100}%)`;
+                    }
+                    
+                    // Auto slide every 4 seconds
+                    setInterval(() => {
+                        showSlide(index + 1);
+                    }, 4000);
+                    
+                    // Open lightbox on click
+                    slides.forEach(img => {
+                        img.addEventListener("click", () => {
+                            lightboxImg.src = img.src;
+                            lightbox.style.display = "flex";
+                        });
+                    });
+                    
+                    // Close lightbox
+                    lightbox.addEventListener("click", () => {
+                        lightbox.style.display = "none";
+                    });
+                    
+                    // Touch swipe support
+                    let startX = 0;
+                    
+                    slider.addEventListener("touchstart", e => {
+                        startX = e.touches[0].clientX;
+                    });
+                    
+                    slider.addEventListener("touchend", e => {
+                        let diff = e.changedTouches[0].clientX - startX;
+                        if (diff > 50) showSlide(index - 1);
+                        if (diff < -50) showSlide(index + 1);
+                    });
+                    </script>
+                    
+
+                 
+
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p class="copyright-text">&copy; 2025 Catalyst Club at Haldia Institute of Pharmacy. All rights
+                        reserved.</p>
+                    <p class="version">Version 1.2.0 | <a href="alumni.html" class="footer-policy-link">Privacy Policy</a> | <a
+                            href="alumni.html" class="footer-policy-link">Terms of Use</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+  
+  
+</body>
+
+</html>

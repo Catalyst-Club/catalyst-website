@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalyst Club - Ignite Ideas. Inspire Change.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body><!-- Be a Member Section -->
+ <section id="be-member" class="member-section">
+    <div class="container">
+        <h2 class="section-title">Be a Member</h2>
+        <div class="member-content">
+            <div class="eligibility-criteria">
+                <h3>Eligibility Criteria</h3>
+                <ul>
+                    <li>Must be a current student of Haldia Institute of Pharmacy</li>
+                    <li>Maintain good academic standing</li>
+                    <li>Show enthusiasm for innovation and community service</li>
+                    <li>Commitment to regular participation in club activities</li>
+                </ul>
+            </div>
+            <div class="registration-form">
+                <h3>Registration Form</h3>
+                <p>Please fill out the form below to apply for membership:</p>
+                <!-- Note: Form action will be updated with the Google Form link -->
+                <form id="membershipForm" class="membership-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">course</label>
+                        <input type="text" id="course" name="course" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="yearOfStudy">Year of Study</label>
+                        <select id="yearOfStudy" name="yearOfStudy" required>
+                            <option value="">Select Year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="section">Section</label>
+                        <input type="text" id="section" name="section" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="roll">Roll Number</label>
+                        <input type="text" id="roll" name="roll" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hasLaptop">Have access to Laptop/Desktop?</label>
+                        <select id="hasLaptop" name="hasLaptop" required>
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memberEmail">Email</label>
+                        <input type="email" id="memberEmail" name="memberEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prevknowledge">Have any kind of previous idea/experience about Tech/coding/development !</label>
+                        <select id="prevknowledge" name="prevknowledge" required>
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">Kind of Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to join Catalyst Club?</label>
+                        <textarea id="motivation" name="motivation" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="script.js"></script>
+    <!-- Firebase Firestore connection for Membership Form -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+  
+    // 🔹 Step 2.1: Replace these values with your Firebase project config
+    const firebaseConfig = {
+        apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+  authDomain: "catalyst-login1.firebaseapp.com",
+  projectId: "catalyst-login1",
+  storageBucket: "catalyst-login1.firebasestorage.app",
+  messagingSenderId: "966641571185",
+  appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+  measurementId: "G-XRCWBMQF30",
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+  
+    // 🔹 Step 2.2: Handle form submission
+    const membershipForm = document.getElementById("membershipForm");
+    if (membershipForm) {
+      membershipForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+  
+        const fullName = document.getElementById("fullName").value.trim();
+        const course = document.getElementById("course").value.trim();
+        const yearOfStudy = document.getElementById("yearOfStudy").value;
+        const section = document.getElementById("section").value.trim();
+        const roll = document.getElementById("roll").value.trim();
+        const hasLaptop = document.getElementById("hasLaptop").value;
+        const prevknowledge = document.getElementById("prevknowledge").value;
+        const email = document.getElementById("memberEmail").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const motivation = document.getElementById("motivation").value.trim();
+  
+        try {
+          await addDoc(collection(db, "membershipForms"), {
+            fullName,
+            course,
+            yearOfStudy,
+            section,     // NEW
+            roll,        // NEW
+             hasLaptop,   // NEW
+            email,
+            phone,
+            motivation,
+            prevknowledge,
+            timestamp: serverTimestamp(),
+          });
+  
+          alert("✅ Application submitted successfully!");
+          document.querySelector(".registration-form").innerHTML =
+  "<p class='success'>✅ Thanks! Your form was submitted successfully. <br><b><i> We'll contact You Soon...</b></i> <br> if any query hit us at hello@catalystclub.in </p>";
+
+          membershipForm.reset();
+        } catch (error) {
+          console.error("Error adding document: ", error);
+          alert("⚠️ Error submitting application. See console for details.");
+        }
+      });
+    }
+  </script>
+  
+</body>
