@@ -195,7 +195,304 @@ function renderClubMembers(yearKey) {
 }
 
 /* ==========================================================================
-   2. CATALYST CLUB EVENTS & MEETS DATA REPOSITORY
+   2. CATALYST CLUB ACTIVITIES & TRACKS DATA REPOSITORY
+   --------------------------------------------------------------------------
+   Structured repository for Club Pillars & Interactive Tracks.
+   ========================================================================== */
+const catalystActivitiesData = [
+    {
+        id: "track-regular-meets",
+        category: "meets",
+        trackTag: "RECURRING // SATURDAY",
+        trackBadge: "WEEKLY FORUM",
+        icon: "fa-calendar-week",
+        title: "Regular Saturday Meets",
+        subtitle: "Weekly Community Gathering & Sync",
+        frequency: "Every Saturday (excl. holidays)",
+        timing: "10:30 AM – 12:30 PM",
+        location: "Classroom 3rd Floor / Google Meet",
+        lead: "Executive Council & Core Team",
+        targetAudience: "All Catalyst Club Members & Aspirants",
+        shortDesc: "Weekly collaborative discussions, project review sprints, live tech demos, lightning talks, and club syncs.",
+        fullDesc: "Regular Saturday Meets form the heartbeat of Catalyst Club. Every week, members gather to demo newly developed code, brainstorm ideas for upcoming campus competitions, review team milestones, and learn through peer-led mini-talks. Sessions feature an attendance check-in, lively tech debates, and project mentorship desks.",
+        tools: ["Google Meet", "Sprint Planning", "Jupyter Demos", "Project Reviews", "Peer Crit"],
+        curriculum: [
+            "Agile project management & collaborative problem-solving",
+            "Public speaking & concise technical presentation skills",
+            "Peer code review and constructive feedback etiquette",
+            "Club leadership, event organizing, and student advocacy"
+        ],
+        agenda: [
+            { time: "15 min", title: "Club Announcements & Check-In", desc: "Welcome address, attendance logging, and weekly agenda overview." },
+            { time: "45 min", title: "Lightning Demos & Sprint Reviews", desc: "Member showcases: code repositories, design iterations, or research hypotheses." },
+            { time: "35 min", title: "Interactive Workshop / Tech Debate", desc: "Hands-on walkthrough or discussion on emerging tech & pharmaceutical trends." },
+            { time: "25 min", title: "Action Sprints & Networking", desc: "Sub-team breakout rooms, task assignment, and informal mentor Q&A." }
+        ],
+        relatedEventFilter: "meets"
+    },
+    {
+        id: "track-skill-workshops",
+        category: "workshops",
+        trackTag: "TECHNICAL // HANDS-ON",
+        trackBadge: "BOOTCAMPS & LABS",
+        icon: "fa-laptop-code",
+        title: "Skill Bootcamps & Labs",
+        subtitle: "Practical Coding & Software Workflows",
+        frequency: "Bi-Weekly Intensives",
+        timing: "Saturday Afternoons / Scheduled Labs",
+        location: "Classroom 3rd Floor, College Building",
+        lead: "Technical Lead & Software Mentors",
+        targetAudience: "Students curious about coding, data science & modern tech",
+        shortDesc: "Beginner-friendly intensives transforming students into makers with Python scripts, real-world data science, and web applications.",
+        fullDesc: "Designed from the ground up for science and healthcare students with zero prior programming experience, this track transitions students into confident builders. Through structured, hands-on lab exercises, attendees write real code, build web dashboards, parse experimental datasets, and deploy automated utilities.",
+        tools: ["Python 3", "VS Code", "GitHub", "Pandas", "Streamlit", "HTML5/CSS3"],
+        curriculum: [
+            "Python 3 essentials, data structures, and script automation",
+            "Web development fundamentals (HTML5, Modern CSS, JavaScript)",
+            "Data analysis with Pandas, NumPy, and Matplotlib charts",
+            "Git version control and collaborative GitHub workflows"
+        ],
+        agenda: [
+            { time: "20 min", title: "Core Concepts & Architecture", desc: "Syntax overview, conceptual diagrams, and use-cases." },
+            { time: "50 min", title: "Guided Live Coding Lab", desc: "Step-by-step notebook builds with instructor mentoring." },
+            { time: "30 min", title: "Sprint Challenge & Pair Coding", desc: "Tackle a problem prompt, debug, and push to GitHub." },
+            { time: "20 min", title: "Code Teardown & Submissions", desc: "Best-practice reviews, common bug fixes, and sign-off." }
+        ],
+        relatedEventFilter: "workshops"
+    },
+    {
+        id: "track-sci-tech",
+        category: "research",
+        trackTag: "RESEARCH // JOURNAL CLUB",
+        trackBadge: "SCIENTIFIC INQUIRY",
+        icon: "fa-microscope",
+        title: "Sci-Tech & Research Lab",
+        subtitle: "Evidence Synthesis & Emerging Sciences",
+        frequency: "Monthly Colloquium",
+        timing: "Scheduled Sessions / Seminar Hours",
+        location: "Hybrid (Classroom 3rd Floor / Google Meet)",
+        lead: "Research Desk & Academic Advisory Panel",
+        targetAudience: "Students interested in scientific research, meta-analysis & publication",
+        shortDesc: "Rigorous scientific inquiry exploring biomedical databases, systematic review methodologies, statistical pooling, and AI applications.",
+        fullDesc: "Bridging the gap between pharmaceutical sciences and modern computational methods, this track trains students to dissect peer-reviewed literature, execute systematic reviews and meta-analyses, and explore AI tools accelerating drug discovery, molecular modeling, and clinical trials.",
+        tools: ["PubMed", "PRISMA 2020", "Forest Plots", "Zotero", "DeepChem", "KaTeX"],
+        curriculum: [
+            "Systematic literature reviews according to PRISMA protocols",
+            "Statistical effect sizing, meta-regression, and forest plot interpretation",
+            "Navigating scientific databases (PubMed, ScienceDirect, ClinicalTrials.gov)",
+            "Scientific manuscript preparation, reference management, and peer review"
+        ],
+        agenda: [
+            { time: "25 min", title: "Landmark Paper Breakdown", desc: "Critical appraisal of high-impact journal breakthroughs." },
+            { time: "40 min", title: "Methodological Deep-Dive", desc: "Data extraction, risk of bias analysis, and forest plots." },
+            { time: "30 min", title: "Computational Tool Demo", desc: "Live walkthroughs of molecular software and AI tools." },
+            { time: "25 min", title: "Research Pitches & Crit", desc: "Member hypothesis pitches and manuscript mentoring." }
+        ],
+        relatedEventFilter: "meets"
+    },
+    {
+        id: "track-creative-media",
+        category: "creative",
+        trackTag: "CREATIVE // DESIGN STUDIO",
+        trackBadge: "VISUAL & MEDIA",
+        icon: "fa-palette",
+        title: "Creative & Media Studio",
+        subtitle: "UI/UX Design, Visual Identity & Media",
+        frequency: "Sprint-Based Workshops",
+        timing: "Pre-Event Campaigns & Design Jams",
+        location: "Classroom 3rd Floor & Cloud Sandbox",
+        lead: "Design Studio Lead & Creative Team",
+        targetAudience: "Visual designers, UI/UX enthusiasts & content creators",
+        shortDesc: "Master modern UI/UX design, typography systems, vector illustrations, and high-impact social campaigns that elevate club initiatives.",
+        fullDesc: "The Creative & Media Studio powers the visual presence and storytelling of Catalyst Club. Members master modern design tools like Figma and Canva, explore typography, color theory, responsive layouts, and motion design to craft stunning event branding, interactive prototypes, and engaging media.",
+        tools: ["Figma", "Canva Pro", "Vector Assets", "UI Kits", "Typography", "Media"],
+        curriculum: [
+            "Figma component architecture, auto-layout, and design tokens",
+            "Visual branding, color systems, and modern responsive typography",
+            "Social media poster composition and promotional asset generation",
+            "UI/UX prototyping for mobile and desktop web applications"
+        ],
+        agenda: [
+            { time: "20 min", title: "Design Principles & Inspiration", desc: "Layout composition, visual hierarchies, and branding case studies." },
+            { time: "45 min", title: "Hands-On Figma / Canva Sprint", desc: "Live guided creation of UI screens, posters, or motion graphics." },
+            { time: "35 min", title: "Critique & Refinement Round", desc: "Constructive feedback on spacing, contrast, and visual polish." },
+            { time: "20 min", title: "Export & Asset Publishing", desc: "Production export for web, print, and social broadcasts." }
+        ],
+        relatedEventFilter: "workshops"
+    }
+];
+
+/**
+ * Open Activity Detail Modal with full syllabus & session breakdown
+ * @param {string} trackId
+ */
+function openActivityDetailModal(trackId) {
+    const track = catalystActivitiesData.find(t => t.id === trackId);
+    if (!track) return;
+
+    const modal = document.getElementById("activityDetailModal");
+    if (!modal) return;
+
+    const tagEl = document.getElementById("activityModalTag");
+    const badgeEl = document.getElementById("activityModalBadge");
+    const iconEl = document.getElementById("activityModalIcon");
+    const titleEl = document.getElementById("activityModalTitle");
+    const audienceEl = document.getElementById("activityModalAudience");
+    const freqEl = document.getElementById("activityModalFrequency");
+    const timingEl = document.getElementById("activityModalTiming");
+    const locationEl = document.getElementById("activityModalLocation");
+    const leadEl = document.getElementById("activityModalLead");
+    const descEl = document.getElementById("activityModalDesc");
+    const toolsContainer = document.getElementById("activityModalTools");
+    const curriculumUl = document.getElementById("activityModalCurriculumList");
+    const agendaTimeline = document.getElementById("activityModalAgendaTimeline");
+    const eventsBtn = document.getElementById("activityModalEventsBtn");
+
+    if (tagEl) tagEl.textContent = track.trackTag;
+    if (badgeEl) badgeEl.textContent = track.trackBadge;
+    if (iconEl) iconEl.innerHTML = `<i class="fas ${track.icon}"></i>`;
+    if (titleEl) titleEl.textContent = track.title;
+    if (audienceEl) audienceEl.textContent = `Audience: ${track.targetAudience}`;
+    if (freqEl) freqEl.textContent = track.frequency;
+    if (timingEl) timingEl.textContent = track.timing;
+    if (locationEl) locationEl.textContent = track.location;
+    if (leadEl) leadEl.textContent = track.lead;
+    if (descEl) descEl.textContent = track.fullDesc;
+
+    if (toolsContainer) {
+        toolsContainer.innerHTML = "";
+        (track.tools || []).forEach(tool => {
+            const span = document.createElement("span");
+            span.className = "tool-chip";
+            span.innerHTML = `<i class="fas fa-check"></i> ${escapeHtml(tool)}`;
+            toolsContainer.appendChild(span);
+        });
+    }
+
+    if (curriculumUl) {
+        curriculumUl.innerHTML = "";
+        (track.curriculum || []).forEach(item => {
+            const li = document.createElement("li");
+            li.innerHTML = `<i class="fas fa-check-circle"></i> <span>${escapeHtml(item)}</span>`;
+            curriculumUl.appendChild(li);
+        });
+    }
+
+    if (agendaTimeline) {
+        agendaTimeline.innerHTML = "";
+        (track.agenda || []).forEach(step => {
+            const stepEl = document.createElement("div");
+            stepEl.className = "agenda-step";
+            stepEl.innerHTML = `
+                <span class="agenda-time">${escapeHtml(step.time)}</span>
+                <div class="agenda-content">
+                    <strong>${escapeHtml(step.title)}</strong>
+                    <span>${escapeHtml(step.desc)}</span>
+                </div>
+            `;
+            agendaTimeline.appendChild(stepEl);
+        });
+    }
+
+    if (eventsBtn) {
+        eventsBtn.onclick = () => {
+            filterAndScrollToEvents(track.relatedEventFilter);
+        };
+    }
+
+    openModal("activityDetailModal");
+}
+
+/**
+ * Filter Events section and smoothly scroll to it
+ * @param {string} category
+ */
+function filterAndScrollToEvents(category) {
+    const filterBtns = document.querySelectorAll(".event-filter-btn");
+    filterBtns.forEach(btn => {
+        if (btn.getAttribute("data-filter") === category) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+    });
+
+    renderCatalystEvents(category);
+    closeModal("activityDetailModal");
+
+    const eventsEl = document.getElementById("events");
+    if (eventsEl) {
+        eventsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
+/**
+ * Initialize interactive activities & tracks:
+ * - Category filter pills
+ * - Expandable session routine drawers
+ */
+function initActivities() {
+    // 1. Track Filter Tabs
+    const filterButtons = document.querySelectorAll(".activity-filter-btn");
+    const trackCards = document.querySelectorAll(".activity-track-card");
+    const countBadge = document.getElementById("activitiesCountBadge");
+
+    if (filterButtons.length && trackCards.length) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                filterButtons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const filter = btn.getAttribute("data-track-filter") || "all";
+                let visibleCount = 0;
+
+                trackCards.forEach(card => {
+                    const cardCat = card.getAttribute("data-track-category");
+                    if (filter === "all" || cardCat === filter) {
+                        card.style.display = "flex";
+                        card.style.animation = "softFadeIn 0.3s ease";
+                        visibleCount++;
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+
+                if (countBadge) {
+                    countBadge.innerHTML = `<i class="fas fa-layer-group"></i> ${visibleCount} ACTIVE ${visibleCount === 1 ? "TRACK" : "TRACKS"}`;
+                }
+            });
+        });
+    }
+
+    // 2. Expandable Session Routine Drawers
+    const expandButtons = document.querySelectorAll(".btn-track-expand");
+    expandButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const targetId = btn.getAttribute("data-target");
+            const drawer = document.getElementById(targetId);
+            if (!drawer) return;
+
+            const isExpanded = drawer.classList.contains("expanded");
+            if (isExpanded) {
+                drawer.classList.remove("expanded");
+                btn.classList.remove("active");
+                btn.setAttribute("aria-expanded", "false");
+                const span = btn.querySelector("span");
+                if (span) span.textContent = "Session Routine";
+            } else {
+                drawer.classList.add("expanded");
+                btn.classList.add("active");
+                btn.setAttribute("aria-expanded", "true");
+                const span = btn.querySelector("span");
+                if (span) span.textContent = "Hide Routine";
+            }
+        });
+    });
+}
+
+/* ==========================================================================
+   2.2 CATALYST CLUB EVENTS & MEETS DATA REPOSITORY
    --------------------------------------------------------------------------
    INSTRUCTIONS FOR ADDING / EDITING EVENTS:
    To add an upcoming or past event, duplicate one of the objects below and edit:
@@ -739,6 +1036,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCatalystEvents("all");
     initEventsFiltering();
 
+    // 2.1 Initialize Interactive Activities & Tracks
+    initActivities();
+
     // 3. Initialize Modals
     initModals();
 
@@ -769,8 +1069,12 @@ window.openModal = openModal;
 window.closeModal = closeModal;
 window.renderCatalystEvents = renderCatalystEvents;
 window.initEventsFiltering = initEventsFiltering;
+window.initActivities = initActivities;
+window.openActivityDetailModal = openActivityDetailModal;
+window.filterAndScrollToEvents = filterAndScrollToEvents;
 window.escapeHtml = escapeHtml;
 window.initThemeToggle = initThemeToggle;
 window.initTabs = initTabs;
+window.catalystActivitiesData = catalystActivitiesData;
 window.catalystEventsData = catalystEventsData;
 window.clubMembersData = clubMembersData;
