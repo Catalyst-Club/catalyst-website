@@ -6,13 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalyst Club — Ignite Ideas. Inspire Change.</title>
     <meta name="description" content="Catalyst Club at Haldia Institute of Pharmacy: A student-driven collective of innovators, creators, and technologists.">
-    <link rel="stylesheet" type="text/css" href="./style.css?v=2.5">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+    <!-- Preconnect resource hints for sub-millisecond DNS & TLS setup -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <link rel="stylesheet" type="text/css" href="./style.css?v=3.0">
+
+    <!-- Asynchronous non-blocking Font Awesome -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    </noscript>
+
+    <!-- Asynchronous non-blocking Google Fonts with swap display -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+    </noscript>
     <script>
         // Prevent unwanted jumping down on initial page load
         if (!window.location.hash && 'scrollRestoration' in history) {
@@ -20,7 +33,7 @@
             window.scrollTo(0, 0);
         }
     </script>
-    <script type="text/javascript" src="./script.js?v=2.5" defer></script>
+    <script type="text/javascript" src="./script.js?v=3.0" defer></script>
 </head>
 
 <body>
@@ -28,7 +41,7 @@
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="nav-brand">
-                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
+                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" loading="eager" fetchpriority="high" decoding="async" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
                 <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
             </a>
 
@@ -107,7 +120,7 @@
                     <span><i class="fas fa-calendar-check"></i> ACADEMIC YEAR 2025–2026</span>
                 </div>
                 <div class="leaflet-doc-viewer">
-                    <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Official Onboarding Leaflet" class="leaflet-doc-img" id="leafletDocImg" loading="eager">
+                    <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Official Onboarding Leaflet" class="leaflet-doc-img" id="leafletDocImg" loading="lazy" decoding="async">
                 </div>
                 <div class="leaflet-card-footer">
                     <div class="leaflet-footer-info">
@@ -164,11 +177,11 @@
                     </div>
                 </div>
                 <div class="slider" id="slider">
-                    <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="slide-img">
-                    <img src="./new_member_form_2025.jpg" alt="Poster 1 - Fresh Membership Open" class="slide-img">
-                    <img src="./pharmacist_day_2025.jpg" alt="Poster 2 - World Pharmacist Day" class="slide-img">
-                    <img src="./press_freedom_day_2025.jpg" alt="Poster 3 - Press Freedom Day" class="slide-img">
-                    <img src="./creativity_day_2025.jpg" alt="Poster 4 - World Creativity Day" class="slide-img">
+                    <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="slide-img" loading="eager" decoding="async">
+                    <img src="./new_member_form_2025.jpg" alt="Poster 1 - Fresh Membership Open" class="slide-img" loading="lazy" decoding="async">
+                    <img src="./pharmacist_day_2025.jpg" alt="Poster 2 - World Pharmacist Day" class="slide-img" loading="lazy" decoding="async">
+                    <img src="./press_freedom_day_2025.jpg" alt="Poster 3 - Press Freedom Day" class="slide-img" loading="lazy" decoding="async">
+                    <img src="./creativity_day_2025.jpg" alt="Poster 4 - World Creativity Day" class="slide-img" loading="lazy" decoding="async">
                 </div>
             </div>
 
@@ -637,7 +650,7 @@
             <div class="footer-main">
                 <div class="footer-col">
                     <div class="nav-brand">
-                        <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
+                        <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" loading="eager" fetchpriority="high" decoding="async" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
                         <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
                     </div>
                     <p class="footer-tagline">Ignite Ideas. Inspire Change. Be the Catalyst.</p>
@@ -979,9 +992,30 @@
         if (prevBtn) prevBtn.addEventListener("click", () => showSlide(index - 1));
         if (nextBtn) nextBtn.addEventListener("click", () => showSlide(index + 1));
 
-        setInterval(() => {
-            showSlide(index + 1);
-        }, 4500);
+        // Battery- & CPU-optimized slider: pauses when offscreen or tab is hidden
+        let slideTimer = null;
+        function startSlideTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(() => {
+                if (!document.hidden) showSlide(index + 1);
+            }, 5000);
+        }
+        function stopSlideTimer() {
+            if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
+        }
+
+        startSlideTimer();
+
+        const sliderContainer = document.querySelector(".slider-container");
+        if (sliderContainer) {
+            sliderContainer.addEventListener("mouseenter", stopSlideTimer);
+            sliderContainer.addEventListener("mouseleave", startSlideTimer);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) stopSlideTimer();
+            else startSlideTimer();
+        });
 
         slides.forEach(img => {
             img.addEventListener("click", () => {
@@ -997,13 +1031,13 @@
         let startX = 0;
         slider.addEventListener("touchstart", e => {
             startX = e.touches[0].clientX;
-        });
+        }, { passive: true });
 
         slider.addEventListener("touchend", e => {
             let diff = e.changedTouches[0].clientX - startX;
             if (diff > 50) showSlide(index - 1);
             if (diff < -50) showSlide(index + 1);
-        });
+        }, { passive: true });
     </script>
     <script>
         const menuBtn = document.querySelector(".mobile-menu-toggle");
@@ -1031,7 +1065,7 @@
                 <button type="button" class="modal-close-btn modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';" aria-label="Close popup">✕</button>
             </div>
             <div class="modal-pdf-wrapper">
-                <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="modal-leaflet-img" loading="eager">
+                <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="modal-leaflet-img" loading="lazy" decoding="async">
             </div>
             <div class="modal-footer">
                 <a href="form.html" class="btn btn-primary">APPLY FOR MEMBERSHIP →</a>
@@ -1142,7 +1176,7 @@
     <aside class="mobile-sidebar" id="mobileSidebar" style="display: none;" aria-label="Mobile Navigation">
         <div class="sidebar-header">
             <a href="index.html" class="sidebar-brand">
-                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo" width="36" height="36" style="width:36px;height:36px;object-fit:cover;border-radius:10px;">
+                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo" width="36" height="36" loading="lazy" decoding="async" style="width:36px;height:36px;object-fit:cover;border-radius:10px;">
                 <div class="sidebar-brand-text">
                     <span class="sidebar-brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
                     <span class="sidebar-brand-sub">INNOVATION &amp; TECH CLUB</span>
@@ -1159,7 +1193,7 @@
                     <span>ADMISSIONS 2026 // OPEN</span>
                 </div>
                 <div class="sidebar-leaflet-preview">
-                    <img src="./onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb">
+                    <img src="./onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb" loading="lazy" decoding="async">
                     <div class="sidebar-leaflet-info">
                         <h4>Onboarding Leaflet</h4>
                         <p>Official 2025–26 club guide, tech tracks &amp; eligibility</p>

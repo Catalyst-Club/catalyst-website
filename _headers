@@ -21,28 +21,28 @@
 
 /logo.jpg
   Content-Type: image/jpeg
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /onboarding_leaflet.jpg
   Content-Type: image/jpeg
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /onboarding-leaflet.pdf
   Content-Type: application/pdf
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /*.jpg
   Content-Type: image/jpeg
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /*.jpeg
   Content-Type: image/jpeg
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /*.png
   Content-Type: image/png
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
 /*.pdf
   Content-Type: application/pdf
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400

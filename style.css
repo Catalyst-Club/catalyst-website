@@ -631,6 +631,7 @@ body {
     display: none;
     flex-direction: column;
     transform: translateX(100%);
+    will-change: transform;
     visibility: hidden; /* Fix horizontal overflow */
     pointer-events: none;
     transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
@@ -1431,6 +1432,17 @@ section {
     border-bottom: 1px solid var(--border-color);
 }
 
+/* Modern Performance: Skip layout/paint for offscreen sections until scrolled into view */
+.events-section,
+.activities-section,
+.members-section,
+.attendance-section,
+.feedback-section,
+.footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 700px;
+}
+
 .section-meta {
     font-family: 'Space Mono', monospace;
     font-size: 0.76rem;
@@ -1670,6 +1682,7 @@ section {
 .slider {
     display: flex;
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
 }
 
 .slide-img {
