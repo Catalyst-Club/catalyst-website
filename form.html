@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be a Member — Catalyst Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html#onboarding" class="nav-link">Leaflet</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#events" class="nav-link">Events</a>
+                <a href="index.html#activities" class="nav-link">Activities</a>
+                <a href="index.html#attendance" class="nav-link nav-link-att"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="form.html" class="nav-link nav-btn-join"><i class="fas fa-sparkles"></i> Join Us</a>
+                <a href="login.html" class="nav-link nav-btn-login"><i class="fas fa-lock"></i> Login</a>
+                <a href="contact.html" class="nav-link nav-btn-contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Be a Member Section -->
+    <section id="be-member" class="member-section">
+        <div class="container">
+            <div class="section-meta">01 // ADMISSIONS & ONBOARDING</div>
+            <h2 class="section-title">Be a Member</h2>
+            <div class="member-content">
+                <div class="eligibility-criteria">
+                    <h3>Eligibility Criteria</h3>
+                    <p style="color: var(--muted-text); margin-bottom: 14px;">Catalyst Club welcomes motivated innovators, researchers, and creators.</p>
+                    <ul>
+                        <li>Must be an enrolled student of Haldia Institute of Pharmacy</li>
+                        <li>Maintain satisfactory academic standing throughout participation</li>
+                        <li>Enthusiasm for software, pharmaceutical innovation, and tech</li>
+                        <li>Commitment to regular attendance at Saturday meets and club workshops</li>
+                    </ul>
+
+                    <div style="margin-top: 32px; padding: 20px; background: var(--surface-alt); border-radius: 14px; border: 1px solid var(--border-color);">
+                        <div style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent-primary); font-weight: 700; margin-bottom: 6px;">BENEFITS OF MEMBERSHIP</div>
+                        <p style="color: var(--muted-text); font-size: 0.88rem; line-height: 1.55;">
+                            Access to hands-on Python & computational biology bootcamps, collaborative student projects, leadership roles, and certificate opportunities.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="registration-form">
+                    <h3>Registration Form</h3>
+                    <p style="color: var(--muted-text); margin-bottom: 22px;">Please fill out the application details below to apply for membership:</p>
+                    
+                    <form id="membershipForm" class="membership-form">
+                        <div class="form-group">
+                            <label for="fullName">FULL NAME</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="course">COURSE / PROGRAM</label>
+                                <input type="text" id="course" name="course" placeholder="e.g. B.Pharm / D.Pharm" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="yearOfStudy">YEAR OF STUDY</label>
+                                <select id="yearOfStudy" name="yearOfStudy" required>
+                                    <option value="">Select Year</option>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="section">SECTION</label>
+                                <input type="text" id="section" name="section" placeholder="e.g. A or B" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="roll">ROLL NUMBER</label>
+                                <input type="text" id="roll" name="roll" placeholder="Your college roll number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hasLaptop">HAVE ACCESS TO LAPTOP/DESKTOP?</label>
+                                <select id="hasLaptop" name="hasLaptop" required>
+                                    <option value="">Select</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="prevknowledge">PREVIOUS TECH / CODING EXPERIENCE?</label>
+                                <select id="prevknowledge" name="prevknowledge" required>
+                                    <option value="">Select</option>
+                                    <option value="Yes">Yes, experienced</option>
+                                    <option value="Kind of Yes">Some basic idea</option>
+                                    <option value="No">No, beginner</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="memberEmail">EMAIL ADDRESS</label>
+                                <input type="email" id="memberEmail" name="memberEmail" placeholder="you@catalystclub.in" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">PHONE NUMBER</label>
+                                <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="motivation">WHY DO YOU WANT TO JOIN CATALYST CLUB?</label>
+                            <textarea id="motivation" name="motivation" rows="4" placeholder="Tell us about your interests, project ideas, or goals..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">SUBMIT APPLICATION →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright-text">&copy; 2026 Catalyst Club at Haldia Institute of Pharmacy. All rights reserved.</p>
+                <p class="version">SYS.VER 2.1 • <a href="privacy.html" class="footer-policy-link">Privacy Policy</a> • <a href="terms.html" class="footer-policy-link">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase Firestore connection for Membership Form -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+      
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+            authDomain: "catalyst-login1.firebaseapp.com",
+            projectId: "catalyst-login1",
+            storageBucket: "catalyst-login1.firebasestorage.app",
+            messagingSenderId: "966641571185",
+            appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+            measurementId: "G-XRCWBMQF30",
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+      
+        const membershipForm = document.getElementById("membershipForm");
+        if (membershipForm) {
+            membershipForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+      
+                const fullName = document.getElementById("fullName").value.trim();
+                const course = document.getElementById("course").value.trim();
+                const yearOfStudy = document.getElementById("yearOfStudy").value;
+                const section = document.getElementById("section").value.trim();
+                const roll = document.getElementById("roll").value.trim();
+                const hasLaptop = document.getElementById("hasLaptop").value;
+                const prevknowledge = document.getElementById("prevknowledge").value;
+                const email = document.getElementById("memberEmail").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const motivation = document.getElementById("motivation").value.trim();
+      
+                try {
+                    await addDoc(collection(db, "membershipForms"), {
+                        fullName,
+                        course,
+                        yearOfStudy,
+                        section,
+                        roll,
+                        hasLaptop,
+                        email,
+                        phone,
+                        motivation,
+                        prevknowledge,
+                        timestamp: serverTimestamp(),
+                    });
+      
+                    alert("✅ Application submitted successfully!");
+                    document.querySelector(".registration-form").innerHTML =
+                        "<div class='success'><h4>✅ APPLICATION TRANSMITTED</h4><p>Thanks! Your membership application was submitted successfully.<br>Our leadership team will reach out to you shortly.<br>For questions, contact us at <b>hello@catalystclub.in</b>.</p><br><a href='index.html' class='btn btn-outline'>← RETURN TO HOME</a></div>";
+                } catch (error) {
+                    console.error("Error adding document: ", error);
+                    alert("⚠️ Error submitting application. Please try again.");
+                }
+            });
+        }
+    </script>
+
+    <script>
+        const menuBtn = document.querySelector(".mobile-menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+            });
+        }
+    </script>
+</body>
+
+</html>

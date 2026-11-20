@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Maintenance</title>
+
+<style>
+  :root {
+    --bg1:#06080f;
+    --bg2:#0d1424;
+    --neon:#35e9ff;
+    --danger:#38bdf8;
+  }
+
+  body {
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at center,var(--bg2),var(--bg1));
+    font-family:Inter,system-ui;
+    overflow:hidden;
+  }
+
+  /* DIGITAL PARTICLES */
+  .particle {
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:var(--neon);
+    opacity:0.5;
+    border-radius:50%;
+    animation: floatParticle 6s linear infinite;
+  }
+
+  @keyframes floatParticle {
+    from { transform:translateY(0) scale(1); opacity:.7; }
+    to   { transform:translateY(-120px) scale(0.5); opacity:0; }
+  }
+
+  /* SCANLINE */
+  .scanline {
+    position:fixed;
+    top:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+      to bottom,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.06) 50%,
+      rgba(255,255,255,0) 100%
+    );
+    mix-blend-mode:overlay;
+    animation:scan 2s linear infinite;
+    pointer-events:none;
+  }
+
+  @keyframes scan {
+    from { transform:translateY(-100%); }
+    to   { transform:translateY(100%); }
+  }
+
+  /* 3D CUBE */
+  .cube-wrapper {
+    width:140px;
+    height:140px;
+    perspective:800px;
+    animation:fadein 1s ease forwards;
+  }
+
+  @keyframes fadein {
+    from { opacity:0; transform:scale(.8); }
+    to   { opacity:1; transform:scale(1); }
+  }
+
+  .cube {
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:rotateCube 4s linear infinite;
+  }
+
+  @keyframes rotateCube {
+    0%   { transform:rotateX(0) rotateY(0); }
+    100% { transform:rotateX(360deg) rotateY(360deg); }
+  }
+
+  .face {
+    position:absolute;
+    width:100%;
+    height:100%;
+    border:2px solid var(--neon);
+    box-shadow:0 0 15px var(--neon);
+  }
+
+  .front  { transform:translateZ(70px); }
+  .back   { transform:rotateY(180deg) translateZ(70px); }
+  .left   { transform:rotateY(-90deg) translateZ(70px); }
+  .right  { transform:rotateY(90deg) translateZ(70px); }
+  .top    { transform:rotateX(90deg) translateZ(70px); }
+  .bottom { transform:rotateX(-90deg) translateZ(70px); }
+
+  .load-text {
+    margin-top:22px;
+    text-align:center;
+    color:#9ab3cc;
+    font-size:15px;
+    animation:pulse 1.4s infinite ease alternate;
+  }
+
+  @keyframes pulse {
+    0% { opacity:.5; }
+    100% { opacity:1; }
+  }
+
+  /* FINAL PAGE */
+  .final {
+    position:fixed;
+    inset:0;
+    background:#000000f0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .5s ease;
+  }
+
+  .final.show {
+    opacity:1;
+    pointer-events:auto;
+  }
+
+  .final h1 {
+    color:var(--danger);
+    margin:0;
+    font-size:clamp(36px,8vw,84px);
+    text-transform:uppercase;
+    animation:glitch 1s steps(2,end) infinite;
+  }
+
+  @keyframes glitch {
+    0% { text-shadow:2px 0 var(--danger); }
+    50% { text-shadow:-2px 0 var(--danger); }
+    100% { text-shadow:2px 0 var(--danger); }
+  }
+
+  .final p {
+    color:#ddd;
+    font-size:clamp(14px,3vw,22px);
+    text-align:center;
+    max-width:700px;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- PARTICLES -->
+<script>
+for (let i = 0; i < 40; i++) {
+  const p = document.createElement("div");
+  p.classList.add("particle");
+  p.style.left = Math.random()*100 + "%";
+  p.style.top  = (Math.random()*100+20) + "%";
+  p.style.animationDelay = Math.random()*4 + "s";
+  document.body.appendChild(p);
+}
+</script>
+
+<!-- SCANLINE -->
+<div class="scanline"></div>
+
+<!-- LOADER -->
+<div id="loader" style="display:flex; flex-direction:column; align-items:center;">
+  <div class="cube-wrapper">
+    <div class="cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face left"></div>
+      <div class="face right"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+  <div class="load-text" id="lt">Loading modules...</div>
+</div>
+
+<!-- FINAL SCREEN -->
+<div class="final" id="final">
+  <h1>Under Maintenance</h1>
+  <p>Our servers are upgrading. This page will be available soon.</p>
+</div>
+
+<script>
+const lines = [
+  "Loading modules...",
+  "Booting systems...",
+  "Rebuilding configs...",
+  "Optimizing components..."
+];
+
+let i = 0;
+setInterval(() => {
+  document.getElementById("lt").textContent = lines[i % lines.length];
+  i++;
+}, 900);
+
+setTimeout(() => {
+  document.getElementById("loader").style.opacity = "0";
+  document.getElementById("loader").style.transition=".5s ease";
+
+  setTimeout(() => {
+    document.getElementById("final").classList.add("show");
+  }, 600);
+
+}, 4500);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — Catalyst Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html#onboarding" class="nav-link">Leaflet</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#events" class="nav-link">Events</a>
+                <a href="index.html#activities" class="nav-link">Activities</a>
+                <a href="index.html#attendance" class="nav-link nav-link-att"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="form.html" class="nav-link nav-btn-join"><i class="fas fa-sparkles"></i> Join Us</a>
+                <a href="login.html" class="nav-link nav-btn-login"><i class="fas fa-lock"></i> Login</a>
+                <a href="contact.html" class="nav-link nav-btn-contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-meta">06 // DIRECT TRANSMISSION</div>
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p style="color: var(--muted-text); margin-bottom: 20px;">
+                        Have questions regarding our Saturday sessions, collaborative projects, or membership opportunities? Connect with us directly:
+                    </p>
+
+                    <div class="info-details">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong style="display: block; font-size: 0.82rem; font-family: 'Space Mono', monospace; color: var(--accent-primary);">PRIMARY EMAIL</strong>
+                                <p style="margin: 0; color: var(--text-color);">hello@catalystclub.in</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong style="display: block; font-size: 0.82rem; font-family: 'Space Mono', monospace; color: var(--accent-primary);">LOCATION</strong>
+                                <p style="margin: 0; color: var(--muted-text); font-size: 0.94rem;">
+                                    Catalyst Club, Haldia Institute of Pharmacy<br>
+                                    ICARE Complex, HIT Campus,<br>
+                                    Haldia, West Bengal 721657
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <strong style="display: block; font-size: 0.82rem; font-family: 'Space Mono', monospace; color: var(--accent-primary);">WEEKLY SESSIONS</strong>
+                                <p style="margin: 0; color: var(--muted-text); font-size: 0.94rem;">Every Saturday (Schedule announced weekly)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3695.7221421295363!2d88.0681663!3d22.0506083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02f0c0af956751%3A0x6d4186f2554dc5c!2sHaldia%20Institute%20of%20Pharmacy!5e0!3m2!1sen!2sin!4v1628805721234!5m2!1sen!2sin"
+                            width="100%" height="240" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3>Leave Us Your Thoughts</h3>
+                    <p style="color: var(--muted-text); margin-bottom: 24px;">Send our coordinators a direct message. We typically respond within 24–48 hours.</p>
+
+                    <form action="#" class="contact-form" id="contactForm" style="padding: 0; background: transparent; border: none; box-shadow: none;">
+                        <div class="form-group">
+                            <label for="name">FULL NAME</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">EMAIL ADDRESS</label>
+                            <input type="email" id="email" name="email" placeholder="you@domain.com" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">MESSAGE</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your inquiry or message here..." required></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+
+                        <button type="submit" class="submit-button" id="submitBtn">SEND MESSAGE →</button>
+                    </form>
+
+                    <div id="contactStatus" style="display:none; margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--accent-primary);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright-text">&copy; 2026 Catalyst Club at Haldia Institute of Pharmacy. All rights reserved.</p>
+                <p class="version">SYS.VER 2.1 • <a href="privacy.html" class="footer-policy-link">Privacy Policy</a> • <a href="terms.html" class="footer-policy-link">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+      
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+            authDomain: "catalyst-login1.firebaseapp.com",
+            projectId: "catalyst-login1",
+            storageBucket: "catalyst-login1.firebasestorage.app",
+            messagingSenderId: "966641571185",
+            appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+            measurementId: "G-XRCWBMQF30"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+      
+        const form = document.getElementById("contactForm");
+        const statusBox = document.getElementById("contactStatus");
+      
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+      
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+      
+            if (!name || !email || !message) {
+                alert("Please fill out all fields.");
+                return;
+            }
+      
+            statusBox.style.display = "block";
+            statusBox.textContent = "TRANSMITTING MESSAGE...";
+      
+            try {
+                await addDoc(collection(db, "contact_us"), {
+                    name,
+                    email,
+                    message,
+                    timestamp: new Date().toISOString()
+                });
+                form.reset();
+                statusBox.innerHTML = "✅ Message transmitted successfully! We'll reply soon.";
+            } catch (err) {
+                statusBox.textContent = "Error transmitting message. Please try again or email hello@catalystclub.in";
+            }
+        });
+    </script>
+
+    <script>
+        const menuBtn = document.querySelector(".mobile-menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalyst Club — Ignite Ideas. Inspire Change.</title>
+    <meta name="description" content="Catalyst Club at Haldia Institute of Pharmacy: A student-driven collective of innovators, creators, and technologists.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script>
+        // Prevent unwanted jumping down on initial page load
+        if (!window.location.hash && 'scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+            window.scrollTo(0, 0);
+        }
+    </script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="leaflet-modal" id="leafletModal" onclick="if(event.target===this) { if(window.closeModal) window.closeModal('leafletModal'); else this.style.display='none'; }">
+        <div class="leaflet-modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="status-dot"></span>
+                    <span>MEMBERSHIP OPEN TILL 31 DEC 2026</span>
+                </div>
+                <button type="button" class="modal-close-btn modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';" aria-label="Close popup">✕</button>
+            </div>
+            <div class="modal-pdf-wrapper">
+                <img src="onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="modal-leaflet-img" loading="eager">
+            </div>
+            <div class="modal-footer">
+                <a href="form.html" class="btn btn-primary">APPLY FOR MEMBERSHIP →</a>
+                <div class="modal-btn-row">
+                    <a href="onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">FULL PDF ↗</a>
+                    <button type="button" class="btn btn-soft modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';">CONTINUE TO SITE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERMS OF USE MODAL -->
+    <div class="legal-modal" id="termsModal" onclick="if(event.target===this) window.closeModal('termsModal');">
+        <div class="legal-modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="status-dot"></span>
+                    <span>TERMS OF USE // CATALYST CLUB HIP</span>
+                </div>
+                <button type="button" class="modal-close-btn modal-close-trigger" onclick="window.closeModal('termsModal')" aria-label="Close Terms modal">✕</button>
+            </div>
+            <div class="legal-modal-body">
+                <div class="legal-doc-meta">SYS.LEGAL // DOC_ID: CC-HIP-TOU-2026 • PHARMTECH COMMUNITY</div>
+                <h3>Terms of Use</h3>
+                <div class="legal-effective-date">LAST UPDATED: JANUARY 2026 • HALDIA INSTITUTE OF PHARMACY (HIP)</div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">01 //</span> Acceptance of Terms</h4>
+                    <p>By accessing catalystclub.in, submitting membership registration forms, attending club sessions, or participating in computational workshops at Haldia Institute of Pharmacy (HIP), you agree to abide by these Terms of Use and our Code of Conduct.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">02 //</span> Nature of the Organization</h4>
+                    <p>Catalyst Club is an autonomous, student-driven scientific and computational collective at Haldia Institute of Pharmacy, ICARE Complex, Haldia. We foster innovation at the intersection of pharmaceutical sciences, artificial intelligence, bioinformatics, and healthcare technology.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">03 //</span> Academic Integrity & Scientific Ethics</h4>
+                    <p>All members must uphold honest academic principles during hackathons, Python workshops, scientific literature meta-analyses, and drug design seminars. Harassment, academic dishonesty, or disruptive conduct will lead to revocation of membership privileges.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">04 //</span> Intellectual Property & Open Code</h4>
+                    <p>Original computational algorithms, models, and research software developed by students remain the property of their respective student creators or are released under open-source licenses as designated by project contributors.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">05 //</span> Disclaimer & Contact</h4>
+                    <p>Software models, data tools, and educational materials provided on this platform are for academic and learning purposes. For official inquiries, reach out to <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary); font-weight: 600;">hello@catalystclub.in</a>.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="terms.html" class="btn btn-outline" target="_blank">OPEN DEDICATED PAGE ↗</a>
+                <button type="button" class="btn btn-primary modal-close-trigger" onclick="window.closeModal('termsModal')"><i class="fas fa-times"></i> CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVACY POLICY MODAL -->
+    <div class="legal-modal" id="privacyModal" onclick="if(event.target===this) window.closeModal('privacyModal');">
+        <div class="legal-modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="status-dot"></span>
+                    <span>PRIVACY POLICY // CATALYST CLUB HIP</span>
+                </div>
+                <button type="button" class="modal-close-btn modal-close-trigger" onclick="window.closeModal('privacyModal')" aria-label="Close Privacy modal">✕</button>
+            </div>
+            <div class="legal-modal-body">
+                <div class="legal-doc-meta">SYS.PRIVACY // DOC_ID: CC-HIP-POL-2026 • PHARMTECH DATA GOVERNANCE</div>
+                <h3>Privacy Policy</h3>
+                <div class="legal-effective-date">LAST UPDATED: JANUARY 2026 • APPLIES TO CATALYSTCLUB.IN & HIP SESSIONS</div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">01 //</span> Information Collection</h4>
+                    <p>We collect information voluntarily provided by students through our membership registration and contact forms, including full name, college roll number / membership ID, B.Pharm academic year, email, and contact phone number.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">02 //</span> Purpose & Use of Student Data</h4>
+                    <p>Student details are used strictly for club administration, Saturday meet attendance records, workshop credential verification, event notifications, and issuance of participation certificates. We never sell or share student data with any commercial third-party entities.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">03 //</span> Cloud Database & Firestore Security</h4>
+                    <p>Attendance records and application data are securely stored using Google Firebase Cloud infrastructure, protected by strict database security rules accessible only by authorized Catalyst Club student coordinators.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">04 //</span> Local Storage & Offline Persistence</h4>
+                    <p>We use browser local storage to preserve UI theme preferences (Dark/Light Mode) and securely cache recent Saturday attendance records on your device so check-in is never lost even if network connectivity fluctuates.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">05 //</span> Inquiries & Student Rights</h4>
+                    <p>To inspect, correct, or request deletion of your submitted membership records, please contact our coordinator team at <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary); font-weight: 600;">hello@catalystclub.in</a>.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="privacy.html" class="btn btn-outline" target="_blank">OPEN DEDICATED PAGE ↗</a>
+                <button type="button" class="btn btn-primary modal-close-trigger" onclick="window.closeModal('privacyModal')"><i class="fas fa-times"></i> CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+            </a>
+
+            <!-- ALL REDIRECTS ALWAYS DISPLAYED IN TOP ROW -->
+            <nav class="nav-menu" id="topNavMenu">
+                <a href="#onboarding" class="nav-link" data-modal="leafletModal">Leaflet</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#events" class="nav-link">Events</a>
+                <a href="#activities" class="nav-link">Activities</a>
+                <a href="#attendance" class="nav-link nav-link-att"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="form.html" class="nav-link nav-btn-join"><i class="fas fa-sparkles"></i> Join Us</a>
+                <a href="login.html" class="nav-link nav-btn-login"><i class="fas fa-lock"></i> Login</a>
+                <a href="contact.html" class="nav-link nav-btn-contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-centered">
+            <!-- NEW ADMISSIONS AD BANNER (REPLACING PHARMTECH PILL) -->
+            <div class="admissions-ad-banner">
+                <div class="ad-tag">
+                    <span class="status-dot pulse"></span>
+                    <span class="ad-label">ADMISSIONS 2026 // NOW OPEN</span>
+                </div>
+                <div class="ad-content">
+                    <span class="ad-headline">✦ Fresh Batch Registration Open</span>
+                    <span class="ad-sub">Join Catalyst Club — Innovators, creators, designers & coders at HIP!</span>
+                </div>
+                <a href="form.html" class="ad-btn">APPLY NOW →</a>
+            </div>
+
+            <h1 class="hero-title">
+                Ignite Ideas. Inspire Change.<br>
+                <span class="hero-soft">Be the Catalyst.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                A student-driven collective of innovators, creators, and technologists at Haldia Institute of Pharmacy. Transforming ideas into impactful solutions, leadership, and lasting growth.
+            </p>
+
+            <div class="hero-actions">
+                <a href="form.html" class="btn btn-primary">JOIN CLUB →</a>
+                <button type="button" class="btn btn-soft" onclick="if(window.openModal) window.openModal('leafletModal'); else document.getElementById('leafletModal').style.display='flex';">VIEW ONBOARDING LEAFLET</button>
+                <a href="#about" class="btn btn-outline">EXPLORE CLUB</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="onboarding" class="onboarding-section">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <div class="section-meta">01 // ONBOARDING & ARCHIVE</div>
+                    <h2 class="section-title">Onboarding Leaflet</h2>
+                </div>
+                <div class="onboarding-btns">
+                    <a href="onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">OPEN IN NEW TAB ↗</a>
+                    <a href="onboarding-leaflet.pdf" download="Onboarding-Leaflet.pdf" class="btn btn-primary">DOWNLOAD PDF ↓</a>
+                </div>
+            </div>
+
+            <div class="leaflet-full-card">
+                <div class="frame-bar">
+                    <span><i class="fas fa-file-alt"></i> ONBOARDING_LEAFLET // HIP</span>
+                    <span><i class="fas fa-calendar-check"></i> ACADEMIC YEAR 2025–2026</span>
+                </div>
+                <div class="leaflet-doc-viewer">
+                    <img src="onboarding_leaflet.jpg" alt="Catalyst Club Official Onboarding Leaflet" class="leaflet-doc-img" id="leafletDocImg" loading="eager">
+                </div>
+                <div class="leaflet-card-footer">
+                    <div class="leaflet-footer-info">
+                        <span class="status-dot"></span>
+                        <span>Official Onboarding Leaflet • High-Resolution View</span>
+                    </div>
+                    <div class="leaflet-footer-actions">
+                        <a href="onboarding_leaflet.jpg" target="_blank" class="btn btn-outline"><i class="fas fa-search-plus"></i> View Full Image</a>
+                        <a href="onboarding-leaflet.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Open PDF ↗</a>
+                        <a href="onboarding-leaflet.pdf" download="Onboarding-Leaflet.pdf" class="btn btn-primary"><i class="fas fa-download"></i> Download PDF ↓</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="vision-section">
+        <div class="container">
+            <div class="section-meta">02 // ETHOS & PERSPECTIVES</div>
+            <h2 class="section-title">Our Vision</h2>
+            <div class="vision-card">
+                <h3>Empowering Tomorrow's Leaders</h3>
+                <p>At Catalyst Club, we believe in the power of collaboration, innovation, and positive change. Our mission is to create a platform where students can transform their ideas into impactful solutions, develop leadership skills, and build lasting connections that extend beyond their academic journey.
+                </p>
+                <div class="vision-highlights">
+                    <div class="highlight">
+                        <span class="highlight-code">01</span>
+                        <span>Innovation</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-code">02</span>
+                        <span>Collaboration</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-code">03</span>
+                        <span>Growth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="posts" class="posts-section">
+        <div class="container">
+            <div class="section-meta">03 // VISUAL FEED & ARCHIVE</div>
+            <h2 class="section-title">Latest Posts</h2>
+
+            <div class="slider-container">
+                <div class="frame-bar">
+                    <span>SESSIONS_FEED // CLICK IMAGE TO EXPAND</span>
+                    <div class="slider-controls">
+                        <button class="slider-btn prev" id="prevSlide" aria-label="Previous slide">←</button>
+                        <button class="slider-btn next" id="nextSlide" aria-label="Next slide">→</button>
+                    </div>
+                </div>
+                <div class="slider" id="slider">
+                    <img src="onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="slide-img">
+                    <img src="new_member_form_2025.jpg" alt="Poster 1 - Fresh Membership Open" class="slide-img">
+                    <img src="pharmacist_day_2025.jpg" alt="Poster 2 - World Pharmacist Day" class="slide-img">
+                    <img src="press_freedom_day_2025.jpg" alt="Poster 3 - Press Freedom Day" class="slide-img">
+                    <img src="creativity_day_2025.jpg" alt="Poster 4 - World Creativity Day" class="slide-img">
+                </div>
+            </div>
+
+            <div class="lightbox" id="lightbox">
+                <img id="lightboxImg" alt="Expanded poster">
+            </div>
+
+            <div class="posts-grid">
+                <article class="post-card">
+                    <div class="post-top">
+                        <span class="post-tag">01 // COMPETITION</span>
+                        <span class="post-date">March 15, 2025</span>
+                    </div>
+                    <h3>Startup Pitch Competition Results</h3>
+                    <p>Congratulations to all participants in our annual student startup pitch competition. Remarkable innovative solutions and creative projects were presented!</p>
+                </article>
+                <article class="post-card">
+                    <div class="post-top">
+                        <span class="post-tag">02 // WORKSHOPS</span>
+                        <span class="post-date">March 10, 2025</span>
+                    </div>
+                    <h3>Leadership Workshop Series</h3>
+                    <p>Hands-on skill sessions designed to empower students with modern leadership, communication, digital problem-solving, and collaboration techniques.</p>
+                </article>
+                <article class="post-card">
+                    <div class="post-top">
+                        <span class="post-tag">03 // ORIENTATION</span>
+                        <span class="post-date">March 5, 2025</span>
+                    </div>
+                    <h3>New Member Orientation</h3>
+                    <p>Welcome to all our new club members! Excited to have you join our dynamic community of thinkers, creators, and changemakers at HIP.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities" class="events-section">
+        <div class="container">
+            <div class="section-meta">04 // SESSIONS & SATELLITE MEETS</div>
+            <h2 class="section-title">Activities & Events</h2>
+
+            <!-- Three Pillars of Club Activities -->
+            <div class="events-info">
+                <div class="meet-schedule">
+                    <div>
+                        <span class="post-tag">RECURRING // WEEKLY</span>
+                        <h3>Regular Meets</h3>
+                        <div class="schedule-details">
+                            <p><strong>When:</strong> Every Saturday (except government holidays)</p>
+                            <p><strong>Where:</strong> Classroom 3rd Floor, College Building / Google Meet</p>
+                            <p><strong>Schedule:</strong> Timings announced weekly via club broadcast</p>
+                        </div>
+                    </div>
+                    <p class="activity-track-desc">
+                        Collaborative discussions, hands-on project reviews, hack sessions, and weekly club syncs.
+                    </p>
+                </div>
+
+                <div class="activity-track-card">
+                    <div>
+                        <span class="post-tag">TECHNICAL // BOOTCAMPS</span>
+                        <h3>Skill Workshops</h3>
+                        <div class="schedule-details">
+                            <p><strong>Focus:</strong> Python, Web Dev & Modern Tools</p>
+                            <p><strong>Format:</strong> Guided Hands-On Sessions</p>
+                            <p><strong>Where:</strong> Classroom 3rd Floor, College Building</p>
+                        </div>
+                    </div>
+                    <p class="activity-track-desc">
+                        Practical bootcamps empowering students with modern software, coding, and creative digital skills.
+                    </p>
+                </div>
+
+                <div class="activity-track-card">
+                    <div>
+                        <span class="post-tag">SEMINAR // TALKS</span>
+                        <h3>Tech & Sci Talks</h3>
+                        <div class="schedule-details">
+                            <p><strong>Topic:</strong> AI, Space Science & Future Horizons</p>
+                            <p><strong>Format:</strong> PPT Presentations & Discussion</p>
+                            <p><strong>Where:</strong> Classroom 3rd Floor or Google Meet</p>
+                        </div>
+                    </div>
+                    <p class="activity-track-desc">
+                        Member-led scientific explorations at the exciting intersection of modern technology and future discovery.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Events & Meets Explorer -->
+            <div id="events" class="events-subblock">
+                <div class="events-header-bar">
+                    <div>
+                        <div class="section-meta">CALENDAR & LOGS</div>
+                        <h2 class="section-title mb-0">Events & Meets</h2>
+                    </div>
+                    <div class="event-filters">
+                        <button type="button" class="event-filter-btn active" data-filter="all">All Events</button>
+                        <button type="button" class="event-filter-btn" data-filter="upcoming">Upcoming</button>
+                        <button type="button" class="event-filter-btn" data-filter="past">Past Archive</button>
+                        <a href="dashboard.html#adminEvents" class="event-filter-btn event-filter-admin"><i class="fas fa-plus-circle"></i> Admin: Add Event</a>
+                    </div>
+                </div>
+
+                <!-- ===================================================================
+                     HOW TO ADD A NEW EVENT ENTRY:
+                     Duplicate the template below and paste inside .events-list:
+
+                     <div class="event-row upcoming-event" data-status="upcoming">
+                         <div class="event-date">
+                             <span class="date-day">DD</span>
+                             <span class="date-month">MONTH</span>
+                             <span class="date-year">2026</span>
+                         </div>
+                         <div class="event-content">
+                             <div class="event-badges">
+                                 <span class="badge-tag">CATEGORY (e.g. WORKSHOP / TECH TALK)</span>
+                                 <span class="badge-status status-upcoming">UPCOMING</span>
+                             </div>
+                             <h3>Event Title Here</h3>
+                             <p>Brief description of what will be covered and who should attend.</p>
+                             <div class="event-location-meta">
+                                 <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
+                                 <span><i class="fas fa-clock"></i> Time duration</span>
+                             </div>
+                         </div>
+                         <div class="event-time">Time Range</div>
+                     </div>
+                     =================================================================== -->
+
+                <div class="events-list">
+                    <!-- EVENT 1: UPCOMING WORKSHOP -->
+                    <div class="event-row upcoming-event" data-status="upcoming">
+                        <div class="event-date">
+                            <span class="date-day">--</span>
+                            <span class="date-month">TBD</span>
+                            <span class="date-year">2026</span>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-badges">
+                                <span class="badge-tag">HANDS-ON WORKSHOP</span>
+                                <span class="badge-status status-upcoming">UPCOMING</span>
+                            </div>
+                            <h3>Workshop on Python 3 for Beginners & Data Science</h3>
+                            <p>Hands-on intensive workshop introducing Python programming, foundational data science, creative coding, and automation workflows.</p>
+                            <div class="event-location-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
+                                <span><i class="fas fa-laptop-code"></i> Bring Your Own Laptop</span>
+                            </div>
+                        </div>
+                        <div class="event-time">Date to be announced</div>
+                    </div>
+
+                    <!-- EVENT 2: VIRTUAL SPACE TALK (PAST) -->
+                    <div class="event-row past-event" data-status="past">
+                        <div class="event-date">
+                            <span class="date-day">12</span>
+                            <span class="date-month">JULY</span>
+                            <span class="date-year">2025</span>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-badges">
+                                <span class="badge-tag">SPACE SCIENCE & TECH</span>
+                                <span class="badge-status status-past">CONCLUDED</span>
+                            </div>
+                            <h3>Virtual Talk On International Day For Human Space Flight</h3>
+                            <p>Deep exploration into modern space science, satellite engineering, human space exploration, and scientific discovery.</p>
+                            <div class="event-location-meta">
+                                <span><i class="fas fa-video"></i> Google Meet (Online Session)</span>
+                                <span><i class="fas fa-users"></i> Catalyst Members & Faculty</span>
+                            </div>
+                        </div>
+                        <div class="event-time">6:30 PM - 9:15 PM</div>
+                    </div>
+
+                    <!-- EVENT 3: AI & FUTURE TECH TALK (PAST) -->
+                    <div class="event-row past-event" data-status="past">
+                        <div class="event-date">
+                            <span class="date-day">12</span>
+                            <span class="date-month">APRIL</span>
+                            <span class="date-year">2025</span>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-badges">
+                                <span class="badge-tag">AI & INNOVATION</span>
+                                <span class="badge-status status-past">CONCLUDED</span>
+                            </div>
+                            <h3>Tech Talk: AI & The Future of Innovation</h3>
+                            <p>Interactive session and presentations by Catalyst members on generative AI, machine learning algorithms, and tech trends.</p>
+                            <div class="event-location-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
+                                <span><i class="fas fa-award"></i> Certificate of Participation</span>
+                            </div>
+                        </div>
+                        <div class="event-time">7:00 PM - 9:00 PM</div>
+                    </div>
+
+                    <!-- EVENT 4: META ANALYSIS TALK (PAST) -->
+                    <div class="event-row past-event" data-status="past">
+                        <div class="event-date">
+                            <span class="date-day">11</span>
+                            <span class="date-month">OCT</span>
+                            <span class="date-year">2024</span>
+                        </div>
+                        <div class="event-content">
+                            <div class="event-badges">
+                                <span class="badge-tag">RESEARCH METHODOLOGY</span>
+                                <span class="badge-status status-past">CONCLUDED</span>
+                            </div>
+                            <h3>Small Talk on Scientific Meta-Analysis</h3>
+                            <p>Focused discussions on systematic reviews, data synthesis techniques, statistical tools, and research methodologies.</p>
+                            <div class="event-location-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
+                                <span><i class="fas fa-book-reader"></i> Open Discussion</span>
+                            </div>
+                        </div>
+                        <div class="event-time">10:30 AM - 12:00 PM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05: STUDENT ATTENDANCE PORTAL -->
+    <section id="attendance" class="attendance-section">
+        <div class="container">
+            <div class="section-meta">05 // SATURDAY MEET ATTENDANCE</div>
+            <h2 class="section-title">Saturday Meet Attendance</h2>
+
+            <div class="attendance-grid">
+                <div class="attendance-info-card">
+                    <div class="attendance-status-badge">
+                        <span class="pulse-indicator"></span>
+                        <span>SATURDAY MEET // CHECK-IN ACTIVE</span>
+                    </div>
+                    <h3>Weekly Saturday Attendance</h3>
+                    <p>Log your attendance for today's Saturday Meet with only your Membership ID. Records are securely stored in the cloud database and cached locally on this device.</p>
+
+                    <div class="attendance-badges-list">
+                        <div class="info-pill pill-emerald"><i class="fas fa-check-circle"></i> Session: <strong>Saturday Meet</strong></div>
+                        <div class="info-pill pill-cyan"><i class="fas fa-database"></i> Cloud Stored & Device Synced</div>
+                        <div class="info-pill pill-lavender"><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor / Google Meet</div>
+                    </div>
+
+                    <!-- Stored Attendance Records Counter & Viewer -->
+                    <div class="attendance-storage-widget">
+                        <div class="widget-top">
+                            <div>
+                                <span class="widget-label">STORED ON THIS DEVICE</span>
+                                <div class="widget-count"><span id="localAttCount">0</span> Sessions Saved</div>
+                            </div>
+                            <button type="button" id="toggleStoredListBtn" class="btn-micro" aria-label="Toggle saved records">View History ▾</button>
+                        </div>
+                        <div id="storedRecordsDropdown" class="stored-records-dropdown" style="display: none;">
+                            <div class="stored-records-list" id="storedRecordsList">
+                                <p class="empty-stored-text">No attendance logged on this device yet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="core-member-hint">
+                        <div class="hint-tag">NOTE FOR CORE MEMBERS</div>
+                        <p>
+                            Logged-in club leads can manage master records and export full attendance logs in the <a href="dashboard.html#attendanceSection">Member Dashboard</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="attendance-form-card">
+                    <div class="card-header-group">
+                        <span class="card-eyebrow">FAST 1-STEP CHECK-IN</span>
+                        <h3>Mark Attendance</h3>
+                        <p class="section-subtext">Enter your Membership ID or College Roll Number below:</p>
+                    </div>
+
+                    <form id="publicAttendanceForm" class="attendance-fast-form">
+                        <div class="form-group membership-single-group">
+                            <label for="attRollNo">
+                                <i class="fas fa-id-card"></i> MEMBERSHIP ID / ROLL NO
+                            </label>
+                            <div class="input-action-wrapper">
+                                <input type="text" id="attRollNo" class="membership-id-field" placeholder="e.g. 23BPH045 or CLB102" required autocomplete="off" spellcheck="false">
+                                <button type="submit" class="submit-button att-action-btn" id="attSubmitBtn">
+                                    <span>CHECK IN</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="form-input-caption">
+                                <span><i class="fas fa-calendar-check"></i> Session: <strong>Saturday Meet</strong></span>
+                                <span><i class="fas fa-bolt"></i> Instant 1-Touch Logging</span>
+                            </div>
+                        </div>
+
+                        <div id="attStatus" class="form-status"></div>
+                    </form>
+
+                    <div id="attSuccessBox" class="attendance-success-box" style="display:none;">
+                        <div class="success-icon-wrap">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Attendance Stored Successfully!</h4>
+                        <div class="receipt-card">
+                            <div class="receipt-row">
+                                <span class="receipt-label">Membership ID</span>
+                                <span class="receipt-val mono" id="receiptMemberId">—</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Session</span>
+                                <span class="receipt-val">Saturday Meet</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Session Date</span>
+                                <span class="receipt-val" id="receiptDate">—</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Logged At</span>
+                                <span class="receipt-val" id="receiptTimestamp">—</span>
+                            </div>
+                            <div class="receipt-row">
+                                <span class="receipt-label">Storage Verification</span>
+                                <span class="receipt-val status-stored"><i class="fas fa-shield-halved"></i> Stored in Cloud & Local Disk</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-outline" id="logAnotherAttBtn">
+                            <i class="fas fa-user-plus"></i> Check In Another Member
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-meta">06 // ROSTER & COLLECTIVE</div>
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-tabs">
+                    <button class="tab-btn active" data-tab="code-conduct">Code of Conduct</button>
+                    <button class="tab-btn" data-tab="about-club">About Club</button>
+                    <button class="tab-btn" data-tab="members">Club Members</button>
+                </div>
+
+                <div class="tab-content active" id="code-conduct">
+                    <h3>Code of Conduct</h3>
+                    <div class="conduct-content">
+                        <p>Our code of conduct ensures a welcoming, positive, and collaborative environment for all members:</p>
+                        <ul>
+                            <li>Respect for all members regardless of background or academic year</li>
+                            <li>Professional, constructive conduct during all club meets and sessions</li>
+                            <li>Active participation and open knowledge sharing</li>
+                            <li>Commitment to continuous learning, creative experimentation, and growth</li>
+                            <li>Support, mentorship, and encouragement for fellow club members</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="about-club">
+                    <h3>About Catalyst Club</h3>
+                    <div class="club-info">
+                        <p>The Catalyst Club at Haldia Institute of Pharmacy is a dynamic student organization dedicated to fostering innovation, leadership, software skills, and creative collaboration. Founded with the vision of creating positive change, we provide a collaborative platform where students build impactful projects, learn modern technologies, and build lasting connections beyond the classroom.</p>
+                        <div class="club-highlights">
+                            <div class="highlight-card">
+                                <h4>Our Mission</h4>
+                                <p>To empower students through innovative learning experiences, hands-on technical workshops, and collaborative team projects.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4>Our Vision</h4>
+                                <p>Inspiring the next generation of creative leaders, problem solvers, and innovators.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="members">
+                    <div class="tab-header-row">
+                        <div>
+                            <h3>Club Members</h3>
+                            <p class="section-subtext">Meet the innovators, creators, and student leaders driving Catalyst Club at HIP.</p>
+                        </div>
+                        <div class="year-selector">
+                            <label for="academic-year">SELECT ACADEMIC YEAR:</label>
+                            <select id="academic-year">
+                                <option value="2025-26" selected>2025–2026 (Active Batch)</option>
+                                <option value="2024-25">2024–2025</option>
+                                <option value="2023-24">2023–2024</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="members-grid" id="members-list">
+                        <!-- Populated dynamically by script.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback" class="feedback-section">
+        <div class="container">
+            <div class="section-meta">07 // DIRECT TRANSMISSION</div>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="feedback-content">
+                <div class="feedback-intro">
+                    <span class="post-tag">DIRECT_CHANNEL</span>
+                    <h3>We'd Love to Hear From You</h3>
+                    <p>Have questions, suggestions, or want to get involved? Our team is ready to assist you with any inquiries about Catalyst Club's initiatives, events, or membership opportunities.</p>
+                    <div class="feedback-highlights">
+                        <span class="feedback-highlight">Quick Response</span>
+                        <span class="feedback-highlight">Secure Communication</span>
+                        <span class="feedback-highlight">Dedicated Team</span>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">FULL NAME</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">EMAIL ADDRESS</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">SUBJECT</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+                        <span class="error-message" id="subjectError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">MESSAGE</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="submit-button" id="submitButton">
+                            SEND MESSAGE →
+                        </button>
+                        <span id="formStatus" class="form-status">
+                            <span class="loader" id="loader" style="display: none;"></span>
+                            <span id="statusText"></span>
+                        </span>
+                    </div>
+                </form>
+
+                <div class="success-message" id="successMessage" style="display:none;">
+                    <h4>Message Transmitted</h4>
+                    <p>Your message has been successfully delivered to our team. We will respond within 24-48 hours.</p>
+                    <button class="back-button" onclick="document.getElementById('successMessage').style.display='none';document.getElementById('contactForm').reset();document.getElementById('contactForm').style.display='block';">
+                        ← Send Another Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col">
+                    <div class="nav-brand">
+                        <img src="logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                        <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+                    </div>
+                    <p class="footer-tagline">Ignite Ideas. Inspire Change. Be the Catalyst.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">NAVIGATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="#onboarding" data-modal="leafletModal">Onboarding Leaflet</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#events">Events & Meets</a></li>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#attendance">Student Attendance</a></li>
+                        <li><a href="https://docs.google.com/document/d/1Ttum9bZK0xm_f281TN_R1yViBMYnVyRd/edit?usp=sharing&ouid=106060528518563420636&rtpof=true&sd=true" target="_blank">Code Of Conduct</a></li>
+                        <li><a href="form.html">Join Us</a></li>
+                        <li><a href="terms.html" data-modal="termsModal">Terms of Use</a></li>
+                        <li><a href="privacy.html" data-modal="privacyModal">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">CONTACT</h4>
+                    <ul class="footer-contact">
+                        <li>hello@catalystclub.in</li>
+                        <li>Haldia Institute of Pharmacy, ICARE Complex</li>
+                        <li>Weekly Saturday Meets (In-person & Virtual)</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">SOCIAL</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/catalyst-club-hip" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/catalyst_hip" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://x.com/catalystHip95070" class="social-link" aria-label="X"><i class="fa-brands fa-x"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <p class="copyright-text">&copy; 2026 Catalyst Club at Haldia Institute of Pharmacy. All rights reserved.</p>
+                <p class="version">SYS.VER 3.0 • Y2K SOFT MINIMALIST • <a href="privacy.html" class="footer-policy-link" data-modal="privacyModal">Privacy Policy</a> • <a href="terms.html" class="footer-policy-link" data-modal="termsModal">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+            authDomain: "catalyst-login1.firebaseapp.com",
+            projectId: "catalyst-login1",
+            storageBucket: "catalyst-login1.firebasestorage.app",
+            messagingSenderId: "966641571185",
+            appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+            measurementId: "G-XRCWBMQF30"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Escape HTML helper
+        const safe = (s) => (window.escapeHtml ? window.escapeHtml(s) : String(s || "").replace(/[&<>"']/g, ""));
+
+        // 1. Contact Form Handler
+        window.sendContact = async (data) => {
+            return await addDoc(collection(db, "contact_us"), data);
+        };
+
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+            contactForm.addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const loader = document.getElementById("loader");
+                const statusText = document.getElementById("statusText");
+
+                loader.style.display = "inline-block";
+                statusText.textContent = "TRANSMITTING...";
+
+                const data = {
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    subject: document.getElementById("subject").value,
+                    message: document.getElementById("message").value,
+                    timestamp: new Date().toISOString()
+                };
+
+                try {
+                    await addDoc(collection(db, "contact_us"), data);
+                    loader.style.display = "none";
+                    statusText.textContent = "";
+                    document.getElementById("formStatus").style.display = "none";
+                    contactForm.style.display = "none";
+                    document.getElementById("successMessage").style.display = "block";
+                } catch (err) {
+                    loader.style.display = "none";
+                    statusText.textContent = "Error sending message: " + err.message;
+                }
+            });
+        }
+
+        // 2. Student Attendance Handler (Only Membership ID & Saturday Meet)
+        const publicAttendanceForm = document.getElementById("publicAttendanceForm");
+        const localAttCountEl = document.getElementById("localAttCount");
+        const storedRecordsList = document.getElementById("storedRecordsList");
+        const storedRecordsDropdown = document.getElementById("storedRecordsDropdown");
+        const toggleStoredListBtn = document.getElementById("toggleStoredListBtn");
+
+        // Helper to load and render stored attendance from localStorage
+        function loadStoredAttendance() {
+            let records = [];
+            try {
+                records = JSON.parse(localStorage.getItem("catalyst_attendance_records") || "[]");
+            } catch(e) { records = []; }
+
+            if (localAttCountEl) {
+                localAttCountEl.textContent = records.length;
+            }
+
+            if (storedRecordsList) {
+                if (records.length === 0) {
+                    storedRecordsList.innerHTML = '<p class="empty-stored-text">No attendance logged on this device yet.</p>';
+                } else {
+                    storedRecordsList.innerHTML = records.slice(0, 8).map(r => `
+                        <div class="stored-record-item">
+                            <span class="stored-id">${safe(r.membershipId || r.rollNo)}</span>
+                            <span class="stored-meta">${safe(r.session || 'Saturday Meet')} • ${safe(r.sessionDate || '')}</span>
+                        </div>
+                    `).join("");
+                }
+            }
+        }
+
+        if (toggleStoredListBtn && storedRecordsDropdown) {
+            toggleStoredListBtn.addEventListener("click", () => {
+                const isHidden = (storedRecordsDropdown.style.display === "none");
+                storedRecordsDropdown.style.display = isHidden ? "block" : "none";
+                toggleStoredListBtn.textContent = isHidden ? "Hide History ▴" : "View History ▾";
+            });
+        }
+
+        // Initialize stored records display on page load
+        loadStoredAttendance();
+
+        if (publicAttendanceForm) {
+            publicAttendanceForm.addEventListener("submit", async function(e) {
+                e.preventDefault();
+                const rollInput = document.getElementById("attRollNo");
+                const attSubmitBtn = document.getElementById("attSubmitBtn");
+                const attStatus = document.getElementById("attStatus");
+
+                const membershipId = rollInput.value.trim();
+                if (!membershipId) return;
+
+                attSubmitBtn.disabled = true;
+                attStatus.textContent = "STORING ATTENDANCE...";
+
+                const todayIso = new Date().toISOString().split("T")[0];
+                const nowTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const fullTimestamp = new Date().toISOString();
+
+                const payload = {
+                    membershipId: membershipId,
+                    rollNo: membershipId,
+                    studentName: "Member (" + membershipId + ")",
+                    session: "Saturday Meet",
+                    location: "Saturday Meet (Classroom / Online)",
+                    sessionDate: todayIso,
+                    timestamp: fullTimestamp,
+                    source: "public_portal",
+                    status: "Present"
+                };
+
+                // 1. Immediately store in localStorage so it's always preserved locally
+                try {
+                    let localRecs = JSON.parse(localStorage.getItem("catalyst_attendance_records") || "[]");
+                    localRecs.unshift(payload);
+                    localStorage.setItem("catalyst_attendance_records", JSON.stringify(localRecs.slice(0, 100)));
+                    loadStoredAttendance();
+                } catch(err) {
+                    console.warn("Could not save to localStorage:", err);
+                }
+
+                // 2. Persist to Firestore database
+                try {
+                    await addDoc(collection(db, "attendance"), payload);
+                } catch(err) {
+                    console.warn("Firestore sync status (offline cache active):", err);
+                }
+
+                // 3. Update UI to confirmed receipt state
+                attStatus.textContent = "";
+                publicAttendanceForm.style.display = "none";
+
+                const successBox = document.getElementById("attSuccessBox");
+                const receiptMemberId = document.getElementById("receiptMemberId");
+                const receiptDate = document.getElementById("receiptDate");
+                const receiptTimestamp = document.getElementById("receiptTimestamp");
+
+                if (receiptMemberId) receiptMemberId.textContent = membershipId;
+                if (receiptDate) receiptDate.textContent = todayIso;
+                if (receiptTimestamp) receiptTimestamp.textContent = nowTime + " (" + fullTimestamp.slice(0, 10) + ")";
+                if (successBox) successBox.style.display = "block";
+
+                attSubmitBtn.disabled = false;
+            });
+
+            const logAnotherBtn = document.getElementById("logAnotherAttBtn");
+            if (logAnotherBtn) {
+                logAnotherBtn.addEventListener("click", () => {
+                    const successBox = document.getElementById("attSuccessBox");
+                    if (successBox) successBox.style.display = "none";
+                    publicAttendanceForm.reset();
+                    publicAttendanceForm.style.display = "block";
+                    const rollInput = document.getElementById("attRollNo");
+                    if (rollInput) rollInput.focus();
+                });
+            }
+        }
+
+        // 3. Dynamic Events Loading (Firestore + Offline Cache)
+        async function loadDynamicEvents() {
+            const eventsList = document.querySelector(".events-list");
+            if (!eventsList) return;
+
+            // Load any cached events first for instant UI response
+            let cachedEvents = [];
+            try {
+                const stored = localStorage.getItem("catalyst_events");
+                if (stored) cachedEvents = JSON.parse(stored);
+            } catch(e) {}
+
+            // Helper to render an event card into the DOM
+            const renderedIds = new Set();
+            function renderCard(ev, isPrepend = true) {
+                const key = ev.id || `${ev.title}-${ev.sessionDate || ev.day}`;
+                if (renderedIds.has(key)) return;
+                renderedIds.add(key);
+
+                const card = document.createElement("div");
+                const isPast = (ev.status === "past");
+                card.className = `event-row ${isPast ? "past-event" : "upcoming-event"}`;
+                card.setAttribute("data-status", ev.status || "upcoming");
+
+                // Strictly validate location: Classroom 3rd Floor or Google Meet only
+                let loc = ev.location || "Classroom 3rd Floor, College Building";
+                if (!loc.includes("Classroom 3rd Floor") && !loc.includes("Google Meet")) {
+                    loc = "Classroom 3rd Floor, College Building";
+                }
+                const isOnline = loc.includes("Google Meet");
+
+                card.innerHTML = `
+                    <div class="event-date">
+                        <span class="date-day">${safe(ev.day || "15")}</span>
+                        <span class="date-month">${safe((ev.month || "DEC").toUpperCase())}</span>
+                        <span class="date-year">${safe(ev.year || "2026")}</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-badges">
+                            <span class="badge-tag">${safe(ev.category || "WORKSHOP")}</span>
+                            <span class="badge-status ${isPast ? "status-past" : "status-upcoming"}">${isPast ? "CONCLUDED" : "UPCOMING"}</span>
+                            <span class="badge-status" style="background: rgba(56,189,248,0.15); color: var(--accent-cyan); border: 1px solid rgba(56,189,248,0.3);">NEW</span>
+                        </div>
+                        <h3>${safe(ev.title)}</h3>
+                        <p>${safe(ev.description)}</p>
+                        <div class="event-location-meta">
+                            <span><i class="${isOnline ? "fas fa-video" : "fas fa-map-marker-alt"}"></i> ${safe(loc)}</span>
+                            ${ev.metaBadge ? `<span><i class="fas fa-tag"></i> ${safe(ev.metaBadge)}</span>` : ""}
+                        </div>
+                    </div>
+                    <div class="event-time">${safe(ev.time || "2:00 PM - 4:00 PM")}</div>
+                `;
+
+                if (isPrepend) {
+                    eventsList.prepend(card);
+                } else {
+                    eventsList.appendChild(card);
+                }
+            }
+
+            // Render local cached events
+            if (Array.isArray(cachedEvents)) {
+                cachedEvents.forEach(ev => renderCard(ev, true));
+            }
+
+            // Fetch live events from Firestore
+            try {
+                const q = query(collection(db, "events"), orderBy("createdAt", "desc"), limit(25));
+                const snap = await getDocs(q);
+                if (!snap.empty) {
+                    const freshEvents = [];
+                    snap.forEach(d => {
+                        const data = { id: d.id, ...d.data() };
+                        freshEvents.push(data);
+                        renderCard(data, true);
+                    });
+                    try { localStorage.setItem("catalyst_events", JSON.stringify(freshEvents)); } catch(e) {}
+                }
+            } catch(err) {
+                console.warn("Could not load events from Firestore collection, used local cache:", err);
+            }
+
+            // Refresh event filter handlers so all dynamic cards respond to filters
+            if (window.initEventsFiltering) {
+                window.initEventsFiltering();
+            }
+        }
+
+        // Initialize dynamic events loading
+        loadDynamicEvents();
+    </script>
+
+    <script>
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                const modal = document.getElementById("leafletModal");
+                if (modal) modal.style.display = "none";
+            }
+        });
+
+        let index = 0;
+        const slider = document.getElementById("slider");
+        const slides = document.querySelectorAll(".slide-img");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+
+        function showSlide(i) {
+            index = (i + slides.length) % slides.length;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        const prevBtn = document.getElementById("prevSlide");
+        const nextBtn = document.getElementById("nextSlide");
+        if (prevBtn) prevBtn.addEventListener("click", () => showSlide(index - 1));
+        if (nextBtn) nextBtn.addEventListener("click", () => showSlide(index + 1));
+
+        setInterval(() => {
+            showSlide(index + 1);
+        }, 4500);
+
+        slides.forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImg.src = img.src;
+                lightbox.style.display = "flex";
+            });
+        });
+
+        lightbox.addEventListener("click", () => {
+            lightbox.style.display = "none";
+        });
+
+        let startX = 0;
+        slider.addEventListener("touchstart", e => {
+            startX = e.touches[0].clientX;
+        });
+
+        slider.addEventListener("touchend", e => {
+            let diff = e.changedTouches[0].clientX - startX;
+            if (diff > 50) showSlide(index - 1);
+            if (diff < -50) showSlide(index + 1);
+        });
+    </script>
+    <script>
+        const menuBtn = document.querySelector(".mobile-menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+            });
+        }
+        if (navMenu) {
+            document.querySelectorAll(".nav-link").forEach(link => {
+                link.addEventListener("click", () => navMenu.classList.remove("active"));
+            });
+        }
+    </script>
+</body>
+
+</html>
