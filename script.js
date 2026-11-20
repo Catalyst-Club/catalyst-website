@@ -458,7 +458,7 @@ function initActivities() {
                 });
 
                 if (countBadge) {
-                    countBadge.innerHTML = `<i class="fas fa-layer-group"></i> ${visibleCount} ACTIVE ${visibleCount === 1 ? "TRACK" : "TRACKS"}`;
+                    countBadge.innerHTML = `<i class="fas fa-layer-group"></i> ${visibleCount} ${visibleCount === 1 ? "TRACK" : "TRACKS"}`;
                 }
             });
         });

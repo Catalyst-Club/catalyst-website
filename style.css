@@ -1822,57 +1822,51 @@ section {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 16px;
     margin-bottom: 28px;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     border-bottom: 1px solid var(--border-color);
 }
 
 .activities-meta-col {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    align-items: center;
+    gap: 10px;
 }
 
 .activities-count-badge {
     font-family: 'Space Mono', monospace;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    padding: 4px 14px;
+    padding: 4px 12px;
     border-radius: 999px;
     background: rgba(56, 189, 248, 0.1);
     color: var(--accent-cyan);
     border: 1px solid rgba(56, 189, 248, 0.3);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    width: fit-content;
-}
-
-.activities-sub-hint {
-    font-size: 0.84rem;
-    color: var(--muted-text);
+    gap: 6px;
 }
 
 .activities-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .activity-filter-btn {
     font-family: var(--font-body);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    padding: 8px 18px;
+    padding: 7px 16px;
     border-radius: 999px;
     border: 1px solid var(--border-color);
     background: var(--surface-card);
     color: var(--muted-text);
     cursor: pointer;
     letter-spacing: 0.02em;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -1883,14 +1877,13 @@ section {
     border-color: var(--accent-primary);
     background: var(--surface-alt);
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .activity-filter-btn.active {
     background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-soft) 100%);
     color: #ffffff;
     border-color: transparent;
-    box-shadow: 0 4px 18px var(--accent-glow);
+    box-shadow: 0 4px 16px var(--accent-glow);
 }
 
 [data-theme="dark"] .activity-filter-btn.active {
@@ -1901,266 +1894,136 @@ section {
 
 .events-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     margin-bottom: 56px;
 }
 
-.meet-schedule, .events-timeline, .activity-track-card {
+@media (max-width: 1200px) {
+    .events-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .events-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+.activity-track-card {
     background: var(--liquid-glass-bg);
     border: 1px solid var(--liquid-glass-border);
-    border-radius: 22px;
-    padding: 28px;
+    border-radius: 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     box-shadow: var(--liquid-glass-shadow);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.28s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
     position: relative;
 }
 
-.meet-schedule:hover, .events-timeline:hover, .activity-track-card:hover {
+.activity-track-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent-cyan);
-    box-shadow: var(--liquid-glass-glow), 0 16px 36px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--liquid-glass-glow), 0 16px 36px rgba(0, 0, 0, 0.12);
 }
 
 .track-card-badge-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 14px;
 }
 
-.track-frequency-badge {
+.track-pill-meta {
     font-family: 'Space Mono', monospace;
     font-size: 0.68rem;
-    padding: 3px 10px;
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 3px 9px;
     border-radius: 999px;
-    background: var(--surface-alt);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     font-weight: 600;
-}
-
-.status-dot-pulse {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #10b981;
-    display: inline-block;
-    box-shadow: 0 0 8px #10b981;
-    animation: statusPulse 2s infinite ease-in-out;
-}
-
-@keyframes statusPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.45; transform: scale(0.85); }
 }
 
 .track-title-row {
     display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 16px;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .track-card-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 14px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
     background: rgba(56, 189, 248, 0.12);
     border: 1px solid rgba(56, 189, 248, 0.3);
     color: var(--accent-cyan);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
 }
 
 .track-title-row h3 {
-    font-size: 1.35rem;
+    font-size: 1.18rem;
     margin-bottom: 3px;
-    color: var(--text-color);
-}
-
-.track-subtitle {
-    font-size: 0.8rem;
-    color: var(--muted-text);
-    display: block;
-}
-
-.activity-tools-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 14px;
-}
-
-.tool-chip {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    padding: 3px 11px;
-    border-radius: 999px;
-    background: var(--surface-alt);
-    border: 1px solid var(--border-color);
-    color: var(--muted-text);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.2s ease;
-}
-
-.tool-chip:hover {
-    color: var(--text-color);
-    border-color: var(--accent-primary);
-    transform: translateY(-1px);
-}
-
-.track-agenda-drawer {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin 0.3s ease;
-}
-
-.track-agenda-drawer.expanded {
-    max-height: 480px;
-    opacity: 1;
-    margin-top: 18px;
-}
-
-.agenda-drawer-inner {
-    background: var(--surface-alt);
-    border: 1px dashed var(--border-color);
-    border-radius: 16px;
-    padding: 16px;
-}
-
-.agenda-drawer-heading {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-color);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.agenda-drawer-heading i {
-    color: var(--accent-primary);
-}
-
-.agenda-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.agenda-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.agenda-time {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 6px;
-    background: var(--surface-card);
-    border: 1px solid var(--border-color);
-    color: var(--accent-primary);
-    white-space: nowrap;
-    margin-top: 1px;
-}
-
-.agenda-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.agenda-content strong {
-    font-size: 0.84rem;
     color: var(--text-color);
     line-height: 1.3;
 }
 
-.agenda-content span {
-    font-size: 0.78rem;
+.track-subtitle {
+    font-size: 0.76rem;
     color: var(--muted-text);
-    line-height: 1.4;
+    display: block;
+    line-height: 1.35;
+}
+
+.activity-track-desc {
+    color: var(--muted-text);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
 }
 
 .track-card-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     gap: 10px;
-    margin-top: 22px;
-    padding-top: 18px;
+    padding-top: 14px;
     border-top: 1px solid var(--border-color);
 }
 
-.track-card-footer-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-track-expand {
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 7px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border-color);
-    background: var(--surface-alt);
-    color: var(--text-color);
-    cursor: pointer;
+.track-card-tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted-text);
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: all 0.2s ease;
-}
-
-.btn-track-expand:hover {
-    border-color: var(--accent-primary);
-    background: var(--surface-card);
-}
-
-.btn-track-expand .expand-chevron {
-    font-size: 0.7rem;
-    transition: transform 0.28s ease;
-}
-
-.btn-track-expand.active .expand-chevron {
-    transform: rotate(180deg);
 }
 
 .btn-track-detail {
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 7px 14px;
+    padding: 6px 14px;
     border-radius: 999px;
-    background: var(--accent-primary);
-    color: #ffffff;
-    border: none;
+    background: var(--surface-alt);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -2168,28 +2031,12 @@ section {
     transition: all 0.2s ease;
 }
 
+.activity-track-card:hover .btn-track-detail,
 .btn-track-detail:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px var(--accent-glow);
-}
-
-.btn-track-jump-events {
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 7px 12px;
-    border-radius: 999px;
-    background: transparent;
-    color: var(--muted-text);
-    border: 1px solid var(--border-color);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-track-jump-events:hover {
-    color: var(--text-color);
-    border-color: var(--accent-cyan);
-    background: var(--surface-alt);
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+    box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .events-header-bar {
@@ -3870,33 +3717,24 @@ section {
     .activities-header-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 14px;
+        gap: 12px;
     }
     .activities-filters {
         width: 100%;
-        gap: 8px;
+        gap: 6px;
     }
     .activity-filter-btn {
-        font-size: 0.76rem;
-        padding: 7px 14px;
+        font-size: 0.74rem;
+        padding: 6px 12px;
     }
     .track-card-footer {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-    .btn-track-expand {
-        width: 100%;
-        justify-content: center;
-    }
-    .track-card-footer-actions {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 8px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
     .btn-track-detail {
-        justify-content: center;
+        padding: 5px 12px;
+        font-size: 0.74rem;
     }
 
     /* Photo Slider on Mobile */

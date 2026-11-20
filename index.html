@@ -223,15 +223,14 @@
             <div class="section-meta">04 // SESSIONS &amp; SATELLITE MEETS</div>
             <h2 class="section-title">Activities &amp; Tracks</h2>
 
-            <!-- Interactive Track Filters & Info Bar -->
+            <!-- Clean Track Filters -->
             <div class="activities-header-bar">
                 <div class="activities-meta-col">
-                    <span class="activities-count-badge" id="activitiesCountBadge"><i class="fas fa-layer-group"></i> 4 CORE TRACKS</span>
-                    <span class="activities-sub-hint">Filter tracks or expand cards below to inspect agendas and tooling.</span>
+                    <span class="activities-count-badge" id="activitiesCountBadge"><i class="fas fa-layer-group"></i> 4 TRACKS</span>
                 </div>
                 <div class="activities-filters">
                     <button type="button" class="activity-filter-btn active" data-track-filter="all">
-                        <i class="fas fa-border-all"></i> All Tracks
+                        All Tracks
                     </button>
                     <button type="button" class="activity-filter-btn" data-track-filter="meets">
                         <i class="fas fa-calendar-week"></i> Weekly Meets
@@ -248,343 +247,113 @@
                 </div>
             </div>
 
-            <!-- Pillars of Club Activities (Interactive 4-Track Grid) -->
+            <!-- Pillars of Club Activities (Clean, Uncluttered 4-Card Showcase) -->
             <div class="events-info">
                 <!-- Track 1: Regular Meets -->
-                <article class="activity-track-card" data-track-id="track-regular-meets" data-track-category="meets">
+                <article class="activity-track-card" data-track-id="track-regular-meets" data-track-category="meets" onclick="window.openActivityDetailModal('track-regular-meets')">
                     <div class="track-card-top">
                         <div class="track-card-badge-row">
-                            <span class="post-tag">RECURRING // SATURDAY</span>
-                            <span class="track-frequency-badge"><span class="status-dot-pulse"></span> WEEKLY FORUM</span>
+                            <span class="post-tag">WEEKLY // RECURRING</span>
+                            <span class="track-pill-meta"><i class="fas fa-calendar-day"></i> Saturdays</span>
                         </div>
                         <div class="track-title-row">
                             <div class="track-card-icon"><i class="fas fa-calendar-week"></i></div>
                             <div>
                                 <h3>Regular Saturday Meets</h3>
-                                <span class="track-subtitle">Weekly Community Gathering &amp; Sync</span>
+                                <span class="track-subtitle">10:30 AM – 12:30 PM • Classroom / Meet</span>
                             </div>
-                        </div>
-                        <div class="schedule-details">
-                            <p><i class="fas fa-calendar-day"></i> <strong>When:</strong> Every Saturday (excl. holidays)</p>
-                            <p><i class="fas fa-map-marker-alt"></i> <strong>Where:</strong> Classroom 3rd Floor / Google Meet</p>
-                            <p><i class="fas fa-clock"></i> <strong>Timing:</strong> 10:30 AM – 12:30 PM</p>
                         </div>
                         <p class="activity-track-desc">
-                            Weekly collaborative discussions, project review sprints, live tech demos, lightning talks, and club syncs.
+                            Weekly collaborative syncs, sprint demos, lightning talks, and open peer project reviews.
                         </p>
-                        <!-- Tool & Skill Chips -->
-                        <div class="activity-tools-chips">
-                            <span class="tool-chip"><i class="fas fa-video"></i> Google Meet</span>
-                            <span class="tool-chip"><i class="fas fa-code-branch"></i> Sprint Sync</span>
-                            <span class="tool-chip"><i class="fas fa-desktop"></i> Demos</span>
-                            <span class="tool-chip"><i class="fas fa-comments"></i> Peer Crit</span>
-                        </div>
                     </div>
 
-                    <!-- Expandable Session Agenda Drawer -->
-                    <div class="track-agenda-drawer" id="agenda-track-regular-meets">
-                        <div class="agenda-drawer-inner">
-                            <div class="agenda-drawer-heading"><i class="fas fa-stopwatch"></i> Typical 2-Hour Meeting Flow:</div>
-                            <div class="agenda-timeline">
-                                <div class="agenda-step">
-                                    <span class="agenda-time">15 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Club Announcements &amp; Check-In</strong>
-                                        <span>Attendance logging, notices, and meeting goals.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">45 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Lightning Demos &amp; Sprint Reviews</strong>
-                                        <span>Showcases of member repositories, designs, and research.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">35 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Interactive Discussion &amp; Debate</strong>
-                                        <span>Hands-on walkthroughs or trending topic teardowns.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">25 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Breakouts &amp; Next Sprint Planning</strong>
-                                        <span>Sub-team task distribution and mentor mentorship.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Action Controls -->
                     <div class="track-card-footer">
-                        <button type="button" class="btn-track-expand" aria-expanded="false" data-target="agenda-track-regular-meets">
-                            <i class="fas fa-list-ol"></i> <span>Session Routine</span> <i class="fas fa-chevron-down expand-chevron"></i>
+                        <span class="track-card-tagline"><i class="fas fa-users"></i> All Members</span>
+                        <button type="button" class="btn-track-detail" onclick="event.stopPropagation(); window.openActivityDetailModal('track-regular-meets')">
+                            Details <i class="fas fa-arrow-up-right-from-square"></i>
                         </button>
-                        <div class="track-card-footer-actions">
-                            <button type="button" class="btn-track-detail" onclick="window.openActivityDetailModal('track-regular-meets')">
-                                Explore Track <i class="fas fa-arrow-up-right-from-square"></i>
-                            </button>
-                            <button type="button" class="btn-track-jump-events" onclick="window.filterAndScrollToEvents('meets')">
-                                Meets ↓
-                            </button>
-                        </div>
                     </div>
                 </article>
 
                 <!-- Track 2: Skill Bootcamps -->
-                <article class="activity-track-card" data-track-id="track-skill-workshops" data-track-category="workshops">
+                <article class="activity-track-card" data-track-id="track-skill-workshops" data-track-category="workshops" onclick="window.openActivityDetailModal('track-skill-workshops')">
                     <div class="track-card-top">
                         <div class="track-card-badge-row">
-                            <span class="post-tag">TECHNICAL // HANDS-ON</span>
-                            <span class="track-frequency-badge"><span class="status-dot-pulse"></span> BOOTCAMPS &amp; LABS</span>
+                            <span class="post-tag">HANDS-ON // BOOTCAMPS</span>
+                            <span class="track-pill-meta"><i class="fas fa-terminal"></i> Coding Labs</span>
                         </div>
                         <div class="track-title-row">
                             <div class="track-card-icon"><i class="fas fa-laptop-code"></i></div>
                             <div>
                                 <h3>Skill Bootcamps &amp; Labs</h3>
-                                <span class="track-subtitle">Practical Coding &amp; Software Workflows</span>
+                                <span class="track-subtitle">Python 3, Web Dev &amp; Modern Tools</span>
                             </div>
-                        </div>
-                        <div class="schedule-details">
-                            <p><i class="fas fa-terminal"></i> <strong>Focus:</strong> Python 3, Web Dev, Git &amp; Automation</p>
-                            <p><i class="fas fa-chalkboard-teacher"></i> <strong>Format:</strong> Guided Live-Coding Labs</p>
-                            <p><i class="fas fa-map-marker-alt"></i> <strong>Where:</strong> Classroom 3rd Floor, College Building</p>
                         </div>
                         <p class="activity-track-desc">
-                            Beginner-friendly intensives transforming students into makers with Python scripts, real-world data science, and web applications.
+                            Intensive, guided coding bootcamps empowering students to build apps, scripts, and data workflows.
                         </p>
-                        <!-- Tool & Skill Chips -->
-                        <div class="activity-tools-chips">
-                            <span class="tool-chip"><i class="fab fa-python"></i> Python 3</span>
-                            <span class="tool-chip"><i class="fas fa-code"></i> VS Code</span>
-                            <span class="tool-chip"><i class="fab fa-github"></i> GitHub</span>
-                            <span class="tool-chip"><i class="fas fa-table"></i> Pandas</span>
-                            <span class="tool-chip"><i class="fab fa-html5"></i> Web Dev</span>
-                        </div>
                     </div>
 
-                    <!-- Expandable Session Agenda Drawer -->
-                    <div class="track-agenda-drawer" id="agenda-track-skill-workshops">
-                        <div class="agenda-drawer-inner">
-                            <div class="agenda-drawer-heading"><i class="fas fa-stopwatch"></i> Typical 2-Hour Lab Flow:</div>
-                            <div class="agenda-timeline">
-                                <div class="agenda-step">
-                                    <span class="agenda-time">20 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Core Concepts &amp; Architecture</strong>
-                                        <span>Syntax overview, conceptual diagrams, and use-cases.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">50 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Guided Live Coding Lab</strong>
-                                        <span>Step-by-step notebook builds with instructor mentoring.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">30 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Sprint Challenge &amp; Pair Coding</strong>
-                                        <span>Tackle a problem prompt, debug, and push to GitHub.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">20 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Code Teardown &amp; Submissions</strong>
-                                        <span>Best-practice reviews, common bug fixes, and sign-off.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Action Controls -->
                     <div class="track-card-footer">
-                        <button type="button" class="btn-track-expand" aria-expanded="false" data-target="agenda-track-skill-workshops">
-                            <i class="fas fa-list-ol"></i> <span>Session Routine</span> <i class="fas fa-chevron-down expand-chevron"></i>
+                        <span class="track-card-tagline"><i class="fab fa-python"></i> Python &amp; Web</span>
+                        <button type="button" class="btn-track-detail" onclick="event.stopPropagation(); window.openActivityDetailModal('track-skill-workshops')">
+                            Details <i class="fas fa-arrow-up-right-from-square"></i>
                         </button>
-                        <div class="track-card-footer-actions">
-                            <button type="button" class="btn-track-detail" onclick="window.openActivityDetailModal('track-skill-workshops')">
-                                Explore Track <i class="fas fa-arrow-up-right-from-square"></i>
-                            </button>
-                            <button type="button" class="btn-track-jump-events" onclick="window.filterAndScrollToEvents('workshops')">
-                                Workshops ↓
-                            </button>
-                        </div>
                     </div>
                 </article>
 
                 <!-- Track 3: Sci-Tech & Research Lab -->
-                <article class="activity-track-card" data-track-id="track-sci-tech" data-track-category="research">
+                <article class="activity-track-card" data-track-id="track-sci-tech" data-track-category="research" onclick="window.openActivityDetailModal('track-sci-tech')">
                     <div class="track-card-top">
                         <div class="track-card-badge-row">
                             <span class="post-tag">RESEARCH // JOURNAL CLUB</span>
-                            <span class="track-frequency-badge"><span class="status-dot-pulse"></span> SCIENTIFIC INQUIRY</span>
+                            <span class="track-pill-meta"><i class="fas fa-dna"></i> Evidence Lab</span>
                         </div>
                         <div class="track-title-row">
                             <div class="track-card-icon"><i class="fas fa-microscope"></i></div>
                             <div>
                                 <h3>Sci-Tech &amp; Research Lab</h3>
-                                <span class="track-subtitle">Evidence Synthesis &amp; Emerging Sciences</span>
+                                <span class="track-subtitle">Meta-Analysis &amp; AI in Healthcare</span>
                             </div>
-                        </div>
-                        <div class="schedule-details">
-                            <p><i class="fas fa-dna"></i> <strong>Topics:</strong> Meta-Analysis, AI in Drug Design, Space Tech</p>
-                            <p><i class="fas fa-file-alt"></i> <strong>Format:</strong> PRISMA Workshops &amp; Journal Discussions</p>
-                            <p><i class="fas fa-map-marker-alt"></i> <strong>Where:</strong> Hybrid (Classroom 3rd Floor / Meet)</p>
                         </div>
                         <p class="activity-track-desc">
-                            Rigorous scientific inquiry exploring biomedical databases, systematic review methodologies, statistical pooling, and AI applications.
+                            Systematic reviews, PRISMA guidelines, academic writing, and AI applications in pharmaceutical sciences.
                         </p>
-                        <!-- Tool & Skill Chips -->
-                        <div class="activity-tools-chips">
-                            <span class="tool-chip"><i class="fas fa-search"></i> PubMed</span>
-                            <span class="tool-chip"><i class="fas fa-chart-line"></i> PRISMA 2020</span>
-                            <span class="tool-chip"><i class="fas fa-brain"></i> Molecular AI</span>
-                            <span class="tool-chip"><i class="fas fa-book-open"></i> Zotero</span>
-                        </div>
                     </div>
 
-                    <!-- Expandable Session Agenda Drawer -->
-                    <div class="track-agenda-drawer" id="agenda-track-sci-tech">
-                        <div class="agenda-drawer-inner">
-                            <div class="agenda-drawer-heading"><i class="fas fa-stopwatch"></i> Typical 2-Hour Colloquium Flow:</div>
-                            <div class="agenda-timeline">
-                                <div class="agenda-step">
-                                    <span class="agenda-time">25 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Landmark Paper Appraisal</strong>
-                                        <span>Critical reading of high-impact journal breakthroughs.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">40 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Methodological Deep-Dive</strong>
-                                        <span>Data extraction, risk of bias analysis, and forest plots.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">30 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Computational Tool Demo</strong>
-                                        <span>Live walkthroughs of molecular software and AI tools.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">25 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Research Pitches &amp; Crit</strong>
-                                        <span>Member hypothesis pitches and manuscript mentoring.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Action Controls -->
                     <div class="track-card-footer">
-                        <button type="button" class="btn-track-expand" aria-expanded="false" data-target="agenda-track-sci-tech">
-                            <i class="fas fa-list-ol"></i> <span>Session Routine</span> <i class="fas fa-chevron-down expand-chevron"></i>
+                        <span class="track-card-tagline"><i class="fas fa-flask"></i> PubMed &amp; PRISMA</span>
+                        <button type="button" class="btn-track-detail" onclick="event.stopPropagation(); window.openActivityDetailModal('track-sci-tech')">
+                            Details <i class="fas fa-arrow-up-right-from-square"></i>
                         </button>
-                        <div class="track-card-footer-actions">
-                            <button type="button" class="btn-track-detail" onclick="window.openActivityDetailModal('track-sci-tech')">
-                                Explore Track <i class="fas fa-arrow-up-right-from-square"></i>
-                            </button>
-                            <button type="button" class="btn-track-jump-events" onclick="window.filterAndScrollToEvents('meets')">
-                                Talks ↓
-                            </button>
-                        </div>
                     </div>
                 </article>
 
                 <!-- Track 4: Creative & Media Studio -->
-                <article class="activity-track-card" data-track-id="track-creative-media" data-track-category="creative">
+                <article class="activity-track-card" data-track-id="track-creative-media" data-track-category="creative" onclick="window.openActivityDetailModal('track-creative-media')">
                     <div class="track-card-top">
                         <div class="track-card-badge-row">
-                            <span class="post-tag">CREATIVE // DESIGN STUDIO</span>
-                            <span class="track-frequency-badge"><span class="status-dot-pulse"></span> VISUAL &amp; MEDIA</span>
+                            <span class="post-tag">DESIGN // CREATIVE LAB</span>
+                            <span class="track-pill-meta"><i class="fas fa-paint-brush"></i> UI/UX &amp; Media</span>
                         </div>
                         <div class="track-title-row">
                             <div class="track-card-icon"><i class="fas fa-palette"></i></div>
                             <div>
                                 <h3>Creative &amp; Media Studio</h3>
-                                <span class="track-subtitle">UI/UX Design, Visual Identity &amp; Media</span>
+                                <span class="track-subtitle">Figma, Canva &amp; Brand Systems</span>
                             </div>
-                        </div>
-                        <div class="schedule-details">
-                            <p><i class="fas fa-bezier-curve"></i> <strong>Tools:</strong> Figma, Canva Pro, UI Kits &amp; Motion</p>
-                            <p><i class="fas fa-layer-group"></i> <strong>Format:</strong> Design Sprints &amp; Identity Jams</p>
-                            <p><i class="fas fa-map-marker-alt"></i> <strong>Where:</strong> Classroom 3rd Floor &amp; Cloud Sandbox</p>
                         </div>
                         <p class="activity-track-desc">
-                            Master modern UI/UX design, typography systems, vector illustrations, and high-impact social campaigns that elevate club initiatives.
+                            Modern UI/UX interface design, visual branding, typography systems, and interactive media production.
                         </p>
-                        <!-- Tool & Skill Chips -->
-                        <div class="activity-tools-chips">
-                            <span class="tool-chip"><i class="fab fa-figma"></i> Figma</span>
-                            <span class="tool-chip"><i class="fas fa-paint-brush"></i> Canva</span>
-                            <span class="tool-chip"><i class="fas fa-shapes"></i> UI Kits</span>
-                            <span class="tool-chip"><i class="fas fa-font"></i> Typography</span>
-                            <span class="tool-chip"><i class="fas fa-photo-video"></i> Media</span>
-                        </div>
                     </div>
 
-                    <!-- Expandable Session Agenda Drawer -->
-                    <div class="track-agenda-drawer" id="agenda-track-creative-media">
-                        <div class="agenda-drawer-inner">
-                            <div class="agenda-drawer-heading"><i class="fas fa-stopwatch"></i> Typical 2-Hour Design Jam Flow:</div>
-                            <div class="agenda-timeline">
-                                <div class="agenda-step">
-                                    <span class="agenda-time">20 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Design Principles &amp; Inspiration</strong>
-                                        <span>Layout composition, visual hierarchies, and branding case studies.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">45 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Hands-On Figma / Canva Sprint</strong>
-                                        <span>Live guided creation of UI screens, posters, or motion graphics.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">35 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Critique &amp; Refinement Round</strong>
-                                        <span>Constructive feedback on spacing, contrast, and visual polish.</span>
-                                    </div>
-                                </div>
-                                <div class="agenda-step">
-                                    <span class="agenda-time">20 min</span>
-                                    <div class="agenda-content">
-                                        <strong>Export &amp; Asset Publishing</strong>
-                                        <span>Production export for web, print, and social broadcasts.</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Action Controls -->
                     <div class="track-card-footer">
-                        <button type="button" class="btn-track-expand" aria-expanded="false" data-target="agenda-track-creative-media">
-                            <i class="fas fa-list-ol"></i> <span>Session Routine</span> <i class="fas fa-chevron-down expand-chevron"></i>
+                        <span class="track-card-tagline"><i class="fab fa-figma"></i> Figma &amp; Media</span>
+                        <button type="button" class="btn-track-detail" onclick="event.stopPropagation(); window.openActivityDetailModal('track-creative-media')">
+                            Details <i class="fas fa-arrow-up-right-from-square"></i>
                         </button>
-                        <div class="track-card-footer-actions">
-                            <button type="button" class="btn-track-detail" onclick="window.openActivityDetailModal('track-creative-media')">
-                                Explore Track <i class="fas fa-arrow-up-right-from-square"></i>
-                            </button>
-                            <button type="button" class="btn-track-jump-events" onclick="window.filterAndScrollToEvents('workshops')">
-                                Workshops ↓
-                            </button>
-                        </div>
                     </div>
                 </article>
             </div>
@@ -727,95 +496,9 @@
         </div>
     </section>
 
-    <!-- 05: STUDENT ATTENDANCE PORTAL -->
-    <section id="attendance" class="attendance-section">
-        <div class="container">
-            <div class="section-meta">05 // SATURDAY MEET ATTENDANCE</div>
-            <h2 class="section-title">Saturday Meet Attendance</h2>
-
-            <div class="attendance-grid">
-                <div class="attendance-info-card">
-                    <div class="attendance-status-badge">
-                        <span class="pulse-indicator"></span>
-                        <span>SATURDAY MEET // CHECK-IN ACTIVE</span>
-                    </div>
-                    <h3>Weekly Saturday Attendance</h3>
-                    <p>Log your attendance for today's Saturday Meet with only your Membership ID. Records are securely stored in the cloud database and cached locally on this device.</p>
-
-                    <div class="attendance-badges-list">
-                        <div class="info-pill pill-emerald"><i class="fas fa-check-circle"></i> Session: <strong>Saturday Meet</strong></div>
-                        <div class="info-pill pill-cyan"><i class="fas fa-database"></i> Cloud Stored & Device Synced</div>
-                        <div class="info-pill pill-lavender"><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor / Google Meet</div>
-                    </div>
-
-                    <!-- Stored Attendance Records Counter & Viewer -->
-                    <div class="attendance-storage-widget">
-                        <div class="widget-top">
-                            <div>
-                                <span class="widget-label">STORED ON THIS DEVICE</span>
-                                <div class="widget-count"><span id="localAttCount">0</span> Sessions Saved</div>
-                            </div>
-                            <button type="button" id="toggleStoredListBtn" class="btn-micro" aria-label="Toggle saved records">View History ▾</button>
-                        </div>
-                        <div id="storedRecordsDropdown" class="stored-records-dropdown" style="display: none;">
-                            <div class="stored-records-list" id="storedRecordsList">
-                                <p class="empty-stored-text">No attendance logged on this device yet.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="core-member-hint">
-                        <div class="hint-tag">NOTE FOR CORE MEMBERS</div>
-                        <p>
-                            Logged-in club leads can manage master records and export full attendance logs in the <a href="dashboard.html#attendanceSection">Member Dashboard</a>.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="attendance-form-card" style="display:flex; flex-direction:column; justify-content:space-between;">
-                    <div>
-                        <div class="card-header-group">
-                            <span class="card-eyebrow">DEDICATED SECURE PORTAL</span>
-                            <h3>Saturday Meet Attendance Portal</h3>
-                            <p class="section-subtext">Master attendance records, session logs, and participation analytics are securely hosted in our dedicated member portal.</p>
-                        </div>
-
-                        <div style="display:flex; flex-direction:column; gap:12px; margin: 20px 0;">
-                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
-                                <i class="fas fa-lock" style="color:var(--accent-cyan); width:18px;"></i>
-                                <span>Member Authentication &amp; Identity Verification</span>
-                            </div>
-                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
-                                <i class="fas fa-eye" style="color:#10b981; width:18px;"></i>
-                                <span>Standard Member Read-Only Viewing Mode</span>
-                            </div>
-                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
-                                <i class="fas fa-chart-line" style="color:#a78bfa; width:18px;"></i>
-                                <span>Real-Time Attendance Counts &amp; Statistics</span>
-                            </div>
-                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
-                                <i class="fas fa-shield-alt" style="color:#fb7185; width:18px;"></i>
-                                <span>Authorized Admin Write Controls &amp; CSV Export</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
-                        <a href="attendance.html" class="btn btn-primary" style="justify-content:center;">
-                            <i class="fas fa-calendar-check"></i> OPEN ATTENDANCE PORTAL →
-                        </a>
-                        <a href="login.html?redirect=attendance.html" class="btn btn-outline" style="justify-content:center;">
-                            <i class="fas fa-user-circle"></i> LOG IN TO ACCESS PORTAL
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="about" class="about-section">
         <div class="container">
-            <div class="section-meta">06 // ROSTER & COLLECTIVE</div>
+            <div class="section-meta">05 // ROSTER &amp; COLLECTIVE</div>
             <h2 class="section-title">About Us</h2>
             <div class="about-content">
                 <div class="about-tabs">
@@ -881,7 +564,7 @@
 
     <section id="feedback" class="feedback-section">
         <div class="container">
-            <div class="section-meta">07 // DIRECT TRANSMISSION</div>
+            <div class="section-meta">06 // DIRECT TRANSMISSION</div>
             <h2 class="section-title">Get In Touch</h2>
             <div class="feedback-content">
                 <div class="feedback-intro">
@@ -962,7 +645,7 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#events">Events & Meets</a></li>
                         <li><a href="#activities">Activities</a></li>
-                        <li><a href="#attendance">Student Attendance</a></li>
+                        <li><a href="attendance.html">Attendance Portal</a></li>
                         <li><a href="https://docs.google.com/document/d/1Ttum9bZK0xm_f281TN_R1yViBMYnVyRd/edit?usp=sharing&ouid=106060528518563420636&rtpof=true&sd=true" target="_blank">Code Of Conduct</a></li>
                         <li><a href="form.html">Join Us</a></li>
                         <li><a href="terms.html" data-modal="termsModal">Terms of Use</a></li>
@@ -1056,126 +739,7 @@
             });
         }
 
-        // 2. Student Attendance Handler (Only Membership ID & Saturday Meet)
-        const publicAttendanceForm = document.getElementById("publicAttendanceForm");
-        const localAttCountEl = document.getElementById("localAttCount");
-        const storedRecordsList = document.getElementById("storedRecordsList");
-        const storedRecordsDropdown = document.getElementById("storedRecordsDropdown");
-        const toggleStoredListBtn = document.getElementById("toggleStoredListBtn");
-
-        // Helper to load and render stored attendance from localStorage
-        function loadStoredAttendance() {
-            let records = [];
-            try {
-                records = JSON.parse(localStorage.getItem("catalyst_attendance_records") || "[]");
-            } catch(e) { records = []; }
-
-            if (localAttCountEl) {
-                localAttCountEl.textContent = records.length;
-            }
-
-            if (storedRecordsList) {
-                if (records.length === 0) {
-                    storedRecordsList.innerHTML = '<p class="empty-stored-text">No attendance logged on this device yet.</p>';
-                } else {
-                    storedRecordsList.innerHTML = records.slice(0, 8).map(r => `
-                        <div class="stored-record-item">
-                            <span class="stored-id">${safe(r.membershipId || r.rollNo)}</span>
-                            <span class="stored-meta">${safe(r.session || 'Saturday Meet')} • ${safe(r.sessionDate || '')}</span>
-                        </div>
-                    `).join("");
-                }
-            }
-        }
-
-        if (toggleStoredListBtn && storedRecordsDropdown) {
-            toggleStoredListBtn.addEventListener("click", () => {
-                const isHidden = (storedRecordsDropdown.style.display === "none");
-                storedRecordsDropdown.style.display = isHidden ? "block" : "none";
-                toggleStoredListBtn.textContent = isHidden ? "Hide History ▴" : "View History ▾";
-            });
-        }
-
-        // Initialize stored records display on page load
-        loadStoredAttendance();
-
-        if (publicAttendanceForm) {
-            publicAttendanceForm.addEventListener("submit", async function(e) {
-                e.preventDefault();
-                const rollInput = document.getElementById("attRollNo");
-                const attSubmitBtn = document.getElementById("attSubmitBtn");
-                const attStatus = document.getElementById("attStatus");
-
-                const membershipId = rollInput.value.trim();
-                if (!membershipId) return;
-
-                attSubmitBtn.disabled = true;
-                attStatus.textContent = "STORING ATTENDANCE...";
-
-                const todayIso = new Date().toISOString().split("T")[0];
-                const nowTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                const fullTimestamp = new Date().toISOString();
-
-                const payload = {
-                    membershipId: membershipId,
-                    rollNo: membershipId,
-                    studentName: "Member (" + membershipId + ")",
-                    session: "Saturday Meet",
-                    location: "Saturday Meet (Classroom / Online)",
-                    sessionDate: todayIso,
-                    timestamp: fullTimestamp,
-                    source: "public_portal",
-                    status: "Present"
-                };
-
-                // 1. Immediately store in localStorage so it's always preserved locally
-                try {
-                    let localRecs = JSON.parse(localStorage.getItem("catalyst_attendance_records") || "[]");
-                    localRecs.unshift(payload);
-                    localStorage.setItem("catalyst_attendance_records", JSON.stringify(localRecs.slice(0, 100)));
-                    loadStoredAttendance();
-                } catch(err) {
-                    console.warn("Could not save to localStorage:", err);
-                }
-
-                // 2. Persist to Firestore database
-                try {
-                    await addDoc(collection(db, "attendance"), payload);
-                } catch(err) {
-                    console.warn("Firestore sync status (offline cache active):", err);
-                }
-
-                // 3. Update UI to confirmed receipt state
-                attStatus.textContent = "";
-                publicAttendanceForm.style.display = "none";
-
-                const successBox = document.getElementById("attSuccessBox");
-                const receiptMemberId = document.getElementById("receiptMemberId");
-                const receiptDate = document.getElementById("receiptDate");
-                const receiptTimestamp = document.getElementById("receiptTimestamp");
-
-                if (receiptMemberId) receiptMemberId.textContent = membershipId;
-                if (receiptDate) receiptDate.textContent = todayIso;
-                if (receiptTimestamp) receiptTimestamp.textContent = nowTime + " (" + fullTimestamp.slice(0, 10) + ")";
-                if (successBox) successBox.style.display = "block";
-
-                attSubmitBtn.disabled = false;
-            });
-
-            const logAnotherBtn = document.getElementById("logAnotherAttBtn");
-            if (logAnotherBtn) {
-                logAnotherBtn.addEventListener("click", () => {
-                    const successBox = document.getElementById("attSuccessBox");
-                    if (successBox) successBox.style.display = "none";
-                    publicAttendanceForm.reset();
-                    publicAttendanceForm.style.display = "block";
-                    const rollInput = document.getElementById("attRollNo");
-                    if (rollInput) rollInput.focus();
-                });
-            }
-        }
-
-        // 3. Dynamic Events Loading (Firestore + Offline Cache)
+        // 2. Dynamic Events Loading (Firestore + Offline Cache)
         async function loadDynamicEvents() {
             const eventsList = document.querySelector(".events-list");
             if (!eventsList) return;
