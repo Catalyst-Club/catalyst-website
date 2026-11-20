@@ -5,23 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Catalyst Club</title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css?v=2.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-    <script type="text/javascript" src="./script.js" defer></script>
+    <script type="text/javascript" src="./script.js?v=2.5" defer></script>
 </head>
 
 <body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
+                <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html#onboarding" class="nav-link">Onboarding Leaflet</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#events" class="nav-link">Events & Meets</a>
+                <a href="index.html#activities" class="nav-link">Activities</a>
+                <a href="form.html" class="nav-link">Be a Member</a>
+                <a href="login.html" class="nav-link">Log-in</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open mobile menu" onclick="if(window.openSidebar) window.openSidebar();">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="legal-page-header">
+        <div class="container">
+            <div class="section-meta">PRIVACY // DATA ETHICS</div>
+            <h1 class="section-title">Privacy Policy</h1>
+            <p class="hero-subtitle">How Catalyst Club collects, handles, and protects student and visitor information across our web services.</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="legal-page-body">
+        <div class="container">
+            <div class="legal-card-container">
+                <div class="legal-back-nav">
+                    <a href="index.html" class="btn btn-outline">← RETURN TO HOME</a>
+                    <span class="legal-doc-meta">SYS.PRIVACY // DOC_ID: CC-HIP-POL-2026</span>
+                </div>
+
+                <div class="legal-effective-date">
+                    LAST UPDATED: JANUARY 2026 • APPLIES TO CATALYSTCLUB.IN & AFFILIATED FORMS
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">01 //</span> Introduction</h4>
+                    <p>Catalyst Club at Haldia Institute of Pharmacy ("we", "our", or "the Club") respects your privacy and is committed to protecting any personal information you provide when using our website, applying for membership, or reaching out through our contact forms.</p>
+                    <p>This Privacy Policy explains what data we collect, how it is utilized for club operations, and your choices regarding your information.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">02 //</span> Information We Collect</h4>
+                    <p>We only collect personal information that is voluntarily submitted by users or automatically processed to operate our website:</p>
+                    <ul>
+                        <li><strong>Contact Form Submissions:</strong> Full name, email address, message subject, and inquiry details submitted through the "Get In Touch" section.</li>
+                        <li><strong>Membership Applications:</strong> Full name, academic course, year of study, section, college roll number, computer accessibility, email, phone number, and statements of interest.</li>
+                        <li><strong>Saturday Attendance Logging:</strong> Membership ID / college roll number logged for Saturday Meets to track student participation, sync records to cloud storage, and verify workshop credentials.</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">03 //</span> How We Use Your Information</h4>
+                    <p>All collected data is used strictly for non-commercial, student club administration purposes:</p>
+                    <ul>
+                        <li>Processing and verifying club membership applications for Haldia Institute of Pharmacy students.</li>
+                        <li>Responding to inquiries, project collaboration requests, and support messages.</li>
+                        <li>Broadcasting notices regarding Saturday meetings, workshops, hackathons, and guest talks to enrolled members.</li>
+                        <li>Maintaining an internal roster of active club members and leadership roles.</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">04 //</span> Data Storage & Security</h4>
+                    <p>Contact messages and membership form data are securely processed and stored using Google Firebase Firestore cloud infrastructure with strict security rules. We implement appropriate technical safeguards to prevent unauthorized access, alteration, or disclosure.</p>
+                    <p>Access to membership records is restricted exclusively to authorized Catalyst Club student administrators and faculty coordinators.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">05 //</span> Non-Disclosure & Third Parties</h4>
+                    <p><strong>We will never sell, rent, lease, or monetize your personal information.</strong> We do not disclose student contact information to third-party advertisers or external commercial marketing agencies.</p>
+                    <p>Third-party tools utilized by this site (such as Google Maps embed, Google Fonts, and Font Awesome) may collect standard technical headers (such as browser user-agent) in accordance with their respective privacy policies.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">06 //</span> Cookies & Local Browser Storage</h4>
+                    <p>This website does not utilize tracking cookies or advertising pixels. We use standard browser <code>localStorage</code> solely to remember your UI preference (Dark Mode or Light Mode) and <code>sessionStorage</code> for authenticated dashboard sessions.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">07 //</span> Your Rights & Inquiries</h4>
+                    <p>You have the right to request access to the information you have submitted, update your contact details, or request the deletion of your membership records from our active databases at any time.</p>
+                    <p>To request data updates or for any privacy-related questions, please contact our team at <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary);">hello@catalystclub.in</a>.</p>
+                </div>
+
+                <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border-color); display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="terms.html" class="btn btn-outline">VIEW TERMS OF USE →</a>
+                    <a href="index.html" class="btn btn-primary">BACK TO HOME</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright-text">&copy; 2026 Catalyst Club at Haldia Institute of Pharmacy. All rights reserved.</p>
+                <p class="version">SYS.VER 2.2 • PHARMTECH EDITION • <a href="privacy.html" class="footer-policy-link">Privacy Policy</a> • <a href="terms.html" class="footer-policy-link">Terms of Use</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.querySelector(".mobile-menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+            });
+        }
+    </script>
+
+    <!-- MOBILE SIDEBAR (Placed at document bottom with display:none) -->
     <!-- MOBILE SIDEBAR OVERLAY & DRAWER -->
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="if(window.closeSidebar) window.closeSidebar();"></div>
-    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobile Navigation">
+    <div class="sidebar-overlay" id="sidebarOverlay" style="display: none;" onclick="if(window.closeSidebar) window.closeSidebar();"></div>
+    <aside class="mobile-sidebar" id="mobileSidebar" style="display: none;" aria-label="Mobile Navigation">
         <div class="sidebar-header">
             <a href="index.html" class="sidebar-brand">
-                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo">
+                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo" width="36" height="36" style="width:36px;height:36px;object-fit:cover;border-radius:10px;">
                 <div class="sidebar-brand-text">
                     <span class="sidebar-brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
                     <span class="sidebar-brand-sub">INNOVATION &amp; TECH CLUB</span>
@@ -149,135 +280,7 @@
             </div>
         </div>
     </aside>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
-            <a href="index.html" class="nav-brand">
-                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
-                <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
-            </a>
 
-            <nav class="nav-menu">
-                <a href="index.html#onboarding" class="nav-link">Onboarding Leaflet</a>
-                <a href="index.html#about" class="nav-link">About</a>
-                <a href="index.html#events" class="nav-link">Events & Meets</a>
-                <a href="index.html#activities" class="nav-link">Activities</a>
-                <a href="form.html" class="nav-link">Be a Member</a>
-                <a href="login.html" class="nav-link">Log-in</a>
-                <a href="contact.html" class="nav-link">Contact Us</a>
-            </nav>
-
-            <div class="header-controls">
-                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open mobile menu" onclick="if(window.openSidebar) window.openSidebar();">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- PAGE HERO -->
-    <section class="legal-page-header">
-        <div class="container">
-            <div class="section-meta">PRIVACY // DATA ETHICS</div>
-            <h1 class="section-title">Privacy Policy</h1>
-            <p class="hero-subtitle">How Catalyst Club collects, handles, and protects student and visitor information across our web services.</p>
-        </div>
-    </section>
-
-    <!-- CONTENT -->
-    <section class="legal-page-body">
-        <div class="container">
-            <div class="legal-card-container">
-                <div class="legal-back-nav">
-                    <a href="index.html" class="btn btn-outline">← RETURN TO HOME</a>
-                    <span class="legal-doc-meta">SYS.PRIVACY // DOC_ID: CC-HIP-POL-2026</span>
-                </div>
-
-                <div class="legal-effective-date">
-                    LAST UPDATED: JANUARY 2026 • APPLIES TO CATALYSTCLUB.IN & AFFILIATED FORMS
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">01 //</span> Introduction</h4>
-                    <p>Catalyst Club at Haldia Institute of Pharmacy ("we", "our", or "the Club") respects your privacy and is committed to protecting any personal information you provide when using our website, applying for membership, or reaching out through our contact forms.</p>
-                    <p>This Privacy Policy explains what data we collect, how it is utilized for club operations, and your choices regarding your information.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">02 //</span> Information We Collect</h4>
-                    <p>We only collect personal information that is voluntarily submitted by users or automatically processed to operate our website:</p>
-                    <ul>
-                        <li><strong>Contact Form Submissions:</strong> Full name, email address, message subject, and inquiry details submitted through the "Get In Touch" section.</li>
-                        <li><strong>Membership Applications:</strong> Full name, academic course, year of study, section, college roll number, computer accessibility, email, phone number, and statements of interest.</li>
-                        <li><strong>Saturday Attendance Logging:</strong> Membership ID / college roll number logged for Saturday Meets to track student participation, sync records to cloud storage, and verify workshop credentials.</li>
-                    </ul>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">03 //</span> How We Use Your Information</h4>
-                    <p>All collected data is used strictly for non-commercial, student club administration purposes:</p>
-                    <ul>
-                        <li>Processing and verifying club membership applications for Haldia Institute of Pharmacy students.</li>
-                        <li>Responding to inquiries, project collaboration requests, and support messages.</li>
-                        <li>Broadcasting notices regarding Saturday meetings, workshops, hackathons, and guest talks to enrolled members.</li>
-                        <li>Maintaining an internal roster of active club members and leadership roles.</li>
-                    </ul>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">04 //</span> Data Storage & Security</h4>
-                    <p>Contact messages and membership form data are securely processed and stored using Google Firebase Firestore cloud infrastructure with strict security rules. We implement appropriate technical safeguards to prevent unauthorized access, alteration, or disclosure.</p>
-                    <p>Access to membership records is restricted exclusively to authorized Catalyst Club student administrators and faculty coordinators.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">05 //</span> Non-Disclosure & Third Parties</h4>
-                    <p><strong>We will never sell, rent, lease, or monetize your personal information.</strong> We do not disclose student contact information to third-party advertisers or external commercial marketing agencies.</p>
-                    <p>Third-party tools utilized by this site (such as Google Maps embed, Google Fonts, and Font Awesome) may collect standard technical headers (such as browser user-agent) in accordance with their respective privacy policies.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">06 //</span> Cookies & Local Browser Storage</h4>
-                    <p>This website does not utilize tracking cookies or advertising pixels. We use standard browser <code>localStorage</code> solely to remember your UI preference (Dark Mode or Light Mode) and <code>sessionStorage</code> for authenticated dashboard sessions.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">07 //</span> Your Rights & Inquiries</h4>
-                    <p>You have the right to request access to the information you have submitted, update your contact details, or request the deletion of your membership records from our active databases at any time.</p>
-                    <p>To request data updates or for any privacy-related questions, please contact our team at <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary);">hello@catalystclub.in</a>.</p>
-                </div>
-
-                <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border-color); display: flex; gap: 12px; flex-wrap: wrap;">
-                    <a href="terms.html" class="btn btn-outline">VIEW TERMS OF USE →</a>
-                    <a href="index.html" class="btn btn-primary">BACK TO HOME</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p class="copyright-text">&copy; 2026 Catalyst Club at Haldia Institute of Pharmacy. All rights reserved.</p>
-                <p class="version">SYS.VER 2.2 • PHARMTECH EDITION • <a href="privacy.html" class="footer-policy-link">Privacy Policy</a> • <a href="terms.html" class="footer-policy-link">Terms of Use</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const menuBtn = document.querySelector(".mobile-menu-toggle");
-        const navMenu = document.querySelector(".nav-menu");
-        if (menuBtn && navMenu) {
-            menuBtn.addEventListener("click", () => {
-                navMenu.classList.toggle("active");
-            });
-        }
-    </script>
 </body>
 
 </html>

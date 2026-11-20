@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalyst Club — Ignite Ideas. Inspire Change.</title>
     <meta name="description" content="Catalyst Club at Haldia Institute of Pharmacy: A student-driven collective of innovators, creators, and technologists.">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css?v=2.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,264 +20,15 @@
             window.scrollTo(0, 0);
         }
     </script>
-    <script type="text/javascript" src="./script.js" defer></script>
+    <script type="text/javascript" src="./script.js?v=2.5" defer></script>
 </head>
 
 <body>
-    <div class="leaflet-modal" id="leafletModal" onclick="if(event.target===this) { if(window.closeModal) window.closeModal('leafletModal'); else this.style.display='none'; }">
-        <div class="leaflet-modal-box">
-            <div class="modal-header">
-                <div class="modal-title-group">
-                    <span class="status-dot"></span>
-                    <span>MEMBERSHIP OPEN TILL 31 DEC 2026</span>
-                </div>
-                <button type="button" class="modal-close-btn modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';" aria-label="Close popup">✕</button>
-            </div>
-            <div class="modal-pdf-wrapper">
-                <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="modal-leaflet-img" loading="eager">
-            </div>
-            <div class="modal-footer">
-                <a href="form.html" class="btn btn-primary">APPLY FOR MEMBERSHIP →</a>
-                <div class="modal-btn-row">
-                    <a href="./onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">FULL PDF ↗</a>
-                    <button type="button" class="btn btn-soft modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';">CONTINUE TO SITE</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TERMS OF USE MODAL -->
-    <div class="legal-modal" id="termsModal" onclick="if(event.target===this) window.closeModal('termsModal');">
-        <div class="legal-modal-box">
-            <div class="modal-header">
-                <div class="modal-title-group">
-                    <span class="status-dot"></span>
-                    <span>TERMS OF USE // CATALYST CLUB HIP</span>
-                </div>
-                <button type="button" class="modal-close-btn modal-close-trigger" onclick="window.closeModal('termsModal')" aria-label="Close Terms modal">✕</button>
-            </div>
-            <div class="legal-modal-body">
-                <div class="legal-doc-meta">SYS.LEGAL // DOC_ID: CC-HIP-TOU-2026 • PHARMTECH COMMUNITY</div>
-                <h3>Terms of Use</h3>
-                <div class="legal-effective-date">LAST UPDATED: JANUARY 2026 • HALDIA INSTITUTE OF PHARMACY (HIP)</div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">01 //</span> Acceptance of Terms</h4>
-                    <p>By accessing catalystclub.in, submitting membership registration forms, attending club sessions, or participating in computational workshops at Haldia Institute of Pharmacy (HIP), you agree to abide by these Terms of Use and our Code of Conduct.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">02 //</span> Nature of the Organization</h4>
-                    <p>Catalyst Club is an autonomous, student-driven scientific and computational collective at Haldia Institute of Pharmacy, ICARE Complex, Haldia. We foster innovation at the intersection of pharmaceutical sciences, artificial intelligence, bioinformatics, and healthcare technology.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">03 //</span> Academic Integrity & Scientific Ethics</h4>
-                    <p>All members must uphold honest academic principles during hackathons, Python workshops, scientific literature meta-analyses, and drug design seminars. Harassment, academic dishonesty, or disruptive conduct will lead to revocation of membership privileges.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">04 //</span> Intellectual Property & Open Code</h4>
-                    <p>Original computational algorithms, models, and research software developed by students remain the property of their respective student creators or are released under open-source licenses as designated by project contributors.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">05 //</span> Disclaimer & Contact</h4>
-                    <p>Software models, data tools, and educational materials provided on this platform are for academic and learning purposes. For official inquiries, reach out to <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary); font-weight: 600;">hello@catalystclub.in</a>.</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="terms.html" class="btn btn-outline" target="_blank">OPEN DEDICATED PAGE ↗</a>
-                <button type="button" class="btn btn-primary modal-close-trigger" onclick="window.closeModal('termsModal')"><i class="fas fa-times"></i> CLOSE</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- PRIVACY POLICY MODAL -->
-    <div class="legal-modal" id="privacyModal" onclick="if(event.target===this) window.closeModal('privacyModal');">
-        <div class="legal-modal-box">
-            <div class="modal-header">
-                <div class="modal-title-group">
-                    <span class="status-dot"></span>
-                    <span>PRIVACY POLICY // CATALYST CLUB HIP</span>
-                </div>
-                <button type="button" class="modal-close-btn modal-close-trigger" onclick="window.closeModal('privacyModal')" aria-label="Close Privacy modal">✕</button>
-            </div>
-            <div class="legal-modal-body">
-                <div class="legal-doc-meta">SYS.PRIVACY // DOC_ID: CC-HIP-POL-2026 • PHARMTECH DATA GOVERNANCE</div>
-                <h3>Privacy Policy</h3>
-                <div class="legal-effective-date">LAST UPDATED: JANUARY 2026 • APPLIES TO CATALYSTCLUB.IN & HIP SESSIONS</div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">01 //</span> Information Collection</h4>
-                    <p>We collect information voluntarily provided by students through our membership registration and contact forms, including full name, college roll number / membership ID, B.Pharm academic year, email, and contact phone number.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">02 //</span> Purpose & Use of Student Data</h4>
-                    <p>Student details are used strictly for club administration, Saturday meet attendance records, workshop credential verification, event notifications, and issuance of participation certificates. We never sell or share student data with any commercial third-party entities.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">03 //</span> Cloud Database & Firestore Security</h4>
-                    <p>Attendance records and application data are securely stored using Google Firebase Cloud infrastructure, protected by strict database security rules accessible only by authorized Catalyst Club student coordinators.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">04 //</span> Local Storage & Offline Persistence</h4>
-                    <p>We use browser local storage to preserve UI theme preferences (Dark/Light Mode) and securely cache recent Saturday attendance records on your device so check-in is never lost even if network connectivity fluctuates.</p>
-                </div>
-
-                <div class="legal-section-block">
-                    <h4><span class="legal-section-num">05 //</span> Inquiries & Student Rights</h4>
-                    <p>To inspect, correct, or request deletion of your submitted membership records, please contact our coordinator team at <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary); font-weight: 600;">hello@catalystclub.in</a>.</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="privacy.html" class="btn btn-outline" target="_blank">OPEN DEDICATED PAGE ↗</a>
-                <button type="button" class="btn btn-primary modal-close-trigger" onclick="window.closeModal('privacyModal')"><i class="fas fa-times"></i> CLOSE</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MOBILE SIDEBAR OVERLAY & DRAWER -->
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="if(window.closeSidebar) window.closeSidebar();"></div>
-    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobile Navigation">
-        <div class="sidebar-header">
-            <a href="index.html" class="sidebar-brand">
-                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo">
-                <div class="sidebar-brand-text">
-                    <span class="sidebar-brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
-                    <span class="sidebar-brand-sub">INNOVATION &amp; TECH CLUB</span>
-                </div>
-            </a>
-            <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" onclick="if(window.closeSidebar) window.closeSidebar();" aria-label="Close sidebar">✕</button>
-        </div>
-
-        <div class="sidebar-body">
-            <!-- LEAFLET & ADMISSION HIGHLIGHT WIDGET -->
-            <div class="sidebar-highlight-card">
-                <div class="sidebar-card-badge">
-                    <span class="status-dot pulse"></span>
-                    <span>ADMISSIONS 2026 // OPEN</span>
-                </div>
-                <div class="sidebar-leaflet-preview">
-                    <img src="./onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb">
-                    <div class="sidebar-leaflet-info">
-                        <h4>Onboarding Leaflet</h4>
-                        <p>Official 2025–26 club guide, tech tracks &amp; eligibility</p>
-                        <div class="sidebar-leaflet-btns">
-                            <button type="button" class="btn-sidebar-view" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) window.openModal('leafletModal');">
-                                <i class="fas fa-eye"></i> Quick View
-                            </button>
-                            <a href="./onboarding-leaflet.pdf" target="_blank" class="btn-sidebar-pdf">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NAVIGATION LINKS & REDIRECTS -->
-            <div class="sidebar-section-label">NAVIGATE &amp; REDIRECTS</div>
-            <nav class="sidebar-nav">
-                <a href="#onboarding" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-file-alt"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Onboarding Leaflet</span>
-                        <span class="sidebar-item-desc">High-res leaflet &amp; PDF download</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="#about" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-compass"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">About Club</span>
-                        <span class="sidebar-item-desc">Vision, ethos &amp; HIP ecosystem</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="#events" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Events &amp; Timeline</span>
-                        <span class="sidebar-item-desc">Workshops, hackathons &amp; meets</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="#activities" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-laptop-code"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Activities &amp; Tracks</span>
-                        <span class="sidebar-item-desc">Coding, AI, pharma tech &amp; research</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="#members" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-users"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Club Members</span>
-                        <span class="sidebar-item-desc">Active members &amp; mentors directory</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="#attendance" class="sidebar-nav-item sidebar-item-att" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Saturday Meet Attendance</span>
-                        <span class="sidebar-item-desc">Fast check-in via Membership ID</span>
-                    </div>
-                    <span class="sidebar-pill-badge">FAST CHECK-IN</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-section-label">PORTAL &amp; REGISTRATION</div>
-            <div class="sidebar-actions-group">
-                <a href="form.html" class="sidebar-action-btn sidebar-btn-apply" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <i class="fas fa-sparkles"></i>
-                    <span>Apply for Membership</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="sidebar-actions-split">
-                    <a href="login.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
-                        <i class="fas fa-lock"></i>
-                        <span>Member Login</span>
-                    </a>
-                    <a href="contact.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
-                        <i class="fas fa-envelope"></i>
-                        <span>Contact Us</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="sidebar-footer">
-            <div class="sidebar-footer-row">
-                <span class="sidebar-footer-label">THEME</span>
-                <button type="button" class="sidebar-theme-toggle" id="sidebarThemeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-adjust"></i>
-                    <span id="sidebarThemeText">Toggle Mode</span>
-                </button>
-            </div>
-            <div class="sidebar-legal-links">
-                <a href="terms.html" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) { window.openModal('termsModal'); return false; }">Terms</a>
-                <span>•</span>
-                <a href="privacy.html" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) { window.openModal('privacyModal'); return false; }">Privacy</a>
-                <span>•</span>
-                <span>CATALYST // HIP © 2026</span>
-            </div>
-        </div>
-    </aside>
 
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="nav-brand">
-                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
                 <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
             </a>
 
@@ -886,7 +637,7 @@
             <div class="footer-main">
                 <div class="footer-col">
                     <div class="nav-brand">
-                        <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                        <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
                         <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
                     </div>
                     <p class="footer-tagline">Ignite Ideas. Inspire Change. Be the Catalyst.</p>
@@ -1268,6 +1019,258 @@
             });
         }
     </script>
+
+    <!-- MODALS & MOBILE SIDEBAR (Placed at document bottom with display:none to guarantee zero layout shift) -->
+    <div class="leaflet-modal" id="leafletModal" style="display: none;" onclick="if(event.target===this) { if(window.closeModal) window.closeModal('leafletModal'); else this.style.display='none'; }">
+        <div class="leaflet-modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="status-dot"></span>
+                    <span>MEMBERSHIP OPEN TILL 31 DEC 2026</span>
+                </div>
+                <button type="button" class="modal-close-btn modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';" aria-label="Close popup">✕</button>
+            </div>
+            <div class="modal-pdf-wrapper">
+                <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="modal-leaflet-img" loading="eager">
+            </div>
+            <div class="modal-footer">
+                <a href="form.html" class="btn btn-primary">APPLY FOR MEMBERSHIP →</a>
+                <div class="modal-btn-row">
+                    <a href="./onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">FULL PDF ↗</a>
+                    <button type="button" class="btn btn-soft modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';">CONTINUE TO SITE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERMS OF USE MODAL -->
+    <div class="legal-modal" id="termsModal" style="display: none;" onclick="if(event.target===this) window.closeModal('termsModal');">
+        <div class="legal-modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="status-dot"></span>
+                    <span>TERMS OF USE // CATALYST CLUB HIP</span>
+                </div>
+                <button type="button" class="modal-close-btn modal-close-trigger" onclick="window.closeModal('termsModal')" aria-label="Close Terms modal">✕</button>
+            </div>
+            <div class="legal-modal-body">
+                <div class="legal-doc-meta">SYS.LEGAL // DOC_ID: CC-HIP-TOU-2026 • PHARMTECH COMMUNITY</div>
+                <h3>Terms of Use</h3>
+                <div class="legal-effective-date">LAST UPDATED: JANUARY 2026 • HALDIA INSTITUTE OF PHARMACY (HIP)</div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">01 //</span> Acceptance of Terms</h4>
+                    <p>By accessing catalystclub.in, submitting membership registration forms, attending club sessions, or participating in computational workshops at Haldia Institute of Pharmacy (HIP), you agree to abide by these Terms of Use and our Code of Conduct.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">02 //</span> Nature of the Organization</h4>
+                    <p>Catalyst Club is an autonomous, student-driven scientific and computational collective at Haldia Institute of Pharmacy, ICARE Complex, Haldia. We foster innovation at the intersection of pharmaceutical sciences, artificial intelligence, bioinformatics, and healthcare technology.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">03 //</span> Academic Integrity & Scientific Ethics</h4>
+                    <p>All members must uphold honest academic principles during hackathons, Python workshops, scientific literature meta-analyses, and drug design seminars. Harassment, academic dishonesty, or disruptive conduct will lead to revocation of membership privileges.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">04 //</span> Intellectual Property & Open Code</h4>
+                    <p>Original computational algorithms, models, and research software developed by students remain the property of their respective student creators or are released under open-source licenses as designated by project contributors.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">05 //</span> Disclaimer & Contact</h4>
+                    <p>Software models, data tools, and educational materials provided on this platform are for academic and learning purposes. For official inquiries, reach out to <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary); font-weight: 600;">hello@catalystclub.in</a>.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="terms.html" class="btn btn-outline" target="_blank">OPEN DEDICATED PAGE ↗</a>
+                <button type="button" class="btn btn-primary modal-close-trigger" onclick="window.closeModal('termsModal')"><i class="fas fa-times"></i> CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVACY POLICY MODAL -->
+    <div class="legal-modal" id="privacyModal" style="display: none;" onclick="if(event.target===this) window.closeModal('privacyModal');">
+        <div class="legal-modal-box">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="status-dot"></span>
+                    <span>PRIVACY POLICY // CATALYST CLUB HIP</span>
+                </div>
+                <button type="button" class="modal-close-btn modal-close-trigger" onclick="window.closeModal('privacyModal')" aria-label="Close Privacy modal">✕</button>
+            </div>
+            <div class="legal-modal-body">
+                <div class="legal-doc-meta">SYS.PRIVACY // DOC_ID: CC-HIP-POL-2026 • PHARMTECH DATA GOVERNANCE</div>
+                <h3>Privacy Policy</h3>
+                <div class="legal-effective-date">LAST UPDATED: JANUARY 2026 • APPLIES TO CATALYSTCLUB.IN & HIP SESSIONS</div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">01 //</span> Information Collection</h4>
+                    <p>We collect information voluntarily provided by students through our membership registration and contact forms, including full name, college roll number / membership ID, B.Pharm academic year, email, and contact phone number.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">02 //</span> Purpose & Use of Student Data</h4>
+                    <p>Student details are used strictly for club administration, Saturday meet attendance records, workshop credential verification, event notifications, and issuance of participation certificates. We never sell or share student data with any commercial third-party entities.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">03 //</span> Cloud Database & Firestore Security</h4>
+                    <p>Attendance records and application data are securely stored using Google Firebase Cloud infrastructure, protected by strict database security rules accessible only by authorized Catalyst Club student coordinators.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">04 //</span> Local Storage & Offline Persistence</h4>
+                    <p>We use browser local storage to preserve UI theme preferences (Dark/Light Mode) and securely cache recent Saturday attendance records on your device so check-in is never lost even if network connectivity fluctuates.</p>
+                </div>
+
+                <div class="legal-section-block">
+                    <h4><span class="legal-section-num">05 //</span> Inquiries & Student Rights</h4>
+                    <p>To inspect, correct, or request deletion of your submitted membership records, please contact our coordinator team at <a href="mailto:hello@catalystclub.in" style="color: var(--accent-primary); font-weight: 600;">hello@catalystclub.in</a>.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="privacy.html" class="btn btn-outline" target="_blank">OPEN DEDICATED PAGE ↗</a>
+                <button type="button" class="btn btn-primary modal-close-trigger" onclick="window.closeModal('privacyModal')"><i class="fas fa-times"></i> CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE SIDEBAR OVERLAY & DRAWER -->
+    <div class="sidebar-overlay" id="sidebarOverlay" style="display: none;" onclick="if(window.closeSidebar) window.closeSidebar();"></div>
+    <aside class="mobile-sidebar" id="mobileSidebar" style="display: none;" aria-label="Mobile Navigation">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-brand">
+                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo" width="36" height="36" style="width:36px;height:36px;object-fit:cover;border-radius:10px;">
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+                    <span class="sidebar-brand-sub">INNOVATION &amp; TECH CLUB</span>
+                </div>
+            </a>
+            <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" onclick="if(window.closeSidebar) window.closeSidebar();" aria-label="Close sidebar">✕</button>
+        </div>
+
+        <div class="sidebar-body">
+            <!-- LEAFLET & ADMISSION HIGHLIGHT WIDGET -->
+            <div class="sidebar-highlight-card">
+                <div class="sidebar-card-badge">
+                    <span class="status-dot pulse"></span>
+                    <span>ADMISSIONS 2026 // OPEN</span>
+                </div>
+                <div class="sidebar-leaflet-preview">
+                    <img src="./onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb">
+                    <div class="sidebar-leaflet-info">
+                        <h4>Onboarding Leaflet</h4>
+                        <p>Official 2025–26 club guide, tech tracks &amp; eligibility</p>
+                        <div class="sidebar-leaflet-btns">
+                            <button type="button" class="btn-sidebar-view" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) window.openModal('leafletModal');">
+                                <i class="fas fa-eye"></i> Quick View
+                            </button>
+                            <a href="./onboarding-leaflet.pdf" target="_blank" class="btn-sidebar-pdf">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NAVIGATION LINKS & REDIRECTS -->
+            <div class="sidebar-section-label">NAVIGATE &amp; REDIRECTS</div>
+            <nav class="sidebar-nav">
+                <a href="#onboarding" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Onboarding Leaflet</span>
+                        <span class="sidebar-item-desc">High-res leaflet &amp; PDF download</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="#about" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-compass"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">About Club</span>
+                        <span class="sidebar-item-desc">Vision, ethos &amp; HIP ecosystem</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="#events" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Events &amp; Timeline</span>
+                        <span class="sidebar-item-desc">Workshops, hackathons &amp; meets</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="#activities" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Activities &amp; Tracks</span>
+                        <span class="sidebar-item-desc">Coding, AI, pharma tech &amp; research</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="#members" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-users"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Club Members</span>
+                        <span class="sidebar-item-desc">Active members &amp; mentors directory</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="#attendance" class="sidebar-nav-item sidebar-item-att" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Saturday Meet Attendance</span>
+                        <span class="sidebar-item-desc">Fast check-in via Membership ID</span>
+                    </div>
+                    <span class="sidebar-pill-badge">FAST CHECK-IN</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-section-label">PORTAL &amp; REGISTRATION</div>
+            <div class="sidebar-actions-group">
+                <a href="form.html" class="sidebar-action-btn sidebar-btn-apply" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <i class="fas fa-sparkles"></i>
+                    <span>Apply for Membership</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="sidebar-actions-split">
+                    <a href="login.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
+                        <i class="fas fa-lock"></i>
+                        <span>Member Login</span>
+                    </a>
+                    <a href="contact.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-row">
+                <span class="sidebar-footer-label">THEME</span>
+                <button type="button" class="sidebar-theme-toggle" id="sidebarThemeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-adjust"></i>
+                    <span id="sidebarThemeText">Toggle Mode</span>
+                </button>
+            </div>
+            <div class="sidebar-legal-links">
+                <a href="terms.html" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) { window.openModal('termsModal'); return false; }">Terms</a>
+                <span>•</span>
+                <a href="privacy.html" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) { window.openModal('privacyModal'); return false; }">Privacy</a>
+                <span>•</span>
+                <span>CATALYST // HIP © 2026</span>
+            </div>
+        </div>
+    </aside>
+
 </body>
 
 </html>

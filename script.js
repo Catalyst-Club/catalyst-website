@@ -345,6 +345,10 @@ function openSidebar() {
     const sidebar = document.getElementById("mobileSidebar");
     const overlay = document.getElementById("sidebarOverlay");
     if (!sidebar) return;
+    sidebar.style.display = "flex";
+    if (overlay) overlay.style.display = "block";
+    // Trigger reflow for smooth transform transition
+    void sidebar.offsetWidth;
     sidebar.classList.add("active");
     if (overlay) overlay.classList.add("active");
     document.body.classList.add("sidebar-open");
@@ -355,6 +359,14 @@ function closeSidebar() {
     const overlay = document.getElementById("sidebarOverlay");
     if (sidebar) sidebar.classList.remove("active");
     if (overlay) overlay.classList.remove("active");
+    setTimeout(() => {
+        if (sidebar && !sidebar.classList.contains("active")) {
+            sidebar.style.display = "none";
+        }
+        if (overlay && !overlay.classList.contains("active")) {
+            overlay.style.display = "none";
+        }
+    }, 320);
     document.body.classList.remove("sidebar-open");
     document.body.style.overflow = "";
 }

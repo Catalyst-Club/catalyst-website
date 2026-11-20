@@ -5,155 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be a Member — Catalyst Club</title>
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css?v=2.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
         href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-    <script type="text/javascript" src="./script.js" defer></script>
+    <script type="text/javascript" src="./script.js?v=2.5" defer></script>
 </head>
 
 <body>
-    <!-- MOBILE SIDEBAR OVERLAY & DRAWER -->
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="if(window.closeSidebar) window.closeSidebar();"></div>
-    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobile Navigation">
-        <div class="sidebar-header">
-            <a href="index.html" class="sidebar-brand">
-                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo">
-                <div class="sidebar-brand-text">
-                    <span class="sidebar-brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
-                    <span class="sidebar-brand-sub">INNOVATION &amp; TECH CLUB</span>
-                </div>
-            </a>
-            <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" onclick="if(window.closeSidebar) window.closeSidebar();" aria-label="Close sidebar">✕</button>
-        </div>
-
-        <div class="sidebar-body">
-            <!-- LEAFLET & ADMISSION HIGHLIGHT WIDGET -->
-            <div class="sidebar-highlight-card">
-                <div class="sidebar-card-badge">
-                    <span class="status-dot pulse"></span>
-                    <span>ADMISSIONS 2026 // OPEN</span>
-                </div>
-                <div class="sidebar-leaflet-preview">
-                    <img src="./onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb">
-                    <div class="sidebar-leaflet-info">
-                        <h4>Onboarding Leaflet</h4>
-                        <p>Official 2025–26 club guide, tech tracks &amp; eligibility</p>
-                        <div class="sidebar-leaflet-btns">
-                            <a href="index.html#onboarding" class="btn-sidebar-view">
-                                <i class="fas fa-eye"></i> View Leaflet
-                            </a>
-                            <a href="./onboarding-leaflet.pdf" target="_blank" class="btn-sidebar-pdf">
-                                <i class="fas fa-file-pdf"></i> PDF
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NAVIGATION LINKS & REDIRECTS -->
-            <div class="sidebar-section-label">NAVIGATE &amp; REDIRECTS</div>
-            <nav class="sidebar-nav">
-                <a href="index.html#onboarding" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-file-alt"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Onboarding Leaflet</span>
-                        <span class="sidebar-item-desc">High-res leaflet &amp; PDF download</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="index.html#about" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-compass"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">About Club</span>
-                        <span class="sidebar-item-desc">Vision, ethos &amp; HIP ecosystem</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="index.html#events" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-calendar-alt"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Events &amp; Timeline</span>
-                        <span class="sidebar-item-desc">Workshops, hackathons &amp; meets</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="index.html#activities" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-laptop-code"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Activities &amp; Tracks</span>
-                        <span class="sidebar-item-desc">Coding, AI, pharma tech &amp; research</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="index.html#members" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-users"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Club Members</span>
-                        <span class="sidebar-item-desc">Active members &amp; mentors directory</span>
-                    </div>
-                    <i class="fas fa-chevron-right sidebar-arrow"></i>
-                </a>
-
-                <a href="index.html#attendance" class="sidebar-nav-item sidebar-item-att" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <div class="sidebar-item-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Saturday Meet Attendance</span>
-                        <span class="sidebar-item-desc">Fast check-in via Membership ID</span>
-                    </div>
-                    <span class="sidebar-pill-badge">FAST CHECK-IN</span>
-                </a>
-            </nav>
-
-            <div class="sidebar-section-label">PORTAL &amp; REGISTRATION</div>
-            <div class="sidebar-actions-group">
-                <a href="form.html" class="sidebar-action-btn sidebar-btn-apply" onclick="if(window.closeSidebar) window.closeSidebar();">
-                    <i class="fas fa-sparkles"></i>
-                    <span>Apply for Membership</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="sidebar-actions-split">
-                    <a href="login.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
-                        <i class="fas fa-lock"></i>
-                        <span>Member Login</span>
-                    </a>
-                    <a href="contact.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
-                        <i class="fas fa-envelope"></i>
-                        <span>Contact Us</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="sidebar-footer">
-            <div class="sidebar-footer-row">
-                <span class="sidebar-footer-label">THEME</span>
-                <button type="button" class="sidebar-theme-toggle" id="sidebarThemeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-adjust"></i>
-                    <span id="sidebarThemeText">Toggle Mode</span>
-                </button>
-            </div>
-            <div class="sidebar-legal-links">
-                <a href="terms.html">Terms</a>
-                <span>•</span>
-                <a href="privacy.html">Privacy</a>
-                <span>•</span>
-                <span>CATALYST // HIP © 2026</span>
-            </div>
-        </div>
-    </aside>
     <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="nav-brand">
-                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
                 <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
             </a>
 
@@ -364,6 +231,142 @@
             });
         }
     </script>
+
+    <!-- MOBILE SIDEBAR (Placed at document bottom with display:none) -->
+    <!-- MOBILE SIDEBAR OVERLAY & DRAWER -->
+    <div class="sidebar-overlay" id="sidebarOverlay" style="display: none;" onclick="if(window.closeSidebar) window.closeSidebar();"></div>
+    <aside class="mobile-sidebar" id="mobileSidebar" style="display: none;" aria-label="Mobile Navigation">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-brand">
+                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo" width="36" height="36" style="width:36px;height:36px;object-fit:cover;border-radius:10px;">
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+                    <span class="sidebar-brand-sub">INNOVATION &amp; TECH CLUB</span>
+                </div>
+            </a>
+            <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" onclick="if(window.closeSidebar) window.closeSidebar();" aria-label="Close sidebar">✕</button>
+        </div>
+
+        <div class="sidebar-body">
+            <!-- LEAFLET & ADMISSION HIGHLIGHT WIDGET -->
+            <div class="sidebar-highlight-card">
+                <div class="sidebar-card-badge">
+                    <span class="status-dot pulse"></span>
+                    <span>ADMISSIONS 2026 // OPEN</span>
+                </div>
+                <div class="sidebar-leaflet-preview">
+                    <img src="./onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb">
+                    <div class="sidebar-leaflet-info">
+                        <h4>Onboarding Leaflet</h4>
+                        <p>Official 2025–26 club guide, tech tracks &amp; eligibility</p>
+                        <div class="sidebar-leaflet-btns">
+                            <a href="index.html#onboarding" class="btn-sidebar-view">
+                                <i class="fas fa-eye"></i> View Leaflet
+                            </a>
+                            <a href="./onboarding-leaflet.pdf" target="_blank" class="btn-sidebar-pdf">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NAVIGATION LINKS & REDIRECTS -->
+            <div class="sidebar-section-label">NAVIGATE &amp; REDIRECTS</div>
+            <nav class="sidebar-nav">
+                <a href="index.html#onboarding" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Onboarding Leaflet</span>
+                        <span class="sidebar-item-desc">High-res leaflet &amp; PDF download</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="index.html#about" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-compass"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">About Club</span>
+                        <span class="sidebar-item-desc">Vision, ethos &amp; HIP ecosystem</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="index.html#events" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Events &amp; Timeline</span>
+                        <span class="sidebar-item-desc">Workshops, hackathons &amp; meets</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="index.html#activities" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Activities &amp; Tracks</span>
+                        <span class="sidebar-item-desc">Coding, AI, pharma tech &amp; research</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="index.html#members" class="sidebar-nav-item" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-users"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Club Members</span>
+                        <span class="sidebar-item-desc">Active members &amp; mentors directory</span>
+                    </div>
+                    <i class="fas fa-chevron-right sidebar-arrow"></i>
+                </a>
+
+                <a href="index.html#attendance" class="sidebar-nav-item sidebar-item-att" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <div class="sidebar-item-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="sidebar-item-content">
+                        <span class="sidebar-item-title">Saturday Meet Attendance</span>
+                        <span class="sidebar-item-desc">Fast check-in via Membership ID</span>
+                    </div>
+                    <span class="sidebar-pill-badge">FAST CHECK-IN</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-section-label">PORTAL &amp; REGISTRATION</div>
+            <div class="sidebar-actions-group">
+                <a href="form.html" class="sidebar-action-btn sidebar-btn-apply" onclick="if(window.closeSidebar) window.closeSidebar();">
+                    <i class="fas fa-sparkles"></i>
+                    <span>Apply for Membership</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="sidebar-actions-split">
+                    <a href="login.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
+                        <i class="fas fa-lock"></i>
+                        <span>Member Login</span>
+                    </a>
+                    <a href="contact.html" class="sidebar-action-sub" onclick="if(window.closeSidebar) window.closeSidebar();">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-row">
+                <span class="sidebar-footer-label">THEME</span>
+                <button type="button" class="sidebar-theme-toggle" id="sidebarThemeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-adjust"></i>
+                    <span id="sidebarThemeText">Toggle Mode</span>
+                </button>
+            </div>
+            <div class="sidebar-legal-links">
+                <a href="terms.html">Terms</a>
+                <span>•</span>
+                <a href="privacy.html">Privacy</a>
+                <span>•</span>
+                <span>CATALYST // HIP © 2026</span>
+            </div>
+        </div>
+    </aside>
+
 </body>
 
 </html>

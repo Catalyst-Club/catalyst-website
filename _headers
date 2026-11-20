@@ -3,6 +3,14 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
 
+/style.css
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+/script.js
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
 /*.css
   Content-Type: text/css; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
@@ -10,6 +18,18 @@
 /*.js
   Content-Type: application/javascript; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
+
+/logo.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+
+/onboarding_leaflet.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+
+/onboarding-leaflet.pdf
+  Content-Type: application/pdf
+  Cache-Control: public, max-age=86400
 
 /*.jpg
   Content-Type: image/jpeg
