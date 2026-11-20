@@ -305,6 +305,9 @@ function initThemeToggle() {
             document.documentElement.setAttribute("data-theme", "dark");
             localStorage.setItem("theme", "dark");
         }
+        if (typeof updateSidebarThemeText === "function") {
+            updateSidebarThemeText();
+        }
     });
 }
 
@@ -327,6 +330,98 @@ function initTabs() {
             }
         });
     });
+}
+
+/* ==========================================================================
+   MOBILE SIDEBAR NAVIGATION
+   ========================================================================== */
+function openSidebar() {
+    const sidebar = document.getElementById("mobileSidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    if (!sidebar) return;
+    sidebar.classList.add("active");
+    if (overlay) overlay.classList.add("active");
+    document.body.classList.add("sidebar-open");
+}
+
+function closeSidebar() {
+    const sidebar = document.getElementById("mobileSidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    if (sidebar) sidebar.classList.remove("active");
+    if (overlay) overlay.classList.remove("active");
+    document.body.classList.remove("sidebar-open");
+}
+
+function updateSidebarThemeText() {
+    const textEl = document.getElementById("sidebarThemeText");
+    if (!textEl) return;
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    textEl.textContent = isDark ? "Light Mode" : "Dark Mode";
+}
+
+function initMobileSidebar() {
+    const toggleBtn = document.getElementById("mobileMenuToggle");
+    const closeBtn = document.getElementById("sidebarCloseBtn");
+    const overlay = document.getElementById("sidebarOverlay");
+    const sidebarThemeBtn = document.getElementById("sidebarThemeToggle");
+
+    if (toggleBtn && !toggleBtn.dataset.hasListener) {
+        toggleBtn.dataset.hasListener = "true";
+        toggleBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openSidebar();
+        });
+    }
+
+    if (closeBtn && !closeBtn.dataset.hasListener) {
+        closeBtn.dataset.hasListener = "true";
+        closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            closeSidebar();
+        });
+    }
+
+    if (overlay && !overlay.dataset.hasListener) {
+        overlay.dataset.hasListener = "true";
+        overlay.addEventListener("click", () => {
+            closeSidebar();
+        });
+    }
+
+    if (sidebarThemeBtn && !sidebarThemeBtn.dataset.hasListener) {
+        sidebarThemeBtn.dataset.hasListener = "true";
+        sidebarThemeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+            if (isDark) {
+                document.documentElement.removeAttribute("data-theme");
+                localStorage.setItem("theme", "light");
+            } else {
+                document.documentElement.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+            }
+            updateSidebarThemeText();
+        });
+    }
+
+    // Close when clicking any nav item inside sidebar
+    const navItems = document.querySelectorAll(".sidebar-nav a, .sidebar-actions-group a");
+    navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+            closeSidebar();
+        });
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeSidebar();
+        }
+    });
+
+    // Initial label
+    updateSidebarThemeText();
 }
 
 /* ==========================================================================
@@ -354,6 +449,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // 5. Initialize Theme Toggle
     initThemeToggle();
 
+    // 6. Initialize Mobile Sidebar Navigation
+    initMobileSidebar();
+
     // 6. Automatically popup Onboarding Leaflet Modal whenever someone opens the website
     const leafletModal = document.getElementById("leafletModal");
     if (leafletModal) {
@@ -365,6 +463,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Expose utilities to global window scope for modular scripts
+window.openSidebar = openSidebar;
+window.closeSidebar = closeSidebar;
+window.initMobileSidebar = initMobileSidebar;
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.initEventsFiltering = initEventsFiltering;
