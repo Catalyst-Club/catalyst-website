@@ -3182,24 +3182,51 @@ section {
         display: flex !important;
     }
     .header-inner {
-        flex-wrap: nowrap;
-        padding: 8px 16px;
-        min-height: 58px;
-        gap: 12px;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: wrap;
+        padding: 6px 14px 6px;
+        min-height: auto;
+        gap: 6px 10px;
     }
-    .nav-menu {
-        display: none !important; /* Hide redundant duplicate horizontal bar - mobile sidebar handles all navigation */
+    .nav-brand {
+        order: 1;
     }
     .header-controls {
+        order: 2;
+        margin-left: auto;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         flex-shrink: 0;
     }
+    .nav-menu {
+        display: flex !important; /* Mobile top row redirect view for phones */
+        position: static;
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 6px 2px 4px;
+        border-top: 1px solid var(--border-color);
+        box-shadow: none;
+        background: transparent;
+        backdrop-filter: none;
+        gap: 6px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        overscroll-behavior-x: contain;
+    }
+    .nav-menu::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-link {
+        flex-shrink: 0;
+        white-space: nowrap;
+        font-size: 0.70rem;
+        padding: 5px 11px;
+    }
     .hero {
-        padding: 104px 0 60px;
+        padding: 124px 0 60px;
     }
     .hero-title {
         font-size: clamp(2.2rem, 7vw, 3rem);
@@ -3228,7 +3255,7 @@ section {
         height: 34px;
     }
     .hero {
-        padding: 96px 0 54px;
+        padding: 116px 0 54px;
     }
     .hero-title {
         font-size: clamp(2.1rem, 7.5vw, 2.85rem);
@@ -3359,7 +3386,7 @@ section {
         min-height: 54px;
     }
     .hero {
-        padding: 90px 0 48px;
+        padding: 108px 0 48px;
     }
     .hero-title {
         font-size: clamp(1.95rem, 8vw, 2.45rem);
