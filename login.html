@@ -149,11 +149,14 @@
         if (found) {
           // store session info and redirect
           sessionStorage.setItem('currentUser', JSON.stringify({ name: found.name, id: found.id }));
-          alert('Login successful — redirecting to dashboard');
           const params = new URLSearchParams(window.location.search);
           const redirect = params.get('redirect');
           if (redirect) {
-            window.location.href = `dashboard.html#${redirect}`;
+            if (redirect.includes('.html')) {
+              window.location.href = redirect;
+            } else {
+              window.location.href = `dashboard.html#${redirect}`;
+            }
           } else {
             window.location.href = 'dashboard.html';
           }

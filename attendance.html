@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturday Attendance & Club Statistics | Catalyst Club HIP</title>
+    <meta name="description" content="Official attendance records, Saturday meet logs, and member participation statistics for Catalyst Club at Haldia Institute of Pharmacy.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap">
+    </noscript>
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <link rel="stylesheet" href="./style.css?v=3.1">
+
+    <script>
+        (function() {
+            try {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch(e) {}
+        })();
+    </script>
+    <script type="text/javascript" src="./script.js?v=3.1" defer></script>
+</head>
+
+<body>
+
+    <!-- TOP NAVIGATION HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo" width="38" height="38" loading="eager" fetchpriority="high" decoding="async" style="width:38px;height:38px;object-fit:cover;border-radius:12px;">
+                <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
+            </a>
+
+            <nav class="nav-menu" id="topNavMenu">
+                <a href="index.html#onboarding" class="nav-link" data-modal="leafletModal">Leaflet</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#events" class="nav-link">Events</a>
+                <a href="index.html#activities" class="nav-link">Activities</a>
+                <a href="attendance.html" class="nav-link nav-link-att active"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="form.html" class="nav-link nav-btn-join"><i class="fas fa-sparkles"></i> Join Us</a>
+                <a href="dashboard.html" class="nav-link nav-btn-login" id="navDashboardBtn"><i class="fas fa-user-circle"></i> Dashboard</a>
+                <a href="contact.html" class="nav-link nav-btn-contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="mobileMenuToggle" class="mobile-menu-btn" aria-label="Open mobile menu" onclick="if(window.openSidebar) window.openSidebar();">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE SIDEBAR NAVIGATION -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobile Navigation">
+        <div class="sidebar-header">
+            <div class="sidebar-brand">
+                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo" width="36" height="36" loading="lazy" decoding="async" style="width:36px;height:36px;object-fit:cover;border-radius:10px;">
+                <div class="sidebar-brand-text">
+                    <span class="brand-title">CATALYST CLUB</span>
+                    <span class="brand-sub">Haldia Institute of Pharmacy</span>
+                </div>
+            </div>
+            <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">&times;</button>
+        </div>
+
+        <div class="sidebar-content">
+            <div class="sidebar-section-title">CORE NAVIGATION</div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="sidebar-nav-item"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html#about" class="sidebar-nav-item"><i class="fas fa-info-circle"></i> About Club</a>
+                <a href="index.html#events" class="sidebar-nav-item"><i class="fas fa-calendar-alt"></i> Events & Meets</a>
+                <a href="index.html#activities" class="sidebar-nav-item"><i class="fas fa-cubes"></i> Activities & Tracks</a>
+                <a href="attendance.html" class="sidebar-nav-item sidebar-item-att active"><i class="fas fa-calendar-check"></i> Attendance Portal</a>
+                <a href="alumni.html" class="sidebar-nav-item"><i class="fas fa-graduation-cap"></i> Alumni Directory</a>
+                <a href="contact.html" class="sidebar-nav-item"><i class="fas fa-envelope"></i> Contact & Feedback</a>
+            </nav>
+
+            <div class="sidebar-section-title">QUICK ACTIONS</div>
+            <div class="sidebar-actions-group">
+                <a href="form.html" class="sidebar-action-btn btn-apply"><i class="fas fa-sparkles"></i> Join Club Form</a>
+                <a href="dashboard.html" class="sidebar-action-btn btn-portal"><i class="fas fa-user-circle"></i> Member Dashboard</a>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="sidebar-theme-toggle" id="sidebarThemeToggle" aria-label="Toggle theme">
+                <i class="fas fa-circle-half-stroke"></i>
+                <span id="sidebarThemeText">Toggle Theme</span>
+            </button>
+            <div class="sidebar-copyright">© 2026 Catalyst Club // HIP</div>
+        </div>
+    </aside>
+
+    <main class="attendance-page-main">
+        <div class="container">
+
+            <!-- PAGE HERO -->
+            <div class="att-page-header">
+                <div class="section-meta">05 // SECURE MEMBER PORTAL</div>
+                <h1 class="att-page-title">Saturday Attendance & Club Stats</h1>
+                <p class="att-page-sub">
+                    Master participation logs, session records, and engagement statistics for Catalyst Club at Haldia Institute of Pharmacy.
+                </p>
+            </div>
+
+            <!-- AUTHENTICATION REQUIRED LOCK SCREEN (Visible when unauthenticated) -->
+            <div id="authRequiredBox" class="liquid-card auth-lock-card" style="display: none;">
+                <div class="auth-lock-icon">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <h2>Member Authentication Required</h2>
+                <p>
+                    Attendance logs and club statistics contain student records and are restricted to verified Catalyst Club members and authorized faculty coordinators.
+                </p>
+                <div class="auth-lock-actions">
+                    <a href="login.html?redirect=attendance.html" class="btn btn-primary">
+                        <i class="fas fa-lock-open"></i> LOG IN WITH MEMBERSHIP ID →
+                    </a>
+                    <a href="index.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> RETURN TO HOME
+                    </a>
+                </div>
+                <div class="auth-lock-footnote">
+                    <span><i class="fas fa-info-circle"></i> Not registered yet? <a href="form.html" style="color:var(--accent-primary); font-weight:600;">Apply for Membership</a></span>
+                </div>
+            </div>
+
+            <!-- AUTHENTICATED ATTENDANCE WORKSPACE -->
+            <div id="authAttendanceWorkspace" style="display: none;">
+
+                <!-- USER STATUS BAR & ROLE CHIP -->
+                <div class="member-status-bar liquid-card">
+                    <div class="user-info-left">
+                        <div class="user-avatar-badge" id="userInitialBadge">M</div>
+                        <div>
+                            <div class="user-greeting">
+                                Welcome, <strong id="userDisplayName">Member</strong>
+                            </div>
+                            <div class="user-meta-sub">
+                                ID: <span class="mono-tag" id="userMemberIdTag">—</span>
+                                <span class="status-dot"></span>
+                                <span id="sessionStatusText">Session Verified</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-info-right">
+                        <!-- Dynamic Role Badge -->
+                        <span id="roleBadgeContainer" class="dash-tag success">
+                            <i class="fas fa-eye"></i> MEMBER (READ-ONLY)
+                        </span>
+                        <a href="dashboard.html" class="btn-micro"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <button type="button" class="btn-micro" id="attLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </div>
+                </div>
+
+                <!-- READ-ONLY NOTICE FOR STANDARD MEMBERS -->
+                <div id="readOnlyNotice" class="permission-notice info" style="display:none;">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <strong>Read-Only Member View:</strong> You have viewing access to master attendance records and club metrics. Only authorized Club Administrators can record or modify attendance entries.
+                    </div>
+                </div>
+
+                <!-- ADMIN CONTROL BANNER FOR AUTHORIZED ADMINS -->
+                <div id="adminNotice" class="permission-notice admin" style="display:none;">
+                    <i class="fas fa-key"></i>
+                    <div>
+                        <strong>Administrator Mode Active:</strong> You have authorized write access to record Saturday Meet attendance and export master records.
+                    </div>
+                </div>
+
+                <!-- REAL-TIME STATISTICS METRICS -->
+                <div class="stats-grid">
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon-wrap" style="color:#00f5a0; background:rgba(0,245,160,0.12);">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">TOTAL SESSIONS LOGGED</span>
+                            <div class="stat-value" id="statTotalRecords">0</div>
+                            <span class="stat-meta">Cloud synchronized records</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon-wrap" style="color:#38bdf8; background:rgba(56,189,248,0.12);">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">UNIQUE MEMBERS ACTIVE</span>
+                            <div class="stat-value" id="statUniqueMembers">0</div>
+                            <span class="stat-meta">Participating students</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon-wrap" style="color:#a78bfa; background:rgba(167,139,250,0.12);">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">LATEST SESSION DATE</span>
+                            <div class="stat-value text-sm" id="statLatestDate">Pending</div>
+                            <span class="stat-meta">Weekly Saturday Meet</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon-wrap" style="color:#f472b6; background:rgba(244,114,182,0.12);">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">SYSTEM STATUS</span>
+                            <div class="stat-value text-sm" style="color:#34d399;">LIVE // READY</div>
+                            <span class="stat-meta">Firestore security active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADMIN CHECK-IN FORM (VISIBLE ONLY TO VERIFIED ADMINS) -->
+                <div id="adminAttendancePanel" class="liquid-card admin-checkin-card" style="display:none; margin-top: 24px;">
+                    <div class="panel-header">
+                        <div>
+                            <span class="dash-tag admin"><i class="fas fa-lock"></i> ADMIN ONLY ACTION</span>
+                            <h3>Record Saturday Meet Attendance</h3>
+                            <p class="panel-sub">Enter the student's Membership ID or College Roll Number to record attendance in the cloud database.</p>
+                        </div>
+                    </div>
+
+                    <form id="adminCheckinForm" class="admin-att-form">
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label for="attMemberIdInput">Membership ID / Roll No *</label>
+                                <input type="text" id="attMemberIdInput" class="dash-input" placeholder="e.g. 23BPH045 or CLB102" required autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="attStudentNameInput">Student Name (Optional)</label>
+                                <input type="text" id="attStudentNameInput" class="dash-input" placeholder="Leave blank to auto-fetch">
+                            </div>
+                            <div class="form-group">
+                                <label for="attSessionTypeInput">Session</label>
+                                <input type="text" id="attSessionTypeInput" class="dash-input" value="Saturday Meet" readonly style="opacity:0.8; cursor:not-allowed;">
+                            </div>
+                        </div>
+
+                        <div class="admin-form-actions">
+                            <button type="submit" class="btn btn-primary" id="attSubmitBtn">
+                                <i class="fas fa-check"></i> RECORD ATTENDANCE →
+                            </button>
+                            <span id="attSubmitStatus" class="form-status-text"></span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- MASTER ATTENDANCE RECORDS LOG -->
+                <div class="liquid-card attendance-table-card" style="margin-top: 28px;">
+                    <div class="table-card-header">
+                        <div>
+                            <span class="section-meta">RECORDS DATABASE</span>
+                            <h3 style="margin-top: 2px;">Master Attendance Log</h3>
+                        </div>
+                        <div class="table-header-controls">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="attSearchInput" placeholder="Search by name, ID, or date..." class="dash-input">
+                            </div>
+                            <button type="button" class="btn btn-outline" id="exportCsvBtn" title="Export CSV spreadsheet">
+                                <i class="fas fa-file-csv"></i> Export CSV
+                            </button>
+                            <button type="button" class="btn btn-outline" id="refreshRecordsBtn" title="Refresh records">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="dash-table" id="masterAttendanceTable">
+                            <thead>
+                                <tr>
+                                    <th>Session Date</th>
+                                    <th>Student Name</th>
+                                    <th>Roll / Membership ID</th>
+                                    <th>Session</th>
+                                    <th>Location</th>
+                                    <th>Source / Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="attendanceTbody">
+                                <tr>
+                                    <td colspan="6" style="text-align:center; padding: 32px; color: var(--muted-text);">
+                                        <i class="fas fa-circle-notch fa-spin"></i> Loading verified attendance records...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="margin-top: 60px;">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="./logo.jpg" alt="Catalyst Club Logo" width="36" height="36" loading="lazy" decoding="async" style="width:36px;height:36px;object-fit:cover;border-radius:10px;">
+                        <span>CATALYST CLUB</span>
+                    </div>
+                    <p class="footer-desc">
+                        A student-driven collective of innovators, creators, and technologists at Haldia Institute of Pharmacy.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#about">About Us</a></li>
+                            <li><a href="index.html#events">Events</a></li>
+                            <li><a href="attendance.html">Attendance Portal</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="./onboarding-leaflet.pdf" target="_blank">Onboarding Leaflet</a></li>
+                            <li><a href="alumni.html">Alumni Directory</a></li>
+                            <li><a href="dashboard.html">Member Dashboard</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="terms.html">Terms of Use</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-credits">
+                    <p>© 2026 Catalyst Club // Haldia Institute of Pharmacy. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FIREBASE CLIENT LOGIC FOR ATTENDANCE & READ-ONLY ENFORCEMENT -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+        import {
+            getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, getDocs, doc, getDoc, where
+        } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJeFMQeayKhTERBFMgGbx3Tq_v2cvY3OQ",
+            authDomain: "catalyst-login1.firebaseapp.com",
+            projectId: "catalyst-login1",
+            storageBucket: "catalyst-login1.appspot.com",
+            messagingSenderId: "966641571185",
+            appId: "1:966641571185:web:af4144c369f85e3a5392d0",
+            measurementId: "G-XRCWBMQF30"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // State variables
+        let currentUser = null;
+        let isUserAdmin = false;
+        let allRecords = [];
+        let unsubscribeAttendance = null;
+
+        // UI references
+        const authRequiredBox = document.getElementById("authRequiredBox");
+        const authAttendanceWorkspace = document.getElementById("authAttendanceWorkspace");
+        const userDisplayName = document.getElementById("userDisplayName");
+        const userMemberIdTag = document.getElementById("userMemberIdTag");
+        const userInitialBadge = document.getElementById("userInitialBadge");
+        const roleBadgeContainer = document.getElementById("roleBadgeContainer");
+        const readOnlyNotice = document.getElementById("readOnlyNotice");
+        const adminNotice = document.getElementById("adminNotice");
+        const adminAttendancePanel = document.getElementById("adminAttendancePanel");
+        const attendanceTbody = document.getElementById("attendanceTbody");
+        const statTotalRecords = document.getElementById("statTotalRecords");
+        const statUniqueMembers = document.getElementById("statUniqueMembers");
+        const statLatestDate = document.getElementById("statLatestDate");
+        const attSearchInput = document.getElementById("attSearchInput");
+        const exportCsvBtn = document.getElementById("exportCsvBtn");
+        const refreshRecordsBtn = document.getElementById("refreshRecordsBtn");
+        const attLogoutBtn = document.getElementById("attLogoutBtn");
+        const adminCheckinForm = document.getElementById("adminCheckinForm");
+        const attSubmitBtn = document.getElementById("attSubmitBtn");
+        const attSubmitStatus = document.getElementById("attSubmitStatus");
+
+        const escapeHtml = (str) => String(str || "").replace(/[&<>"']/g, "");
+
+        // 1. Check Admin status securely against Firestore /admins collection & user doc
+        async function verifyAdminRole(userRecord) {
+            try {
+                if (!userRecord) return false;
+
+                // Check 1: Check by UID in /admins collection
+                if (userRecord.uid) {
+                    try {
+                        const adminDoc = await getDoc(doc(db, "admins", userRecord.uid));
+                        if (adminDoc.exists()) return true;
+                    } catch(e) {}
+                }
+
+                // Check 2: Check by email or membershipId in /admins collection
+                const checkTerms = [];
+                if (userRecord.email) checkTerms.push(userRecord.email);
+                if (userRecord.id) checkTerms.push(String(userRecord.id));
+                if (userRecord.membershipId) checkTerms.push(String(userRecord.membershipId));
+
+                for (const term of checkTerms) {
+                    try {
+                        const qAdmin = query(collection(db, "admins"), where("identifier", "==", term));
+                        const snap = await getDocs(qAdmin);
+                        if (!snap.empty) return true;
+                    } catch(e) {}
+                }
+
+                // Check 3: Check role attribute in user document
+                if (userRecord.uid) {
+                    try {
+                        const uDoc = await getDoc(doc(db, "users", userRecord.uid));
+                        if (uDoc.exists()) {
+                            const uData = uDoc.data();
+                            if (uData.role === "admin" || uData.isAdmin === true) return true;
+                        }
+                    } catch(e) {}
+                }
+
+                // Check 4: Check if session user has admin flag from verified login
+                if (userRecord.role === "admin" || userRecord.isAdmin === true) {
+                    return true;
+                }
+
+                return false;
+            } catch (err) {
+                console.warn("Admin check failed:", err);
+                return false;
+            }
+        }
+
+        // 2. Initialize App and Session Auth
+        async function initAttendancePortal() {
+            // Check session storage first (set by login.html)
+            let sessionUser = null;
+            try {
+                const raw = sessionStorage.getItem("currentUser");
+                if (raw) sessionUser = JSON.parse(raw);
+            } catch(e) {}
+
+            if (sessionUser && (sessionUser.name || sessionUser.id)) {
+                setupAuthenticatedUI(sessionUser);
+                return;
+            }
+
+            // Check Firebase Auth
+            onAuthStateChanged(auth, async (firebaseUser) => {
+                if (firebaseUser) {
+                    const u = {
+                        uid: firebaseUser.uid,
+                        name: firebaseUser.displayName || firebaseUser.email?.split('@')[0] || "Verified Member",
+                        email: firebaseUser.email,
+                        id: firebaseUser.uid.slice(0, 8)
+                    };
+                    setupAuthenticatedUI(u);
+                } else {
+                    // Not authenticated -> Display Lock Screen
+                    authRequiredBox.style.display = "block";
+                    authAttendanceWorkspace.style.display = "none";
+                }
+            });
+        }
+
+        // 3. Setup Authenticated UI & Permissions
+        async function setupAuthenticatedUI(user) {
+            currentUser = user;
+            authRequiredBox.style.display = "none";
+            authAttendanceWorkspace.style.display = "block";
+
+            const name = user.name || "Member";
+            const memId = user.id || (user.uid ? user.uid.slice(0, 8) : "—");
+
+            userDisplayName.textContent = name;
+            userMemberIdTag.textContent = memId;
+            userInitialBadge.textContent = (name[0] || "M").toUpperCase();
+
+            // Verify Admin status
+            isUserAdmin = await verifyAdminRole(user);
+
+            if (isUserAdmin) {
+                roleBadgeContainer.className = "dash-tag admin";
+                roleBadgeContainer.innerHTML = '<i class="fas fa-shield-alt"></i> ADMIN / CORE LEAD';
+                adminNotice.style.display = "flex";
+                readOnlyNotice.style.display = "none";
+                adminAttendancePanel.style.display = "block";
+            } else {
+                roleBadgeContainer.className = "dash-tag success";
+                roleBadgeContainer.innerHTML = '<i class="fas fa-eye"></i> MEMBER (READ-ONLY)';
+                adminNotice.style.display = "none";
+                readOnlyNotice.style.display = "flex";
+                adminAttendancePanel.style.display = "none";
+            }
+
+            // Start Real-time Attendance Feed
+            startAttendanceListener();
+        }
+
+        // 4. Real-time Attendance Listener
+        function startAttendanceListener() {
+            if (unsubscribeAttendance) unsubscribeAttendance();
+            const q = query(collection(db, "attendance"), orderBy("timestamp", "desc"), limit(250));
+
+            unsubscribeAttendance = onSnapshot(q, (snapshot) => {
+                allRecords = [];
+                snapshot.forEach(docSnap => {
+                    allRecords.push({ id: docSnap.id, ...docSnap.data() });
+                });
+                updateStats(allRecords);
+                renderTable(allRecords);
+            }, (err) => {
+                console.error("Attendance snapshot error:", err);
+                // Fallback to localStorage cache
+                try {
+                    const cached = JSON.parse(localStorage.getItem("catalyst_attendance_records") || "[]");
+                    if (cached.length) {
+                        allRecords = cached;
+                        updateStats(allRecords);
+                        renderTable(allRecords);
+                        return;
+                    }
+                } catch(e) {}
+                attendanceTbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:24px; color:#f87171;">Could not load cloud records. Check internet or permissions.</td></tr>';
+            });
+        }
+
+        // 5. Update Statistics
+        function updateStats(records) {
+            statTotalRecords.textContent = records.length;
+
+            const uniqueNames = new Set();
+            records.forEach(r => {
+                if (r.rollNo) uniqueNames.add(r.rollNo);
+                else if (r.studentName) uniqueNames.add(r.studentName);
+            });
+            statUniqueMembers.textContent = uniqueNames.size || records.length;
+
+            if (records.length > 0) {
+                const latest = records[0];
+                statLatestDate.textContent = latest.sessionDate || (latest.timestamp ? latest.timestamp.split("T")[0] : "Active");
+            } else {
+                statLatestDate.textContent = "No records";
+            }
+        }
+
+        // 6. Render Attendance Table
+        function renderTable(records) {
+            if (!records.length) {
+                attendanceTbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:32px; color:var(--muted-text);">No attendance records found matching this query.</td></tr>';
+                return;
+            }
+
+            attendanceTbody.innerHTML = "";
+            records.forEach(rec => {
+                const tr = document.createElement("tr");
+                const isVerified = (rec.source === "verified_member" || rec.source === "admin_verified");
+
+                tr.innerHTML = `
+                    <td style="font-family:'Space Mono',monospace; font-size:12px; color:var(--accent-primary); font-weight:600;">
+                        ${escapeHtml(rec.sessionDate || (rec.timestamp ? rec.timestamp.split("T")[0] : '—'))}
+                    </td>
+                    <td><strong>${escapeHtml(rec.studentName || 'Verified Member')}</strong></td>
+                    <td style="font-family:'Space Mono',monospace; font-size:12px;">${escapeHtml(rec.rollNo || rec.membershipId || '—')}</td>
+                    <td>${escapeHtml(rec.session || 'Saturday Meet')}</td>
+                    <td style="font-size:12px; color:var(--muted-text);">${escapeHtml(rec.location || 'Classroom / Online')}</td>
+                    <td>
+                        <span class="dash-tag ${isVerified ? 'success' : ''}" style="font-size:10px;">
+                            ${isVerified ? 'VERIFIED' : 'ATTENDED'}
+                        </span>
+                    </td>
+                `;
+                attendanceTbody.appendChild(tr);
+            });
+        }
+
+        // 7. Search & Filter
+        if (attSearchInput) {
+            attSearchInput.addEventListener("input", (e) => {
+                const term = e.target.value.toLowerCase().trim();
+                if (!term) {
+                    renderTable(allRecords);
+                    return;
+                }
+                const filtered = allRecords.filter(r =>
+                    (r.studentName && r.studentName.toLowerCase().includes(term)) ||
+                    (r.rollNo && r.rollNo.toLowerCase().includes(term)) ||
+                    (r.membershipId && r.membershipId.toLowerCase().includes(term)) ||
+                    (r.sessionDate && r.sessionDate.toLowerCase().includes(term)) ||
+                    (r.session && r.session.toLowerCase().includes(term))
+                );
+                renderTable(filtered);
+            });
+        }
+
+        // 8. Refresh button
+        if (refreshRecordsBtn) {
+            refreshRecordsBtn.addEventListener("click", () => {
+                startAttendanceListener();
+            });
+        }
+
+        // 9. Export CSV
+        if (exportCsvBtn) {
+            exportCsvBtn.addEventListener("click", () => {
+                if (!allRecords.length) {
+                    alert("No attendance records to export.");
+                    return;
+                }
+                let csv = "Date,Student Name,Roll/Membership ID,Session,Location,Source,Timestamp\n";
+                allRecords.forEach(r => {
+                    const row = [
+                        `"${(r.sessionDate || '').replace(/"/g, '""')}"`,
+                        `"${(r.studentName || '').replace(/"/g, '""')}"`,
+                        `"${(r.rollNo || r.membershipId || '').replace(/"/g, '""')}"`,
+                        `"${(r.session || '').replace(/"/g, '""')}"`,
+                        `"${(r.location || '').replace(/"/g, '""')}"`,
+                        `"${(r.source || '').replace(/"/g, '""')}"`,
+                        `"${(r.timestamp || '').replace(/"/g, '""')}"`
+                    ];
+                    csv += row.join(",") + "\n";
+                });
+
+                const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                const todayStr = new Date().toISOString().split("T")[0];
+                link.setAttribute("href", url);
+                link.setAttribute("download", `catalyst_master_attendance_${todayStr}.csv`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        // 10. Admin Checkin Submission (Locked to Admins Only)
+        if (adminCheckinForm) {
+            adminCheckinForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                if (!isUserAdmin) {
+                    alert("Unauthorized: Only authorized administrators can record attendance.");
+                    return;
+                }
+
+                const memId = document.getElementById("attMemberIdInput").value.trim();
+                let sName = document.getElementById("attStudentNameInput").value.trim();
+                if (!memId) {
+                    alert("Please enter a Membership ID or Roll Number.");
+                    return;
+                }
+
+                attSubmitBtn.disabled = true;
+                attSubmitStatus.style.color = "var(--muted-text)";
+                attSubmitStatus.textContent = "Verifying & writing to cloud database...";
+
+                try {
+                    // Try to auto-resolve student name from users collection if left blank
+                    if (!sName) {
+                        try {
+                            const qUser = query(collection(db, "users"), where("id", "==", memId));
+                            const userSnap = await getDocs(qUser);
+                            if (!userSnap.empty) {
+                                sName = userSnap.docs[0].data().name || "Verified Member";
+                            } else {
+                                sName = "Student (" + memId + ")";
+                            }
+                        } catch(e) {
+                            sName = "Student (" + memId + ")";
+                        }
+                    }
+
+                    const todayStr = new Date().toISOString().split("T")[0];
+                    const payload = {
+                        membershipId: memId,
+                        rollNo: memId,
+                        studentName: sName,
+                        session: "Saturday Meet",
+                        location: "Classroom 3rd Floor / Google Meet",
+                        sessionDate: todayStr,
+                        timestamp: new Date().toISOString(),
+                        source: "admin_verified",
+                        status: "Present",
+                        recordedBy: currentUser.name || "Club Admin"
+                    };
+
+                    await addDoc(collection(db, "attendance"), payload);
+
+                    attSubmitStatus.style.color = "#34d399";
+                    attSubmitStatus.textContent = "✓ Attendance recorded for " + sName + "!";
+                    adminCheckinForm.reset();
+                    document.getElementById("attSessionTypeInput").value = "Saturday Meet";
+                } catch(err) {
+                    console.error("Attendance submission error:", err);
+                    attSubmitStatus.style.color = "#f87171";
+                    attSubmitStatus.textContent = "Error: " + err.message;
+                } finally {
+                    attSubmitBtn.disabled = false;
+                    setTimeout(() => { attSubmitStatus.textContent = ""; }, 4000);
+                }
+            });
+        }
+
+        // 11. Logout handler
+        if (attLogoutBtn) {
+            attLogoutBtn.addEventListener("click", async () => {
+                try { sessionStorage.removeItem("currentUser"); } catch(e) {}
+                try { await signOut(auth); } catch(e) {}
+                window.location.href = "login.html";
+            });
+        }
+
+        // Kick off auth check on page load
+        initAttendancePortal();
+    </script>
+</body>
+</html>

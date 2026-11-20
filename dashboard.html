@@ -83,8 +83,8 @@
     <nav style="margin-top:16px">
       <a class="nav-link" href="index.html">← Back to Website</a>
       <a class="nav-link active" href="#messages" onclick="scrollToSection('#messages')">💬 Community Messages</a>
-      <a class="nav-link" href="#adminEvents" onclick="scrollToSection('#adminEvents')">📅 Manage Events [ADMIN]</a>
-      <a class="nav-link" href="#attendanceSection" onclick="scrollToSection('#attendanceSection')">📋 Attendance Portal</a>
+      <a class="nav-link" id="adminEventsNav" href="#adminEvents" onclick="scrollToSection('#adminEvents')" style="display:none;">📅 Manage Events [ADMIN]</a>
+      <a class="nav-link" href="attendance.html">📋 Attendance Portal ↗</a>
       <a class="nav-link" href="alumni.html">🎓 Alumni Directory</a>
       <a class="nav-link" href="contact.html">⚠️ Report / Feedback</a>
       <a class="nav-link" href="https://hiphaldia.org/" target="_blank">🏛️ College Web</a>
@@ -126,8 +126,8 @@
           <div class="feed" id="messageFeed" aria-live="polite"></div>
         </section>
 
-        <!-- ADMIN EVENT MANAGEMENT -->
-        <section id="adminEvents" class="card" style="margin-top:20px;">
+        <!-- ADMIN EVENT MANAGEMENT (Restricted to Authorized Admins) -->
+        <section id="adminEvents" class="card" style="margin-top:20px; display:none;">
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
             <div>
               <span class="dash-tag admin">ADMIN / CORE TEAM</span>
@@ -427,6 +427,73 @@ signOutBtn.addEventListener('click', async () => {
 
 refreshBtn.addEventListener('click', () => { loadAlumni(); });
 
+/* ------------- Admin Role & Permission Verification ------------- */
+let isUserAdmin = false;
+
+async function checkAdminStatus(u) {
+  try {
+    if (!u) return false;
+    if (u.uid) {
+      try {
+        const adminDoc = await getDoc(doc(db, "admins", u.uid));
+        if (adminDoc.exists()) return true;
+      } catch(e) {}
+    }
+    const checkTerms = [];
+    if (u.email) checkTerms.push(u.email);
+    if (u.id) checkTerms.push(String(u.id));
+    if (u.membershipId) checkTerms.push(String(u.membershipId));
+
+    for (const term of checkTerms) {
+      try {
+        const qAdmin = query(collection(db, "admins"), where("identifier", "==", term));
+        const snap = await getDocs(qAdmin);
+        if (!snap.empty) return true;
+      } catch(e) {}
+    }
+
+    if (u.uid) {
+      try {
+        const uDoc = await getDoc(doc(db, "users", u.uid));
+        if (uDoc.exists()) {
+          const uData = uDoc.data();
+          if (uData.role === "admin" || uData.isAdmin === true) return true;
+        }
+      } catch(e) {}
+    }
+    if (u.role === "admin" || u.isAdmin === true) return true;
+    return false;
+  } catch(e) {
+    return false;
+  }
+}
+
+async function applyPermissions(u) {
+  isUserAdmin = await checkAdminStatus(u);
+  const adminEventsNav = document.getElementById("adminEventsNav");
+  const adminEventsSec = document.getElementById("adminEvents");
+  const dashAttendanceForm = document.getElementById("dashAttendanceForm");
+
+  if (isUserAdmin) {
+    if (adminEventsNav) adminEventsNav.style.display = "block";
+    if (adminEventsSec) adminEventsSec.style.display = "block";
+  } else {
+    if (adminEventsNav) adminEventsNav.style.display = "none";
+    if (adminEventsSec) adminEventsSec.style.display = "none";
+    if (dashAttendanceForm) {
+      const submitBtn = document.getElementById("dashAttSubmitBtn");
+      const attIdInput = document.getElementById("dashAttId");
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.6";
+        submitBtn.style.cursor = "not-allowed";
+        submitBtn.textContent = "🔒 READ-ONLY MODE (ADMIN CONTROL ONLY)";
+      }
+      if (attIdInput) attIdInput.disabled = true;
+    }
+  }
+}
+
 /* ------------- Authentication logic -------------
    - If sessionStorage.currentUser exists (your existing login flow), use it.
    - Otherwise wait for Firebase onAuthStateChanged and use that user.
@@ -440,6 +507,7 @@ async function startApp(){
       const u = JSON.parse(raw);
       // expected shape: { name: "...", id: "..." } (your login page uses that)
       await populateProfileFromSession(u);
+      await applyPermissions(u);
       startMessagesListener(); loadAlumni(); loadAdminEvents(); startAttendanceListener();
       return;
     }
@@ -456,6 +524,7 @@ async function startApp(){
     }
     currentUser = user;
     await populateProfileFromAuth(user);
+    await applyPermissions(user);
     startMessagesListener(); loadAlumni(); loadAdminEvents(); startAttendanceListener();
   });
 }
@@ -724,6 +793,10 @@ if (eventDatePicker) eventDatePicker.value = todayIsoStr;
 if (adminEventForm) {
   adminEventForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!isUserAdmin) {
+      alert("Unauthorized: Administrator permissions required to publish events.");
+      return;
+    }
     if (publishEventBtn) publishEventBtn.disabled = true;
     if (eventPostStatus) {
       eventPostStatus.style.color = "var(--muted)";
@@ -882,6 +955,10 @@ const dashAttStatus = document.getElementById('dashAttStatus');
 if (dashAttendanceForm) {
   dashAttendanceForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!isUserAdmin) {
+      alert("Unauthorized: Standard members have read-only access. Only authorized administrators can record attendance.");
+      return;
+    }
     dashAttSubmitBtn.disabled = true;
     dashAttStatus.style.color = "var(--muted)";
     dashAttStatus.textContent = "Storing Saturday attendance...";

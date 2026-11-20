@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper: checks if user is logged into Firebase Auth
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper: verifies if the requesting user has an authorized admin role
+    // Checked against the dedicated /admins collection or custom claims / role in /users
+    function isAdmin() {
+      return isAuthenticated() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin') ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true)
+      );
+    }
+
+    // 1. ADMINS COLLECTION
+    // Super-admin locked: No unauthorized user can add, edit, or self-promote to admin
+    match /admins/{adminId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // 2. ATTENDANCE COLLECTION
+    // Read-only for standard authenticated members; write/update/delete strictly restricted to admins
+    match /attendance/{recordId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // 3. EVENTS COLLECTION
+    // Public read access for website visitors; write restricted to admins
+    match /events/{eventId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 4. USERS & MEMBERS DIRECTORY
+    // Members can read profiles; updates to user docs cannot alter role or isAdmin status unless admin
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && (!request.resource.data.keys().hasAny(['role', 'isAdmin']) || isAdmin());
+      allow update: if isAuthenticated() && (
+        isAdmin() ||
+        (request.auth.uid == userId && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['role', 'isAdmin']))
+      );
+      allow delete: if isAdmin();
+    }
+
+    // 5. COMMUNITY MESSAGES
+    match /messages/{messageId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update, delete: if isAdmin() || (isAuthenticated() && resource.data.uid == request.auth.uid);
+    }
+  }
+}

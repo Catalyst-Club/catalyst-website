@@ -21,10 +21,10 @@
     </noscript>
 
     <!-- Asynchronous non-blocking Google Fonts with swap display -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap">
     </noscript>
     <script>
         // Prevent unwanted jumping down on initial page load
@@ -33,7 +33,7 @@
             window.scrollTo(0, 0);
         }
     </script>
-    <script type="text/javascript" src="./script.js?v=3.0" defer></script>
+    <script type="text/javascript" src="./script.js?v=3.1" defer></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#events" class="nav-link">Events</a>
                 <a href="#activities" class="nav-link">Activities</a>
-                <a href="#attendance" class="nav-link nav-link-att"><i class="fas fa-calendar-check"></i> Attendance</a>
+                <a href="attendance.html" class="nav-link nav-link-att"><i class="fas fa-calendar-check"></i> Attendance</a>
                 <a href="form.html" class="nav-link nav-btn-join"><i class="fas fa-sparkles"></i> Join Us</a>
                 <a href="login.html" class="nav-link nav-btn-login"><i class="fas fa-lock"></i> Login</a>
                 <a href="contact.html" class="nav-link nav-btn-contact"><i class="fas fa-envelope"></i> Contact</a>
@@ -280,15 +280,19 @@
                     </div>
                     <div class="event-filters">
                         <button type="button" class="event-filter-btn active" data-filter="all">All Events</button>
-                        <button type="button" class="event-filter-btn" data-filter="upcoming">Upcoming</button>
-                        <button type="button" class="event-filter-btn" data-filter="past">Past Archive</button>
-                        <a href="dashboard.html#adminEvents" class="event-filter-btn event-filter-admin"><i class="fas fa-plus-circle"></i> Admin: Add Event</a>
+                        <button type="button" class="event-filter-btn" data-filter="workshops"><i class="fas fa-laptop-code"></i> Workshops</button>
+                        <button type="button" class="event-filter-btn" data-filter="meets"><i class="fas fa-comments"></i> Meets & Talks</button>
+                        <button type="button" class="event-filter-btn" data-filter="competitions"><i class="fas fa-trophy"></i> Competitions</button>
+                        <button type="button" class="event-filter-btn" data-filter="upcoming"><i class="fas fa-clock"></i> Upcoming</button>
+                        <button type="button" class="event-filter-btn" data-filter="past"><i class="fas fa-history"></i> Past Archive</button>
                     </div>
                 </div>
 
                 <!-- ===================================================================
                      HOW TO ADD A NEW EVENT ENTRY:
-                     Duplicate the template below and paste inside .events-list:
+                     Option A: Edit or add event objects inside catalystEventsData in script.js (RECOMMENDED).
+                     Option B: Duplicate the semantic fallback template below inside .events-list:
+                     =================================================================== -->
 
                      <div class="event-row upcoming-event" data-status="upcoming">
                          <div class="event-date">
@@ -450,64 +454,41 @@
                     </div>
                 </div>
 
-                <div class="attendance-form-card">
-                    <div class="card-header-group">
-                        <span class="card-eyebrow">FAST 1-STEP CHECK-IN</span>
-                        <h3>Mark Attendance</h3>
-                        <p class="section-subtext">Enter your Membership ID or College Roll Number below:</p>
+                <div class="attendance-form-card" style="display:flex; flex-direction:column; justify-content:space-between;">
+                    <div>
+                        <div class="card-header-group">
+                            <span class="card-eyebrow">DEDICATED SECURE PORTAL</span>
+                            <h3>Saturday Meet Attendance Portal</h3>
+                            <p class="section-subtext">Master attendance records, session logs, and participation analytics are securely hosted in our dedicated member portal.</p>
+                        </div>
+
+                        <div style="display:flex; flex-direction:column; gap:12px; margin: 20px 0;">
+                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
+                                <i class="fas fa-lock" style="color:var(--accent-cyan); width:18px;"></i>
+                                <span>Member Authentication &amp; Identity Verification</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
+                                <i class="fas fa-eye" style="color:#10b981; width:18px;"></i>
+                                <span>Standard Member Read-Only Viewing Mode</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
+                                <i class="fas fa-chart-line" style="color:#a78bfa; width:18px;"></i>
+                                <span>Real-Time Attendance Counts &amp; Statistics</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--text-color);">
+                                <i class="fas fa-shield-alt" style="color:#fb7185; width:18px;"></i>
+                                <span>Authorized Admin Write Controls &amp; CSV Export</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <form id="publicAttendanceForm" class="attendance-fast-form">
-                        <div class="form-group membership-single-group">
-                            <label for="attRollNo">
-                                <i class="fas fa-id-card"></i> MEMBERSHIP ID / ROLL NO
-                            </label>
-                            <div class="input-action-wrapper">
-                                <input type="text" id="attRollNo" class="membership-id-field" placeholder="e.g. 23BPH045 or CLB102" required autocomplete="off" spellcheck="false">
-                                <button type="submit" class="submit-button att-action-btn" id="attSubmitBtn">
-                                    <span>CHECK IN</span>
-                                    <i class="fas fa-arrow-right"></i>
-                                </button>
-                            </div>
-                            <div class="form-input-caption">
-                                <span><i class="fas fa-calendar-check"></i> Session: <strong>Saturday Meet</strong></span>
-                                <span><i class="fas fa-bolt"></i> Instant 1-Touch Logging</span>
-                            </div>
-                        </div>
-
-                        <div id="attStatus" class="form-status"></div>
-                    </form>
-
-                    <div id="attSuccessBox" class="attendance-success-box" style="display:none;">
-                        <div class="success-icon-wrap">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h4>Attendance Stored Successfully!</h4>
-                        <div class="receipt-card">
-                            <div class="receipt-row">
-                                <span class="receipt-label">Membership ID</span>
-                                <span class="receipt-val mono" id="receiptMemberId">—</span>
-                            </div>
-                            <div class="receipt-row">
-                                <span class="receipt-label">Session</span>
-                                <span class="receipt-val">Saturday Meet</span>
-                            </div>
-                            <div class="receipt-row">
-                                <span class="receipt-label">Session Date</span>
-                                <span class="receipt-val" id="receiptDate">—</span>
-                            </div>
-                            <div class="receipt-row">
-                                <span class="receipt-label">Logged At</span>
-                                <span class="receipt-val" id="receiptTimestamp">—</span>
-                            </div>
-                            <div class="receipt-row">
-                                <span class="receipt-label">Storage Verification</span>
-                                <span class="receipt-val status-stored"><i class="fas fa-shield-halved"></i> Stored in Cloud & Local Disk</span>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-outline" id="logAnotherAttBtn">
-                            <i class="fas fa-user-plus"></i> Check In Another Member
-                        </button>
+                    <div style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+                        <a href="attendance.html" class="btn btn-primary" style="justify-content:center;">
+                            <i class="fas fa-calendar-check"></i> OPEN ATTENDANCE PORTAL →
+                        </a>
+                        <a href="login.html?redirect=attendance.html" class="btn btn-outline" style="justify-content:center;">
+                            <i class="fas fa-user-circle"></i> LOG IN TO ACCESS PORTAL
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1171,6 +1152,60 @@
         </div>
     </div>
 
+    <!-- INTERACTIVE EVENT DETAIL MODAL -->
+    <div class="legal-modal" id="eventDetailModal" style="display: none;" onclick="if(event.target===this) window.closeModal('eventDetailModal');">
+        <div class="event-modal-box">
+            <div class="event-modal-header">
+                <div class="event-badges" style="margin-bottom:0;">
+                    <span class="badge-tag" id="eventModalCatBadge">WORKSHOP</span>
+                    <span class="badge-status" id="eventModalStatusBadge">UPCOMING</span>
+                </div>
+                <button type="button" class="modal-close-btn modal-close-trigger" onclick="window.closeModal('eventDetailModal')" aria-label="Close event details">✕</button>
+            </div>
+            <div class="event-modal-body">
+                <h3 class="event-modal-title" id="eventModalTitle">Event Title</h3>
+                
+                <div class="event-modal-meta-grid">
+                    <div class="event-meta-item">
+                        <i class="fas fa-calendar-day"></i>
+                        <span id="eventModalDate">—</span>
+                    </div>
+                    <div class="event-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="eventModalTime">—</span>
+                    </div>
+                    <div class="event-meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="eventModalLocation">—</span>
+                    </div>
+                    <div class="event-meta-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span id="eventModalSpeaker">—</span>
+                    </div>
+                </div>
+
+                <div class="event-modal-desc" id="eventModalDesc">
+                    Detailed overview of the session...
+                </div>
+
+                <div class="event-modal-highlights">
+                    <h4>Session Highlights &amp; Takeaways</h4>
+                    <ul id="eventModalHighlightsList">
+                        <!-- Populated dynamically by script.js -->
+                    </ul>
+                </div>
+            </div>
+            <div class="event-modal-footer">
+                <a href="form.html" class="btn btn-primary" id="eventModalRsvpBtn">
+                    <i class="fas fa-ticket-alt"></i> RSVP / REGISTER →
+                </a>
+                <button type="button" class="btn btn-outline modal-close-trigger" onclick="window.closeModal('eventDetailModal')">
+                    CLOSE
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- MOBILE SIDEBAR OVERLAY & DRAWER -->
     <div class="sidebar-overlay" id="sidebarOverlay" style="display: none;" onclick="if(window.closeSidebar) window.closeSidebar();"></div>
     <aside class="mobile-sidebar" id="mobileSidebar" style="display: none;" aria-label="Mobile Navigation">
@@ -1257,13 +1292,13 @@
                     <i class="fas fa-chevron-right sidebar-arrow"></i>
                 </a>
 
-                <a href="#attendance" class="sidebar-nav-item sidebar-item-att" onclick="if(window.closeSidebar) window.closeSidebar();">
+                <a href="attendance.html" class="sidebar-nav-item sidebar-item-att" onclick="if(window.closeSidebar) window.closeSidebar();">
                     <div class="sidebar-item-icon"><i class="fas fa-calendar-check"></i></div>
                     <div class="sidebar-item-content">
-                        <span class="sidebar-item-title">Saturday Meet Attendance</span>
-                        <span class="sidebar-item-desc">Fast check-in via Membership ID</span>
+                        <span class="sidebar-item-title">Attendance Portal</span>
+                        <span class="sidebar-item-desc">Master records &amp; statistics</span>
                     </div>
-                    <span class="sidebar-pill-badge">FAST CHECK-IN</span>
+                    <span class="sidebar-pill-badge">PORTAL</span>
                 </a>
             </nav>
 
