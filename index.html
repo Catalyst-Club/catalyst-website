@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalyst Club — Ignite Ideas. Inspire Change.</title>
     <meta name="description" content="Catalyst Club at Haldia Institute of Pharmacy: A student-driven collective of innovators, creators, and technologists.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,7 +20,7 @@
             window.scrollTo(0, 0);
         }
     </script>
-    <script src="script.js" defer></script>
+    <script type="text/javascript" src="./script.js" defer></script>
 </head>
 
 <body>
@@ -34,12 +34,12 @@
                 <button type="button" class="modal-close-btn modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';" aria-label="Close popup">✕</button>
             </div>
             <div class="modal-pdf-wrapper">
-                <img src="onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="modal-leaflet-img" loading="eager">
+                <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="modal-leaflet-img" loading="eager">
             </div>
             <div class="modal-footer">
                 <a href="form.html" class="btn btn-primary">APPLY FOR MEMBERSHIP →</a>
                 <div class="modal-btn-row">
-                    <a href="onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">FULL PDF ↗</a>
+                    <a href="./onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">FULL PDF ↗</a>
                     <button type="button" class="btn btn-soft modal-close-trigger" onclick="if(window.closeModal) window.closeModal('leafletModal'); else document.getElementById('leafletModal').style.display='none';">CONTINUE TO SITE</button>
                 </div>
             </div>
@@ -145,7 +145,7 @@
     <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobile Navigation">
         <div class="sidebar-header">
             <a href="index.html" class="sidebar-brand">
-                <img src="logo.jpg" alt="Catalyst Logo" class="sidebar-logo">
+                <img src="./logo.jpg" alt="Catalyst Logo" class="sidebar-logo">
                 <div class="sidebar-brand-text">
                     <span class="sidebar-brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
                     <span class="sidebar-brand-sub">INNOVATION &amp; TECH CLUB</span>
@@ -162,7 +162,7 @@
                     <span>ADMISSIONS 2026 // OPEN</span>
                 </div>
                 <div class="sidebar-leaflet-preview">
-                    <img src="onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb">
+                    <img src="./onboarding_leaflet.jpg" alt="Leaflet preview" class="sidebar-leaflet-thumb">
                     <div class="sidebar-leaflet-info">
                         <h4>Onboarding Leaflet</h4>
                         <p>Official 2025–26 club guide, tech tracks &amp; eligibility</p>
@@ -170,7 +170,7 @@
                             <button type="button" class="btn-sidebar-view" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) window.openModal('leafletModal');">
                                 <i class="fas fa-eye"></i> Quick View
                             </button>
-                            <a href="onboarding-leaflet.pdf" target="_blank" class="btn-sidebar-pdf">
+                            <a href="./onboarding-leaflet.pdf" target="_blank" class="btn-sidebar-pdf">
                                 <i class="fas fa-file-pdf"></i> PDF
                             </a>
                         </div>
@@ -265,9 +265,9 @@
                 </button>
             </div>
             <div class="sidebar-legal-links">
-                <a href="javascript:void(0)" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) window.openModal('termsModal');">Terms</a>
+                <a href="terms.html" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) { window.openModal('termsModal'); return false; }">Terms</a>
                 <span>•</span>
-                <a href="javascript:void(0)" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) window.openModal('privacyModal');">Privacy</a>
+                <a href="privacy.html" onclick="if(window.closeSidebar) window.closeSidebar(); if(window.openModal) { window.openModal('privacyModal'); return false; }">Privacy</a>
                 <span>•</span>
                 <span>CATALYST // HIP © 2026</span>
             </div>
@@ -277,7 +277,7 @@
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="nav-brand">
-                <img src="logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
                 <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
             </a>
 
@@ -345,8 +345,8 @@
                     <h2 class="section-title">Onboarding Leaflet</h2>
                 </div>
                 <div class="onboarding-btns">
-                    <a href="onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">OPEN IN NEW TAB ↗</a>
-                    <a href="onboarding-leaflet.pdf" download="Onboarding-Leaflet.pdf" class="btn btn-primary">DOWNLOAD PDF ↓</a>
+                    <a href="./onboarding-leaflet.pdf" target="_blank" class="btn btn-outline">OPEN IN NEW TAB ↗</a>
+                    <a href="./onboarding-leaflet.pdf" download="onboarding-leaflet.pdf" class="btn btn-primary">DOWNLOAD PDF ↓</a>
                 </div>
             </div>
 
@@ -356,7 +356,7 @@
                     <span><i class="fas fa-calendar-check"></i> ACADEMIC YEAR 2025–2026</span>
                 </div>
                 <div class="leaflet-doc-viewer">
-                    <img src="onboarding_leaflet.jpg" alt="Catalyst Club Official Onboarding Leaflet" class="leaflet-doc-img" id="leafletDocImg" loading="eager">
+                    <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Official Onboarding Leaflet" class="leaflet-doc-img" id="leafletDocImg" loading="eager">
                 </div>
                 <div class="leaflet-card-footer">
                     <div class="leaflet-footer-info">
@@ -364,9 +364,9 @@
                         <span>Official Onboarding Leaflet • High-Resolution View</span>
                     </div>
                     <div class="leaflet-footer-actions">
-                        <a href="onboarding_leaflet.jpg" target="_blank" class="btn btn-outline"><i class="fas fa-search-plus"></i> View Full Image</a>
-                        <a href="onboarding-leaflet.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Open PDF ↗</a>
-                        <a href="onboarding-leaflet.pdf" download="Onboarding-Leaflet.pdf" class="btn btn-primary"><i class="fas fa-download"></i> Download PDF ↓</a>
+                        <a href="./onboarding_leaflet.jpg" target="_blank" class="btn btn-outline"><i class="fas fa-search-plus"></i> View Full Image</a>
+                        <a href="./onboarding-leaflet.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Open PDF ↗</a>
+                        <a href="./onboarding-leaflet.pdf" download="onboarding-leaflet.pdf" class="btn btn-primary"><i class="fas fa-download"></i> Download PDF ↓</a>
                     </div>
                 </div>
             </div>
@@ -413,11 +413,11 @@
                     </div>
                 </div>
                 <div class="slider" id="slider">
-                    <img src="onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="slide-img">
-                    <img src="new_member_form_2025.jpg" alt="Poster 1 - Fresh Membership Open" class="slide-img">
-                    <img src="pharmacist_day_2025.jpg" alt="Poster 2 - World Pharmacist Day" class="slide-img">
-                    <img src="press_freedom_day_2025.jpg" alt="Poster 3 - Press Freedom Day" class="slide-img">
-                    <img src="creativity_day_2025.jpg" alt="Poster 4 - World Creativity Day" class="slide-img">
+                    <img src="./onboarding_leaflet.jpg" alt="Catalyst Club Onboarding Leaflet" class="slide-img">
+                    <img src="./new_member_form_2025.jpg" alt="Poster 1 - Fresh Membership Open" class="slide-img">
+                    <img src="./pharmacist_day_2025.jpg" alt="Poster 2 - World Pharmacist Day" class="slide-img">
+                    <img src="./press_freedom_day_2025.jpg" alt="Poster 3 - Press Freedom Day" class="slide-img">
+                    <img src="./creativity_day_2025.jpg" alt="Poster 4 - World Creativity Day" class="slide-img">
                 </div>
             </div>
 
@@ -886,7 +886,7 @@
             <div class="footer-main">
                 <div class="footer-col">
                     <div class="nav-brand">
-                        <img src="logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
+                        <img src="./logo.jpg" alt="Catalyst Club Logo" class="nav-logo">
                         <span class="brand-name">CATALYST<span class="brand-tag">//HIP</span></span>
                     </div>
                     <p class="footer-tagline">Ignite Ideas. Inspire Change. Be the Catalyst.</p>

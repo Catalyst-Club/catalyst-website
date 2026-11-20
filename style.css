@@ -1,10 +1,11 @@
+@charset "UTF-8";
 /* ==========================================================================
    CATALYST CLUB — QUANTUM OBSIDIAN & BIOLUMINESCENT EMERALD DESIGN SYSTEM
    High-Tech Scientific Innovation, Precision Cyber Emerald & Electric Cyan
    Deep Space Obsidian Void, Frosted Glass, Luminescent Aurora Radiation
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+/* Google Fonts imported in HTML head */
 
 :root {
     /* Day Palette: Soft Minimalist Silver Canvas & Cyber Liquid Accents */

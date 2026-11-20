@@ -1,0 +1,28 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/*.css
+  Content-Type: text/css; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.js
+  Content-Type: application/javascript; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+
+/*.jpeg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+
+/*.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+
+/*.pdf
+  Content-Type: application/pdf
+  Cache-Control: public, max-age=86400
