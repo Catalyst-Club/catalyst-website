@@ -224,13 +224,19 @@ function openModal(modalId) {
 }
 
 function closeModal(modalId) {
-    const modal = typeof modalId === "string" ? document.getElementById(modalId) : modalId;
-    if (modal) {
-        modal.style.display = "none";
-        const anyVisible = document.querySelector(".leaflet-modal[style*='flex'], .legal-modal[style*='flex']");
-        if (!anyVisible) {
-            document.body.style.overflow = "";
-        }
+    if (modalId) {
+        const modal = typeof modalId === "string" ? document.getElementById(modalId) : modalId;
+        if (modal) modal.style.display = "none";
+    } else {
+        document.querySelectorAll(".leaflet-modal, .legal-modal").forEach((m) => {
+            m.style.display = "none";
+        });
+    }
+    const anyVisible = Array.from(document.querySelectorAll(".leaflet-modal, .legal-modal")).some(
+        (m) => m.style.display === "flex"
+    );
+    if (!anyVisible) {
+        document.body.style.overflow = "";
     }
 }
 
@@ -350,6 +356,7 @@ function closeSidebar() {
     if (sidebar) sidebar.classList.remove("active");
     if (overlay) overlay.classList.remove("active");
     document.body.classList.remove("sidebar-open");
+    document.body.style.overflow = "";
 }
 
 function updateSidebarThemeText() {
