@@ -430,9 +430,28 @@ refreshBtn.addEventListener('click', () => { loadAlumni(); });
 /* ------------- Admin Role & Permission Verification ------------- */
 let isUserAdmin = false;
 
+const AUTHORIZED_CORE_ADMINS = [
+  "SOHAM2025-29BPN1",
+  "ERROR404",
+  "sohammistry044@gmail.com"
+];
+
 async function checkAdminStatus(u) {
   try {
     if (!u) return false;
+
+    // Check 0: Whitelist match (ID, name, or email)
+    const candidateId = String(u.id || u.membershipId || "").trim().toUpperCase();
+    const candidateName = String(u.name || "").trim().toUpperCase();
+    const candidateEmail = String(u.email || "").trim().toLowerCase();
+
+    if (AUTHORIZED_CORE_ADMINS.some(adm => adm.toUpperCase() === candidateId || adm.toLowerCase() === candidateEmail)) {
+      return true;
+    }
+    if (candidateName === "SOHAM MISTRY") {
+      return true;
+    }
+
     if (u.uid) {
       try {
         const adminDoc = await getDoc(doc(db, "admins", u.uid));
@@ -461,6 +480,18 @@ async function checkAdminStatus(u) {
         }
       } catch(e) {}
     }
+
+    if (u.id) {
+      try {
+        const qU = query(collection(db, "users"), where("id", "==", u.id));
+        const uSnap = await getDocs(qU);
+        if (!uSnap.empty) {
+          const uData = uSnap.docs[0].data();
+          if (uData.role === "admin" || uData.isAdmin === true) return true;
+        }
+      } catch(e) {}
+    }
+
     if (u.role === "admin" || u.isAdmin === true) return true;
     return false;
   } catch(e) {

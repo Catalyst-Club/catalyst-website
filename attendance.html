@@ -424,10 +424,29 @@
 
         const escapeHtml = (str) => String(str || "").replace(/[&<>"']/g, "");
 
-        // 1. Check Admin status securely against Firestore /admins collection & user doc
+        // Authorized Core Administrators Whitelist
+        const AUTHORIZED_CORE_ADMINS = [
+            "SOHAM2025-29BPN1",
+            "ERROR404",
+            "sohammistry044@gmail.com"
+        ];
+
+        // 1. Check Admin status securely against Firestore /admins collection, user doc & coordinator whitelist
         async function verifyAdminRole(userRecord) {
             try {
                 if (!userRecord) return false;
+
+                // Check 0: Whitelist match (ID, name, or email)
+                const candidateId = String(userRecord.id || userRecord.membershipId || "").trim().toUpperCase();
+                const candidateName = String(userRecord.name || "").trim().toUpperCase();
+                const candidateEmail = String(userRecord.email || "").trim().toLowerCase();
+
+                if (AUTHORIZED_CORE_ADMINS.some(adm => adm.toUpperCase() === candidateId || adm.toLowerCase() === candidateEmail)) {
+                    return true;
+                }
+                if (candidateName === "SOHAM MISTRY") {
+                    return true;
+                }
 
                 // Check 1: Check by UID in /admins collection
                 if (userRecord.uid) {
@@ -451,7 +470,7 @@
                     } catch(e) {}
                 }
 
-                // Check 3: Check role attribute in user document
+                // Check 3: Check role attribute in user document by UID
                 if (userRecord.uid) {
                     try {
                         const uDoc = await getDoc(doc(db, "users", userRecord.uid));
@@ -462,7 +481,19 @@
                     } catch(e) {}
                 }
 
-                // Check 4: Check if session user has admin flag from verified login
+                // Check 4: Check role attribute in user document by Membership ID
+                if (userRecord.id) {
+                    try {
+                        const qU = query(collection(db, "users"), where("id", "==", userRecord.id));
+                        const uSnap = await getDocs(qU);
+                        if (!uSnap.empty) {
+                            const uData = uSnap.docs[0].data();
+                            if (uData.role === "admin" || uData.isAdmin === true) return true;
+                        }
+                    } catch(e) {}
+                }
+
+                // Check 5: Check if session user has admin flag from verified login
                 if (userRecord.role === "admin" || userRecord.isAdmin === true) {
                     return true;
                 }
