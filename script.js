@@ -676,7 +676,9 @@ function renderCatalystEvents(filter = "all") {
             </div>
             <div class="event-action-col">
                 <div class="event-time">${escapeHtml(ev.time)}</div>
-                <span class="event-click-hint">Details <i class="fas fa-arrow-right"></i></span>
+                <button type="button" class="btn-event-detail" onclick="event.stopPropagation(); openEventDetailModal('${ev.id}')">
+                    Details <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         `;
 
@@ -1047,9 +1049,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const leafletModal = document.getElementById("leafletModal");
     if (leafletModal && !sessionStorage.getItem("catalyst_leaflet_shown")) {
         sessionStorage.setItem("catalyst_leaflet_shown", "true");
-        setTimeout(() => {
-            openModal("leafletModal");
-        }, 400);
+        openModal("leafletModal");
     }
 });
 
