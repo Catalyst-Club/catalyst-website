@@ -458,8 +458,8 @@ const catalystEventsData = [
         title: "Google Meet on Blockchain Tech",
         category: "meets",
         categoryLabel: "Google Meet • Tech Talk",
-        status: "upcoming",
-        statusLabel: "Upcoming",
+        status: "completed",
+        statusLabel: "Completed",
         day: "21",
         month: "NOV",
         year: "2026",
@@ -488,8 +488,10 @@ function renderCatalystEvents(filter = "all") {
     if (!container) return;
 
     let filtered = catalystEventsData;
-    if (filter === "upcoming" || filter === "past") {
-        filtered = catalystEventsData.filter(e => e.status === filter);
+    if (filter === "upcoming") {
+        filtered = catalystEventsData.filter(e => e.status === "upcoming");
+    } else if (filter === "past") {
+        filtered = catalystEventsData.filter(e => e.status === "completed" || e.status === "past");
     } else if (filter !== "all") {
         filtered = catalystEventsData.filter(e => e.category === filter);
     }

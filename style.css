@@ -2107,6 +2107,10 @@ section {
     opacity: 0.84;
 }
 
+.event-row.completed-event {
+    opacity: 0.84;
+}
+
 .event-date {
     text-align: center;
     padding: 12px 10px;
@@ -2183,6 +2187,12 @@ section {
     background: var(--surface-alt);
     color: var(--muted-text);
     border: 1px solid var(--border-color);
+}
+
+.badge-status.status-completed {
+    background: rgba(52, 211, 153, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.35);
 }
 
 .event-content h3 {
