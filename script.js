@@ -25,261 +25,61 @@ const clubMembersData = {
     // 2026–2027 BATCH (CURRENT ACTIVE ACADEMIC YEAR)
     // ----------------------------------------------------------------------
     "2026-27": [
-        {
-            name: "Aditya Sinha",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 56(B)",
-            initials: "AS"
-        },
-        {
-            name: "Ayan Maity",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 10(B)",
-            initials: "AM"
-        },
-        {
-            name: "Ayan Dhara",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 09(B)",
-            initials: "AD"
-        },
-        {
-            name: "Ayan Pattanayak",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 64(B)",
-            initials: "AP"
-        },
-        {
-            name: "Arijit Raut",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 06(A)",
-            initials: "AR"
-        },
-        {
-            name: "Akshay Kumar Manna",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 58(B)",
-            initials: "AK"
-        },
-        {
-            name: "Indranil Mondal",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 99(B)",
-            initials: "IM"
-        },
-        {
-            name: "Manisha Khatun",
-            role: "ActiveMember",
-            dept: "B.Pharm 4th Year • Roll 18(B)",
-            initials: "MK"
-        },
-        {
-            name: "Mrinmayee Mallik",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 25(A)",
-            initials: "MM"
-        },
-        {
-            name: "Rohit Gucchait",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 78(B)",
-            initials: "RG"
-        },
-        {
-            name: "Rupsa Adak",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 32(A)",
-            initials: "RA"
-        },
-        {
-            name: "Sayan Mandal",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 40(A)",
-            initials: "SM"
-        },
-        {
-            name: "Bikramjit Chakraborty",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 12(B)",
-            initials: "BC"
-        },
-        {
-            name: "Soham Mistry",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 86(B)",
-            initials: "SM"
-        },
-        {
-            name: "Soumyadip Das",
-            role: "ActiveMember",
-            dept: "B.Pharm 2nd Year • Roll 89(B)",
-            initials: "SD"
-        },
-        {
-            name: "Sayantan Maiti",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 29(A)",
-            initials: "SM"
-        },
-        {
-            name: "Sagarika Samanta",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 33(A)",
-            initials: "SS"
-        },
-        {
-            name: "Sandip Kuila",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 30(B)",
-            initials: "SK"
-        },
-        {
-            name: "Swapnendu Das Adhikari",
-            role: "Active Member",
-            dept: "B.Pharm 4th Year • Roll 55(B)",
-            initials: "SD"
-        },
-        {
-            name: "Rikita Mani",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 77(B)",
-            initials: "RM"
-        },
-        {
-            name: "Safikul Rahaman Mallik",
-            role: "Active Member",
-            dept: "B.Pharm 2nd Year • Roll 102(B)",
-            initials: "SR"
-        },
-        {
-            name: "Aritra Das Adhikari",
-            role: "ActiveMember",
-            dept: "B.Pharm 2nd Year • Roll 113(B)",
-            initials: "AA"
-        }
+        { name: "Aditya Sinha", role: "Active Member", initials: "AS" },
+        { name: "Ayan Maity", role: "Active Member", initials: "AM" },
+        { name: "Ayan Dhara", role: "Active Member", initials: "AD" },
+        { name: "Ayan Pattanayak", role: "Active Member", initials: "AP" },
+        { name: "Arijit Raut", role: "Active Member", initials: "AR" },
+        { name: "Akshay Kumar Manna", role: "Active Member", initials: "AK" },
+        { name: "Indranil Mondal", role: "Active Member", initials: "IM" },
+        { name: "Manisha Khatun", role: "Active Member", initials: "MK" },
+        { name: "Mrinmayee Mallik", role: "Active Member", initials: "MM" },
+        { name: "Rohit Gucchait", role: "Active Member", initials: "RG" },
+        { name: "Rupsa Adak", role: "Active Member", initials: "RA" },
+        { name: "Sayan Mandal", role: "Active Member", initials: "SM" },
+        { name: "Bikramjit Chakraborty", role: "Active Member", initials: "BC" },
+        { name: "Soham Mistry", role: "Active Member", initials: "SM" },
+        { name: "Soumyadip Das", role: "Active Member", initials: "SD" },
+        { name: "Sayantan Maiti", role: "Active Member", initials: "SM" },
+        { name: "Sagarika Samanta", role: "Active Member", initials: "SS" },
+        { name: "Sandip Kuila", role: "Active Member", initials: "SK" },
+        { name: "Swapnendu Das Adhikari", role: "Active Member", initials: "SD" },
+        { name: "Rikita Mani", role: "Active Member", initials: "RM" },
+        { name: "Safikul Rahaman Mallik", role: "Active Member", initials: "SR" },
+        { name: "Aritra Das Adhikari", role: "Active Member", initials: "AA" }
     ],
 
     // ----------------------------------------------------------------------
     // 2025–2026 BATCH
     // ----------------------------------------------------------------------
     "2025-26": [
-        {
-            name: "Member 1",
-            role: "Core Lead",
-            dept: "B.Pharm Batch 2025–26",
-            initials: "M1",
-            bio: "Club leadership, hackathons, and technical bootcamps."
-        },
-        {
-            name: "Member 2",
-            role: "Technical Lead",
-            dept: "B.Pharm Batch 2025–26",
-            initials: "M2",
-            bio: "Python programming and digital systems development."
-        },
-        {
-            name: "Member 3",
-            role: "Events Lead",
-            dept: "B.Pharm Batch 2025–26",
-            initials: "M3",
-            bio: "Workshop coordination and guest seminar management."
-        },
-        {
-            name: "Member 4",
-            role: "Design Studio",
-            dept: "B.Pharm Batch 2025–26",
-            initials: "M4",
-            bio: "Visual assets, graphics, and social outreach media."
-        },
-        {
-            name: "Member 5",
-            role: "Research Desk",
-            dept: "B.Pharm Batch 2025–26",
-            initials: "M5",
-            bio: "Literature reviews, meta-analysis, and scientific writing."
-        },
-        {
-            name: "Member 6",
-            role: "Core Member",
-            dept: "B.Pharm Batch 2025–26",
-            initials: "M6",
-            bio: "Active member contributing to campus club activities."
-        }
+        { name: "Member 1", role: "Core Lead", initials: "M1" },
+        { name: "Member 2", role: "Technical Lead", initials: "M2" },
+        { name: "Member 3", role: "Events Lead", initials: "M3" },
+        { name: "Member 4", role: "Design Studio", initials: "M4" },
+        { name: "Member 5", role: "Research Desk", initials: "M5" },
+        { name: "Member 6", role: "Core Member", initials: "M6" }
     ],
 
     // ----------------------------------------------------------------------
     // 2024–2025 BATCH
     // ----------------------------------------------------------------------
     "2024-25": [
-        {
-            name: "Member 1",
-            role: "Core Lead",
-            dept: "B.Pharm Batch 2025",
-            initials: "M1",
-            bio: "Led initial club founding meets and tech bootcamps."
-        },
-        {
-            name: "Member 2",
-            role: "Club Member",
-            dept: "B.Pharm Batch 2025",
-            initials: "M2",
-            bio: "Contributed to design assets and student outreach."
-        },
-        {
-            name: "Member 3",
-            role: "Club Member",
-            dept: "B.Pharm Batch 2025",
-            initials: "M3",
-            bio: "Spearheaded scientific symposiums and journal discussions."
-        },
-        {
-            name: "Member 4",
-            role: "Club Member",
-            dept: "B.Pharm Batch 2025",
-            initials: "M4",
-            bio: "Managed workshop logistics and participation certificates."
-        },
-        {
-            name: "Member 5",
-            role: "Club Member",
-            dept: "B.Pharm Batch 2025",
-            initials: "M5",
-            bio: "Assisted in student mentoring and event documentation."
-        },
-        {
-            name: "Member 6",
-            role: "Club Member",
-            dept: "B.Pharm Batch 2025",
-            initials: "M6",
-            bio: "Participated in Python workshops and club media."
-        }
+        { name: "Member 1", role: "Core Lead", initials: "M1" },
+        { name: "Member 2", role: "Club Member", initials: "M2" },
+        { name: "Member 3", role: "Club Member", initials: "M3" },
+        { name: "Member 4", role: "Club Member", initials: "M4" },
+        { name: "Member 5", role: "Club Member", initials: "M5" },
+        { name: "Member 6", role: "Club Member", initials: "M6" }
     ],
 
     // ----------------------------------------------------------------------
     // 2023–2024 BATCH (FOUNDING COHORT / ALUMNI)
     // ----------------------------------------------------------------------
     "2023-24": [
-        {
-            name: "Member 1",
-            role: "Founding Lead",
-            dept: "HIP Alumni",
-            initials: "M1",
-            bio: "Catalyst Club co-founder and alumni advisor."
-        },
-        {
-            name: "Member 2",
-            role: "Founding Member",
-            dept: "HIP Alumni",
-            initials: "M2",
-            bio: "Established foundational student collaborative guidelines."
-        },
-        {
-            name: "Member 3",
-            role: "Founding Member",
-            dept: "HIP Alumni",
-            initials: "M3",
-            bio: "Alumni mentor for computational biology and research."
-        }
+        { name: "Member 1", role: "Founding Lead", initials: "M1" },
+        { name: "Member 2", role: "Founding Member", initials: "M2" },
+        { name: "Member 3", role: "Founding Member", initials: "M3" }
     ]
 };
 
@@ -325,8 +125,7 @@ function renderClubMembers(yearKey) {
         card.innerHTML = `
             <div class="member-avatar">${escapeHtml(initials)}</div>
             <h4 class="member-name">${escapeHtml(member.name)}</h4>
-            <div class="member-role">${escapeHtml(member.role)}</div>
-            <div class="member-dept">${escapeHtml(member.dept)}</div>
+            <div class="member-role">${escapeHtml(member.role || "Member")}</div>
             ${member.bio ? `<p class="member-bio" style="font-size:0.8rem; color:var(--muted-text); margin-top:8px;">${escapeHtml(member.bio)}</p>` : ""}
         `;
         listContainer.appendChild(card);
@@ -342,8 +141,8 @@ const catalystActivitiesData = [
     {
         id: "track-regular-meets",
         category: "meets",
-        trackTag: "RECURRING // SATURDAY",
-        trackBadge: "WEEKLY FORUM",
+        trackTag: "Weekly Meet",
+        trackBadge: "Weekly Forum",
         icon: "fa-calendar-week",
         title: "Regular Saturday Meets",
         subtitle: "Weekly Community Gathering & Sync",
@@ -372,8 +171,8 @@ const catalystActivitiesData = [
     {
         id: "track-skill-workshops",
         category: "workshops",
-        trackTag: "TECHNICAL // HANDS-ON",
-        trackBadge: "BOOTCAMPS & LABS",
+        trackTag: "Hands-on Lab",
+        trackBadge: "Coding Labs",
         icon: "fa-laptop-code",
         title: "Skill Bootcamps & Labs",
         subtitle: "Practical Coding & Software Workflows",
@@ -402,8 +201,8 @@ const catalystActivitiesData = [
     {
         id: "track-sci-tech",
         category: "research",
-        trackTag: "RESEARCH // JOURNAL CLUB",
-        trackBadge: "SCIENTIFIC INQUIRY",
+        trackTag: "Journal Club",
+        trackBadge: "Scientific Inquiry",
         icon: "fa-microscope",
         title: "Sci-Tech & Research Lab",
         subtitle: "Evidence Synthesis & Emerging Sciences",
@@ -432,8 +231,8 @@ const catalystActivitiesData = [
     {
         id: "track-creative-media",
         category: "creative",
-        trackTag: "CREATIVE // DESIGN STUDIO",
-        trackBadge: "VISUAL & MEDIA",
+        trackTag: "Design Studio",
+        trackBadge: "Creative Studio",
         icon: "fa-palette",
         title: "Creative & Media Studio",
         subtitle: "UI/UX Design, Visual Identity & Media",
@@ -658,9 +457,9 @@ const catalystEventsData = [
         id: "event-blockchain-meet-2026",
         title: "Google Meet on Blockchain Tech",
         category: "meets",
-        categoryLabel: "GOOGLE MEET // TECH TALK",
+        categoryLabel: "Google Meet • Tech Talk",
         status: "upcoming",
-        statusLabel: "UPCOMING",
+        statusLabel: "Upcoming",
         day: "21",
         month: "NOV",
         year: "2026",

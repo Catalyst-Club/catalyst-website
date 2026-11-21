@@ -11,77 +11,75 @@
     /* GLOBAL TYPOGRAPHY SYSTEM */
     --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-body: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --font-mono: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-    /* Day Palette: Soft Minimalist Silver Canvas & Cyber Liquid Accents */
-    --bg-color: #f6f8fb;
+    /* Day Palette: Clean Soft Modern Canvas & Vibrant Fluid Accents */
+    --bg-color: #f8fafc;
     --bg-gradient: 
-        radial-gradient(circle at 14% 12%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
-        radial-gradient(circle at 86% 35%, rgba(167, 139, 250, 0.12) 0%, transparent 48%),
-        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.10) 0%, transparent 42%),
-        radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.08) 0%, transparent 40%);
-    --surface-color: rgba(255, 255, 255, 0.76);
-    --surface-alt: rgba(241, 245, 249, 0.72);
-    --surface-card: rgba(255, 255, 255, 0.82);
+        radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.08) 0%, transparent 48%),
+        radial-gradient(circle at 82% 28%, rgba(167, 139, 250, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+    --surface-color: rgba(255, 255, 255, 0.88);
+    --surface-alt: rgba(241, 245, 249, 0.85);
+    --surface-card: #ffffff;
     --text-color: #090e17;
     --muted-text: #475569;
-    --border-color: rgba(15, 23, 42, 0.10);
-    --border-highlight: rgba(255, 255, 255, 0.90);
+    --border-color: rgba(15, 23, 42, 0.09);
+    --border-highlight: rgba(255, 255, 255, 0.95);
     --accent-primary: #059669;
     --accent-soft: #10b981;
     --accent-cyan: #0284c7;
     --accent-lavender: #7c3aed;
     --accent-pink: #db2777;
-    --accent-glow: rgba(16, 185, 129, 0.20);
+    --accent-glow: rgba(16, 185, 129, 0.16);
     --accent-y2k: #0284c7;
-    --grid-line: rgba(15, 23, 42, 0.03);
+    --grid-line: transparent;
 
     /* LIQUID GLASS DESIGN TOKENS (DAY) */
-    --liquid-glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0.78) 100%);
-    --liquid-glass-alt: linear-gradient(135deg, rgba(241, 245, 249, 0.92) 0%, rgba(241, 245, 249, 0.82) 100%);
-    --liquid-glass-border: rgba(255, 255, 255, 0.78);
+    --liquid-glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 100%);
+    --liquid-glass-alt: linear-gradient(135deg, rgba(248, 250, 252, 0.96) 0%, rgba(241, 245, 249, 0.90) 100%);
+    --liquid-glass-border: rgba(226, 232, 240, 0.85);
     --liquid-glass-rim: rgba(255, 255, 255, 0.95);
-    --liquid-glass-shadow: 0 10px 28px rgba(15, 23, 42, 0.05), inset 0 1px 1px var(--liquid-glass-rim);
-    --liquid-glass-glow: 0 14px 36px rgba(15, 23, 42, 0.08), 0 0 20px rgba(56, 189, 248, 0.12);
+    --liquid-glass-shadow: 0 4px 20px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+    --liquid-glass-glow: 0 10px 28px rgba(15, 23, 42, 0.06), 0 0 16px rgba(56, 189, 248, 0.08);
     --glass-blur: none;
     --glass-blur-header: blur(16px);
-    --card-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+    --card-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
 [data-theme="dark"] {
-    /* Night Palette: Titanium Obsidian Void, Y2K Cyber Twilight & Liquid Aura */
-    --bg-color: #070a12;
+    /* Night Palette: Clean Deep Obsidian Canvas & Bioluminescent Accents */
+    --bg-color: #0b1120;
     --bg-gradient: 
-        radial-gradient(circle at 14% 14%, rgba(56, 189, 248, 0.18) 0%, transparent 48%),
-        radial-gradient(circle at 86% 25%, rgba(167, 139, 250, 0.16) 0%, transparent 46%),
-        radial-gradient(circle at 50% 85%, rgba(0, 245, 160, 0.15) 0%, transparent 52%),
-        radial-gradient(circle at 82% 82%, rgba(244, 114, 182, 0.10) 0%, transparent 40%);
-    --surface-color: rgba(11, 16, 28, 0.68);
-    --surface-alt: rgba(15, 23, 38, 0.65);
-    --surface-card: rgba(18, 27, 44, 0.62);
+        radial-gradient(circle at 18% 12%, rgba(56, 189, 248, 0.12) 0%, transparent 48%),
+        radial-gradient(circle at 82% 28%, rgba(167, 139, 250, 0.10) 0%, transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(0, 245, 160, 0.08) 0%, transparent 50%);
+    --surface-color: rgba(15, 23, 42, 0.85);
+    --surface-alt: rgba(22, 33, 54, 0.82);
+    --surface-card: #111827;
     --text-color: #f1f5f9;
     --muted-text: #94a3b8;
     --border-color: rgba(255, 255, 255, 0.10);
-    --border-highlight: rgba(255, 255, 255, 0.18);
+    --border-highlight: rgba(255, 255, 255, 0.16);
     --accent-primary: #00f5a0;
     --accent-soft: #38bdf8;
     --accent-cyan: #22d3ee;
     --accent-lavender: #a78bfa;
     --accent-pink: #f472b6;
-    --accent-glow: rgba(0, 245, 160, 0.28);
+    --accent-glow: rgba(0, 245, 160, 0.22);
     --accent-y2k: #38bdf8;
-    --grid-line: rgba(255, 255, 255, 0.025);
+    --grid-line: transparent;
 
     /* LIQUID GLASS DESIGN TOKENS (NIGHT) */
-    --liquid-glass-bg: linear-gradient(135deg, rgba(18, 27, 44, 0.85) 0%, rgba(11, 16, 28, 0.78) 100%);
-    --liquid-glass-alt: linear-gradient(135deg, rgba(22, 33, 54, 0.85) 0%, rgba(14, 20, 34, 0.76) 100%);
-    --liquid-glass-border: rgba(255, 255, 255, 0.12);
-    --liquid-glass-rim: rgba(255, 255, 255, 0.22);
-    --liquid-glass-shadow: 0 14px 36px rgba(0, 0, 0, 0.45), inset 0 1px 1px var(--liquid-glass-rim);
-    --liquid-glass-glow: 0 18px 44px rgba(0, 0, 0, 0.65), inset 0 1px 1px var(--liquid-glass-rim), 0 0 22px rgba(56, 189, 248, 0.18);
+    --liquid-glass-bg: linear-gradient(135deg, rgba(18, 27, 44, 0.94) 0%, rgba(15, 23, 42, 0.88) 100%);
+    --liquid-glass-alt: linear-gradient(135deg, rgba(22, 33, 54, 0.94) 0%, rgba(17, 26, 46, 0.86) 100%);
+    --liquid-glass-border: rgba(255, 255, 255, 0.10);
+    --liquid-glass-rim: rgba(255, 255, 255, 0.16);
+    --liquid-glass-shadow: 0 10px 28px rgba(0, 0, 0, 0.40);
+    --liquid-glass-glow: 0 14px 36px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.14);
     --glass-blur: none;
     --glass-blur-header: blur(16px);
-    --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.06);
+    --card-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
 
 /* ==========================================================================
@@ -118,12 +116,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.68;
-    background-image: 
-        var(--bg-gradient),
-        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 100% 100vh, 48px 48px, 48px 48px;
-    background-repeat: no-repeat, repeat, repeat;
+    background-image: var(--bg-gradient);
+    background-size: 100% 1200px;
+    background-repeat: no-repeat;
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.01em;
 }
@@ -132,7 +127,7 @@ body {
    TYPOGRAPHY HIERARCHY
    - Headlines & Brand: Stylized Display Font (Space Grotesk)
    - Body, Cards, Inputs, Buttons & UI: Modern Clean Sans-Serif (Plus Jakarta Sans / Inter)
-   - Metadata, Dates, Status Chips: Precise Monospace (Space Mono)
+   - Metadata, Dates, Status Chips: Clean Sans-Serif (Plus Jakarta Sans / Inter)
    ========================================================================== */
 h1, h2, .hero-title, .brand-name, .section-title, .att-page-title, .sidebar-brand-name {
     font-family: var(--font-display);
@@ -157,7 +152,7 @@ p, li, .card, form, input, select, textarea, button,
 .badge-tag, .section-meta, .date-day, .date-month, .date-year,
 .mono-tag, .dash-tag, .receipt-val.mono, .event-time, .status-dot,
 .highlight-code, .dash-table th {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
 }
 
 .container {
@@ -281,7 +276,7 @@ p, li, .card, form, input, select, textarea, button,
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.30);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -460,7 +455,7 @@ p, li, .card, form, input, select, textarea, button,
 }
 
 .brand-name {
-    font-family: 'Space Grotesk', 'Space Mono', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 1.05rem;
     color: var(--text-color);
@@ -492,15 +487,15 @@ p, li, .card, form, input, select, textarea, button,
 
 .nav-link {
     font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.74rem;
-    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.82rem;
+    text-transform: none;
     text-decoration: none;
     color: var(--muted-text);
     white-space: nowrap;
-    padding: 6px 12px;
+    padding: 6px 14px;
     border-radius: 9999px;
-    letter-spacing: 0.03em;
+    letter-spacing: normal;
     transition: all 0.2s ease;
     border: 1px solid transparent;
     display: inline-flex;
@@ -746,7 +741,7 @@ body.sidebar-open {
 }
 
 .sidebar-brand-sub {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.62rem;
     color: var(--muted-text);
     letter-spacing: 0.08em;
@@ -811,7 +806,7 @@ body.sidebar-open {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     color: var(--accent-primary);
@@ -867,7 +862,7 @@ body.sidebar-open {
     border: none;
     padding: 5px 12px;
     border-radius: 999px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     cursor: pointer;
@@ -889,7 +884,7 @@ body.sidebar-open {
     text-decoration: none;
     padding: 5px 10px;
     border-radius: 999px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     display: inline-flex;
@@ -905,7 +900,7 @@ body.sidebar-open {
 
 /* Sidebar Section Label */
 .sidebar-section-label {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 700;
     color: var(--muted-text);
@@ -982,7 +977,7 @@ body.sidebar-open {
 }
 
 .sidebar-item-desc {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.65rem;
     color: var(--muted-text);
     white-space: nowrap;
@@ -1010,7 +1005,7 @@ body.sidebar-open {
 }
 
 .sidebar-pill-badge {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 700;
     color: var(--accent-cyan);
@@ -1038,7 +1033,7 @@ body.sidebar-open {
     background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-soft) 100%);
     color: #040810 !important;
     text-decoration: none;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.04em;
@@ -1073,7 +1068,7 @@ body.sidebar-open {
     border: 1px solid var(--border-color);
     color: var(--text-color);
     text-decoration: none;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 600;
     transition: all 0.2s ease;
@@ -1103,7 +1098,7 @@ body.sidebar-open {
 }
 
 .sidebar-footer-label {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     color: var(--muted-text);
@@ -1119,7 +1114,7 @@ body.sidebar-open {
     background: var(--surface-card);
     border: 1px solid var(--border-color);
     color: var(--text-color);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 600;
     cursor: pointer;
@@ -1136,7 +1131,7 @@ body.sidebar-open {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.64rem;
     color: var(--muted-text);
 }
@@ -1153,27 +1148,25 @@ body.sidebar-open {
 }
 
 /* ==========================================================================
-   ADMISSIONS AD BANNER (Y2K Soft Minimalist)
+   ADMISSIONS AD BANNER (Clean Modern Pill)
    ========================================================================== */
 .admissions-ad-banner {
     display: inline-flex;
     align-items: center;
-    gap: 16px;
-    padding: 10px 22px;
+    gap: 12px;
+    padding: 6px 18px 6px 8px;
     background: var(--surface-card);
     border: 1px solid var(--border-color);
     border-radius: 9999px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 25px rgba(56, 189, 248, 0.12), inset 0 1px 0 var(--border-highlight);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    margin-bottom: 28px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    margin-bottom: 26px;
     max-width: 100%;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .admissions-ad-banner:hover {
     border-color: var(--accent-primary);
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14), 0 0 35px var(--accent-glow);
+    box-shadow: 0 6px 20px var(--accent-glow);
     transform: translateY(-2px);
 }
 
@@ -1182,7 +1175,7 @@ body.sidebar-open {
     align-items: center;
     gap: 8px;
     background: var(--surface-alt);
-    padding: 5px 12px;
+    padding: 4px 12px;
     border-radius: 9999px;
     border: 1px solid var(--border-color);
     flex-shrink: 0;
@@ -1199,59 +1192,25 @@ body.sidebar-open {
 }
 
 .ad-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 600;
     color: var(--accent-primary);
-    letter-spacing: 0.06em;
+    letter-spacing: normal;
     white-space: nowrap;
 }
 
 .ad-content {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     text-align: left;
     line-height: 1.35;
 }
 
-.ad-headline {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--text-color);
-    white-space: nowrap;
-}
-
 .ad-sub {
-    font-size: 0.76rem;
+    font-size: 0.82rem;
     color: var(--muted-text);
     white-space: nowrap;
-}
-
-.ad-btn {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.74rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: #040810 !important;
-    background: var(--accent-primary);
-    padding: 8px 18px;
-    border-radius: 9999px;
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 10px var(--accent-glow);
-    flex-shrink: 0;
-}
-
-[data-theme="dark"] .ad-btn {
-    color: #04070c !important;
-    background: #00f5a0;
-}
-
-.ad-btn:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
 }
 
 @media (max-width: 768px) {
@@ -1313,7 +1272,7 @@ body.sidebar-open {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     padding: 9px 20px;
     border-radius: 999px;
@@ -1478,20 +1437,14 @@ section {
 .activities-section,
 .members-section,
 .attendance-section,
-.feedback-section,
-.footer {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 700px;
-}
-
 .section-meta {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.76rem;
-    color: var(--accent-primary);
-    margin-bottom: 10px;
-    letter-spacing: 0.08em;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+    letter-spacing: normal;
+    font-weight: 600;
+    text-transform: none;
 }
 
 .section-title {
@@ -1549,7 +1502,7 @@ section {
     background: var(--liquid-glass-alt);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     color: var(--muted-text);
     letter-spacing: 0.04em;
@@ -1602,7 +1555,7 @@ section {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.82rem;
     color: var(--muted-text);
 }
@@ -1676,7 +1629,7 @@ section {
 }
 
 .highlight-code {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.88rem;
     color: var(--accent-primary);
     font-weight: 700;
@@ -1709,7 +1662,7 @@ section {
     padding: 4px 14px;
     border-radius: 999px;
     cursor: pointer;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.82rem;
     transition: all 0.2s ease;
 }
@@ -1787,7 +1740,7 @@ section {
 }
 
 .post-tag {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.7rem;
     padding: 5px 12px;
     border-radius: 999px;
@@ -1800,7 +1753,7 @@ section {
 }
 
 .post-date {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     color: var(--muted-text);
 }
@@ -1838,7 +1791,7 @@ section {
 }
 
 .activities-count-badge {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -1945,7 +1898,7 @@ section {
 }
 
 .track-pill-meta {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     color: var(--accent-cyan);
     background: rgba(56, 189, 248, 0.08);
@@ -2010,7 +1963,7 @@ section {
 }
 
 .track-card-tagline {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.72rem;
     color: var(--muted-text);
     display: inline-flex;
@@ -2160,7 +2113,7 @@ section {
     border-radius: 14px;
     background: var(--liquid-glass-alt);
     border: 1px solid var(--liquid-glass-border);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     box-shadow: inset 0 1px 1px var(--liquid-glass-rim);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
@@ -2199,7 +2152,7 @@ section {
 }
 
 .badge-tag {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     padding: 3px 11px;
     border-radius: 999px;
@@ -2211,7 +2164,7 @@ section {
 }
 
 .badge-status {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     padding: 3px 11px;
     border-radius: 999px;
@@ -2250,7 +2203,7 @@ section {
     align-items: center;
     flex-wrap: wrap;
     gap: 16px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.76rem;
     color: var(--muted-text);
 }
@@ -2262,7 +2215,7 @@ section {
 }
 
 .event-time {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.78rem;
     padding: 8px 18px;
     border-radius: 999px;
@@ -2284,7 +2237,7 @@ section {
 }
 
 .tab-btn {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.8rem;
     padding: 11px 22px;
     border-radius: 999px;
@@ -2354,7 +2307,7 @@ section {
 
 .conduct-content li::before {
     content: "→";
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     position: absolute;
     left: 0;
     color: var(--accent-primary);
@@ -2413,7 +2366,7 @@ section {
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.8rem;
     color: var(--muted-text);
 }
@@ -2424,7 +2377,7 @@ section {
     border: 1px solid var(--border-color);
     background: var(--surface-alt);
     color: var(--text-color);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.82rem;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -2442,7 +2395,7 @@ section {
     text-align: center;
     padding: 48px 24px;
     color: var(--muted-text);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
 }
 
 .members-grid {
@@ -2482,7 +2435,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 1.15rem;
     margin: 0 auto 16px;
@@ -2491,20 +2444,20 @@ section {
 }
 
 .member-name {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     color: var(--text-color);
 }
 
 .member-role {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.74rem;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
     color: var(--accent-primary);
-    font-weight: 700;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-transform: none;
+    letter-spacing: normal;
 }
 
 .member-dept {
@@ -2550,7 +2503,7 @@ section {
 }
 
 .feedback-highlight {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     padding: 6px 14px;
     border-radius: 999px;
@@ -2572,7 +2525,7 @@ section {
 
 .form-group label {
     display: block;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     margin-bottom: 8px;
     color: var(--muted-text);
@@ -2600,7 +2553,7 @@ section {
 }
 
 .submit-button, .back-button {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 700;
     padding: 14px 28px;
@@ -2625,7 +2578,7 @@ section {
     align-items: center;
     gap: 10px;
     margin-left: 16px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.8rem;
     color: var(--muted-text);
 }
@@ -2682,7 +2635,7 @@ section {
     position: absolute;
     left: 0;
     color: var(--accent-primary);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-weight: 700;
 }
 
@@ -2734,7 +2687,7 @@ section {
     padding: 24px;
     border-radius: 14px;
     color: #10b981;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     line-height: 1.6;
 }
 
@@ -2791,7 +2744,7 @@ section {
     border-radius: 999px;
     background: rgba(16, 185, 129, 0.12);
     border: 1px solid rgba(16, 185, 129, 0.35);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 700;
     color: #10b981;
@@ -2843,7 +2796,7 @@ section {
     border-radius: 14px;
     background: var(--liquid-glass-alt);
     border: 1px solid var(--liquid-glass-border);
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.8rem;
     color: var(--text-color);
     box-shadow: inset 0 1px 1px var(--liquid-glass-rim);
@@ -2870,7 +2823,7 @@ section {
 }
 
 .widget-label {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.7rem;
     font-weight: 700;
     color: var(--accent-primary);
@@ -2887,7 +2840,7 @@ section {
 
 .btn-micro {
     padding: 6px 14px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 700;
     color: var(--accent-primary);
@@ -2933,7 +2886,7 @@ section {
 }
 
 .stored-id {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-weight: 700;
     color: var(--accent-cyan);
 }
@@ -2959,7 +2912,7 @@ section {
 }
 
 .hint-tag {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.7rem;
     color: var(--accent-primary);
     font-weight: 700;
@@ -2987,7 +2940,7 @@ section {
 
 .card-eyebrow {
     display: inline-block;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     color: var(--accent-cyan);
@@ -3007,7 +2960,7 @@ section {
 }
 
 .membership-single-group label {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 700;
     color: var(--text-color);
@@ -3026,7 +2979,7 @@ section {
 .membership-id-field {
     flex: 1;
     padding: 16px 20px;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 1.15rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -3160,7 +3113,7 @@ section {
 }
 
 .receipt-val.mono {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--accent-primary);
@@ -3169,7 +3122,7 @@ section {
 .receipt-val.status-stored {
     color: #10b981;
     font-size: 0.82rem;
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -3201,7 +3154,7 @@ section {
 }
 
 .footer-heading {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.78rem;
     margin-bottom: 18px;
     color: var(--accent-primary);
@@ -3362,7 +3315,7 @@ section {
 }
 
 .legal-doc-meta {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.75rem;
     color: var(--accent-primary);
     margin-bottom: 8px;
@@ -3378,7 +3331,7 @@ section {
 }
 
 .legal-modal-body .legal-effective-date {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.76rem;
     color: var(--muted-text);
     margin-bottom: 24px;
@@ -3401,7 +3354,7 @@ section {
 }
 
 .legal-section-num {
-    font-family: 'Space Mono', monospace;
+    font-family: var(--font-body);
     font-size: 0.82rem;
     font-weight: 700;
     color: var(--accent-primary);
@@ -3471,10 +3424,10 @@ section {
         display: flex !important;
     }
     .header-inner {
-        flex-wrap: wrap;
-        padding: 6px 14px 6px;
-        min-height: auto;
-        gap: 6px 10px;
+        min-height: 62px;
+        padding: 8px 20px;
+        flex-wrap: nowrap;
+        gap: 12px;
     }
     .nav-brand {
         order: 1;
@@ -3484,38 +3437,14 @@ section {
         margin-left: auto;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
         flex-shrink: 0;
     }
     .nav-menu {
-        display: flex !important; /* Mobile top row redirect view for phones */
-        position: static;
-        order: 3;
-        width: 100%;
-        justify-content: flex-start;
-        padding: 6px 2px 4px;
-        border-top: 1px solid var(--border-color);
-        box-shadow: none;
-        background: transparent;
-        backdrop-filter: none;
-        gap: 6px;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        overscroll-behavior-x: contain;
-    }
-    .nav-menu::-webkit-scrollbar {
-        display: none;
-    }
-    .nav-link {
-        flex-shrink: 0;
-        white-space: nowrap;
-        font-size: 0.70rem;
-        padding: 5px 11px;
+        display: none !important;
     }
     .hero {
-        padding: 124px 0 60px;
+        padding: 110px 0 60px;
     }
     .hero-title {
         font-size: clamp(2.2rem, 7vw, 3rem);
