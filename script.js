@@ -25,28 +25,28 @@ const clubMembersData = {
     // 2026–2027 BATCH (CURRENT ACTIVE ACADEMIC YEAR)
     // ----------------------------------------------------------------------
     "2026-27": [
+        { name: "Bikramjit Chakraborty", role: "President", initials: "BC" },
+        { name: "Soham Mistry", role: "Acting Vice-President", initials: "SM" },
+        { name: "Indranil Mondal", role: "Acting Secretary", initials: "IM" },
+        { name: "Akshay Kumar Manna", role: "Acting Treasurer", initials: "AK" },
+        { name: "Sayantan Maiti", role: "Acting Outreach Lead", initials: "SM" },
+        { name: "Swapnendu Das Adhikari", role: "Former Secretary", initials: "SD" },
+        { name: "Mrinmayee Mallik", role: "Former Treasurer", initials: "MM" },
+        { name: "Sayan Mandal", role: "Former Outreach Lead", initials: "SM" },
         { name: "Aditya Sinha", role: "Active Member", initials: "AS" },
-        { name: "Ayan Maity", role: "Active Member", initials: "AM" },
-        { name: "Ayan Dhara", role: "Active Member", initials: "AD" },
-        { name: "Ayan Pattanayak", role: "Active Member", initials: "AP" },
         { name: "Arijit Raut", role: "Active Member", initials: "AR" },
-        { name: "Akshay Kumar Manna", role: "Active Member", initials: "AK" },
-        { name: "Indranil Mondal", role: "Active Member", initials: "IM" },
+        { name: "Aritra Das Adhikari", role: "Active Member", initials: "AA" },
+        { name: "Ayan Dhara", role: "Active Member", initials: "AD" },
+        { name: "Ayan Maity", role: "Active Member", initials: "AM" },
+        { name: "Ayan Pattanayak", role: "Active Member", initials: "AP" },
         { name: "Manisha Khatun", role: "Active Member", initials: "MK" },
-        { name: "Mrinmayee Mallik", role: "Active Member", initials: "MM" },
+        { name: "Rikita Mani", role: "Active Member", initials: "RM" },
         { name: "Rohit Gucchait", role: "Active Member", initials: "RG" },
         { name: "Rupsa Adak", role: "Active Member", initials: "RA" },
-        { name: "Sayan Mandal", role: "Active Member", initials: "SM" },
-        { name: "Bikramjit Chakraborty", role: "Active Member", initials: "BC" },
-        { name: "Soham Mistry", role: "Active Member", initials: "SM" },
-        { name: "Soumyadip Das", role: "Active Member", initials: "SD" },
-        { name: "Sayantan Maiti", role: "Active Member", initials: "SM" },
+        { name: "Safikul Rahaman Mallik", role: "Active Member", initials: "SR" },
         { name: "Sagarika Samanta", role: "Active Member", initials: "SS" },
         { name: "Sandip Kuila", role: "Active Member", initials: "SK" },
-        { name: "Swapnendu Das Adhikari", role: "Active Member", initials: "SD" },
-        { name: "Rikita Mani", role: "Active Member", initials: "RM" },
-        { name: "Safikul Rahaman Mallik", role: "Active Member", initials: "SR" },
-        { name: "Aritra Das Adhikari", role: "Active Member", initials: "AA" }
+        { name: "Soumyadip Das", role: "Active Member", initials: "SD" }
     ],
 
     // ----------------------------------------------------------------------
@@ -110,7 +110,43 @@ function renderClubMembers(yearKey) {
         return;
     }
 
-    members.forEach((member) => {
+    // Hierarchical role rank weighting (President > VP > Secretary > Treasurer > Outreach Lead > Former Officers > Members)
+    const roleHierarchy = {
+        "President": 1,
+        "Acting Vice-President": 2,
+        "Acting Vice-president": 2,
+        "Vice-President": 2,
+        "Vice-president": 2,
+        "Acting Secretary": 3,
+        "Secretary": 3,
+        "Acting Treasurer": 4,
+        "Treasurer": 4,
+        "Acting Outreach Lead": 5,
+        "Outreach Lead": 5,
+        "Former Secretary": 6,
+        "Former Treasurer": 7,
+        "Former Outreach Lead": 8,
+        "Core Lead": 9,
+        "Technical Lead": 10,
+        "Events Lead": 11,
+        "Design Studio": 12,
+        "Research Desk": 13,
+        "Founding Lead": 14,
+        "Founding Member": 15,
+        "Active Member": 20,
+        "Club Member": 20,
+        "Core Member": 20,
+        "Member": 20
+    };
+
+    const sortedMembers = [...members].sort((a, b) => {
+        const rankA = roleHierarchy[a.role] || 50;
+        const rankB = roleHierarchy[b.role] || 50;
+        if (rankA !== rankB) return rankA - rankB;
+        return a.name.localeCompare(b.name);
+    });
+
+    sortedMembers.forEach((member) => {
         const card = document.createElement("div");
         card.className = "member-card";
 
