@@ -474,12 +474,12 @@ function initActivities() {
      - title: Full event title
      - category: "workshops" | "meets" | "competitions"
      - categoryLabel: Badge display name (e.g. "HANDS-ON WORKSHOP")
-     - status: "upcoming" | "past"
-     - statusLabel: Badge status (e.g. "UPCOMING" or "CONCLUDED")
-     - day: Day number or "--" (e.g. "15" or "--")
-     - month: 3-letter or full month (e.g. "APR" or "TBD")
+     - status: "upcoming" | "completed" | "past" (Auto-evaluated by date/time)
+     - statusLabel: Badge status (e.g. "Upcoming" or "Completed")
+     - day: Day number or "--" (e.g. "21" or "--")
+     - month: 3-letter or full month (e.g. "NOV" or "TBD")
      - year: 4-digit year (e.g. "2026")
-     - time: Time range (e.g. "6:30 PM - 8:30 PM" or "Date Announced Soon")
+     - time: Time range or start time (e.g. "6:15 PM" or "6:15 PM - 7:30 PM")
      - location: Room or platform (e.g. "Classroom 3rd Floor" or "Google Meet")
      - locationType: "in-person" | "online" | "hybrid"
      - speaker: Host, speaker, or coordinator name
@@ -494,8 +494,8 @@ const catalystEventsData = [
         title: "Google Meet on Blockchain Tech",
         category: "meets",
         categoryLabel: "Google Meet • Tech Talk",
-        status: "completed",
-        statusLabel: "Completed",
+        status: "upcoming",
+        statusLabel: "Upcoming",
         day: "21",
         month: "NOV",
         year: "2026",
@@ -503,7 +503,7 @@ const catalystEventsData = [
         location: "Google Meet (Online Session)",
         locationType: "online",
         speaker: "Catalyst Tech Team & Speakers",
-        shortDesc: "Live interactive virtual meet exploring blockchain fundamentals, decentralized ledgers, smart contracts, and Web3 applications.",
+        shortDesc: "Virtual meet exploring blockchain fundamentals, decentralized ledgers, smart contracts, and Web3 applications.",
         fullDesc: "Join Catalyst Club for a live interactive virtual session on Google Meet deep-diving into blockchain technology. Topics include decentralized network architecture, cryptographic principles, smart contracts, and potential real-world applications across healthcare supply chains and scientific research. Open to all members.",
         highlights: [
             "Core architecture of blockchains & distributed ledgers",
@@ -516,12 +516,100 @@ const catalystEventsData = [
 ];
 
 /**
+ * Compute the scheduled end timestamp of an event
+ * Returns a Date object, or null if date is not fully defined
+ * @param {Object} ev
+ * @returns {Date|null}
+ */
+function getEventEndDateTime(ev) {
+    if (!ev || !ev.year || !ev.month || !ev.day) return null;
+    if (ev.day === "--" || String(ev.month).trim().toLowerCase() === "tbd") return null;
+
+    const monthMap = {
+        jan: 0, january: 0,
+        feb: 1, february: 1,
+        mar: 2, march: 2,
+        apr: 3, april: 3,
+        may: 4,
+        jun: 5, june: 5,
+        jul: 6, july: 6,
+        aug: 7, august: 7,
+        sep: 8, sept: 8, september: 8,
+        oct: 9, october: 9,
+        nov: 10, november: 10,
+        dec: 11, december: 11
+    };
+
+    const monthStr = String(ev.month).trim().toLowerCase();
+    const month = monthMap[monthStr] !== undefined ? monthMap[monthStr] : parseInt(monthStr, 10) - 1;
+    const year = parseInt(ev.year, 10);
+    const day = parseInt(ev.day, 10);
+
+    if (isNaN(year) || isNaN(month) || isNaN(day)) return null;
+
+    let hours = 23;
+    let minutes = 59;
+
+    if (ev.time && typeof ev.time === "string") {
+        // If a range is given (e.g. "6:15 PM - 7:30 PM" or "10:30 AM – 12:30 PM"), pick the end time
+        const parts = ev.time.split(/[-–—]/);
+        const targetTimeStr = parts.length > 1 ? parts[parts.length - 1].trim() : parts[0].trim();
+
+        const match = targetTimeStr.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i);
+        if (match) {
+            let h = parseInt(match[1], 10);
+            let m = match[2] ? parseInt(match[2], 10) : 0;
+            const meridian = match[3] ? match[3].toLowerCase() : null;
+
+            if (meridian === "pm" && h < 12) h += 12;
+            if (meridian === "am" && h === 12) h = 0;
+
+            // If only a single start time was provided without an end time, grant a 1-hour session window
+            if (parts.length === 1) {
+                h += 1;
+            }
+
+            hours = h;
+            minutes = m;
+        }
+    }
+
+    return new Date(year, month, day, hours, minutes, 0);
+}
+
+/**
+ * Automatically evaluate event scheduled times against current time.
+ * If scheduled time has passed, marks status as 'completed' and statusLabel as 'Completed'
+ * and moves it to past archive.
+ */
+function autoUpdateEventsScheduleStatus() {
+    if (!Array.isArray(catalystEventsData)) return;
+
+    const now = new Date();
+    catalystEventsData.forEach(ev => {
+        const endDt = getEventEndDateTime(ev);
+        if (endDt) {
+            if (now >= endDt) {
+                ev.status = "completed";
+                ev.statusLabel = "Completed";
+            } else {
+                ev.status = "upcoming";
+                ev.statusLabel = "Upcoming";
+            }
+        }
+    });
+}
+
+/**
  * Render the dynamic interactive events list into .events-list
  * @param {string} filterCategory - 'all', 'workshops', 'meets', 'competitions', 'upcoming', 'past'
  */
 function renderCatalystEvents(filter = "all") {
     const container = document.querySelector(".events-list");
     if (!container) return;
+
+    // Automatically check scheduled time and transition expired events to completed/past archive
+    autoUpdateEventsScheduleStatus();
 
     let filtered = catalystEventsData;
     if (filter === "upcoming") {
@@ -535,12 +623,26 @@ function renderCatalystEvents(filter = "all") {
     container.innerHTML = "";
 
     if (filtered.length === 0) {
-        container.innerHTML = `
-            <div style="text-align:center; padding: 40px; background:var(--liquid-glass-bg); border-radius:18px; border:1px solid var(--border-color);">
-                <i class="fas fa-calendar-times" style="font-size:2rem; color:var(--muted-text); margin-bottom:12px;"></i>
-                <p style="color:var(--muted-text); margin:0;">No events found in this category.</p>
-            </div>
-        `;
+        if (filter === "upcoming") {
+            container.innerHTML = `
+                <div class="events-empty-liquid-state">
+                    <div class="empty-glass-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>No Upcoming Meets Scheduled</h3>
+                    <p>All scheduled sessions for this cycle have concluded. Check back soon for fresh workshops, or explore our past archives below.</p>
+                    <button type="button" class="btn btn-primary" onclick="filterAndScrollToEvents('past')" style="margin-top:14px;">
+                        <i class="fas fa-history"></i> Browse Past Archive →
+                    </button>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <div class="events-empty-liquid-state">
+                    <div class="empty-glass-icon"><i class="fas fa-calendar-times"></i></div>
+                    <h3>No Events Found</h3>
+                    <p>No events found in this category.</p>
+                </div>
+            `;
+        }
         return;
     }
 
@@ -917,8 +1019,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 2. Render & Initialize Interactive Events Filtering
+    autoUpdateEventsScheduleStatus();
     renderCatalystEvents("all");
     initEventsFiltering();
+
+    // Periodic check every 60s to transition any event into past archive when its scheduled time arrives
+    setInterval(() => {
+        autoUpdateEventsScheduleStatus();
+    }, 60000);
 
     // 2.1 Initialize Interactive Activities & Tracks
     initActivities();
@@ -953,6 +1061,8 @@ window.openModal = openModal;
 window.closeModal = closeModal;
 window.renderCatalystEvents = renderCatalystEvents;
 window.initEventsFiltering = initEventsFiltering;
+window.getEventEndDateTime = getEventEndDateTime;
+window.autoUpdateEventsScheduleStatus = autoUpdateEventsScheduleStatus;
 window.initActivities = initActivities;
 window.openActivityDetailModal = openActivityDetailModal;
 window.filterAndScrollToEvents = filterAndScrollToEvents;
