@@ -22,50 +22,188 @@
    ========================================================================== */
 const clubMembersData = {
     // ----------------------------------------------------------------------
-    // 2025–2026 BATCH (CURRENT ACTIVE ACADEMIC YEAR)
+    // 2026–2027 BATCH (CURRENT ACTIVE ACADEMIC YEAR)
+    // ----------------------------------------------------------------------
+    "2026-27": [
+        {
+            name: "Aditya Sinha",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 56(B)",
+            initials: "AS"
+        },
+        {
+            name: "Ayan Maity",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 10(B)",
+            initials: "AM"
+        },
+        {
+            name: "Ayan Dhara",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 09(B)",
+            initials: "AD"
+        },
+        {
+            name: "Ayan Pattanayak",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 64(B)",
+            initials: "AP"
+        },
+        {
+            name: "Arijit Raut",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 06(A)",
+            initials: "AR"
+        },
+        {
+            name: "Akshay Kumar Manna",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 58(B)",
+            initials: "AK"
+        },
+        {
+            name: "Indranil Mondal",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 99(B)",
+            initials: "IM"
+        },
+        {
+            name: "Manisha Khatun",
+            role: "ActiveMember",
+            dept: "B.Pharm 4th Year • Roll 18(B)",
+            initials: "MK"
+        },
+        {
+            name: "Mrinmayee Mallik",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 25(A)",
+            initials: "MM"
+        },
+        {
+            name: "Rohit Gucchait",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 78(B)",
+            initials: "RG"
+        },
+        {
+            name: "Rupsa Adak",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 32(A)",
+            initials: "RA"
+        },
+        {
+            name: "Sayan Mandal",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 40(A)",
+            initials: "SM"
+        },
+        {
+            name: "Bikramjit Chakraborty",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 12(B)",
+            initials: "BC"
+        },
+        {
+            name: "Soham Mistry",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 86(B)",
+            initials: "SM"
+        },
+        {
+            name: "Soumyadip Das",
+            role: "ActiveMember",
+            dept: "B.Pharm 2nd Year • Roll 89(B)",
+            initials: "SD"
+        },
+        {
+            name: "Sayantan Maiti",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 29(A)",
+            initials: "SM"
+        },
+        {
+            name: "Sagarika Samanta",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 33(A)",
+            initials: "SS"
+        },
+        {
+            name: "Sandip Kuila",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 30(B)",
+            initials: "SK"
+        },
+        {
+            name: "Swapnendu Das Adhikari",
+            role: "Active Member",
+            dept: "B.Pharm 4th Year • Roll 55(B)",
+            initials: "SD"
+        },
+        {
+            name: "Rikita Mani",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 77(B)",
+            initials: "RM"
+        },
+        {
+            name: "Safikul Rahaman Mallik",
+            role: "Active Member",
+            dept: "B.Pharm 2nd Year • Roll 102(B)",
+            initials: "SR"
+        },
+        {
+            name: "Aritra Das Adhikari",
+            role: "ActiveMember",
+            dept: "B.Pharm 2nd Year • Roll 113(B)",
+            initials: "AA"
+        }
+    ],
+
+    // ----------------------------------------------------------------------
+    // 2025–2026 BATCH
     // ----------------------------------------------------------------------
     "2025-26": [
         {
             name: "Member 1",
-            role: "Club Coordinator",
-            dept: "B.Pharm 3rd Year",
+            role: "Core Lead",
+            dept: "B.Pharm Batch 2025–26",
             initials: "M1",
-            bio: "Passionate about pharmaceutical innovations, robotics, and creative design."
+            bio: "Club leadership, hackathons, and technical bootcamps."
         },
         {
             name: "Member 2",
             role: "Technical Lead",
-            dept: "B.Pharm 3rd Year",
+            dept: "B.Pharm Batch 2025–26",
             initials: "M2",
-            bio: "Focusing on Python, full-stack web platforms, and automated tools."
+            bio: "Python programming and digital systems development."
         },
         {
             name: "Member 3",
-            role: "Events & Operations Lead",
-            dept: "B.Pharm 2nd Year",
+            role: "Events Lead",
+            dept: "B.Pharm Batch 2025–26",
             initials: "M3",
-            bio: "Organizing weekly Saturday sessions, hackathons, and guest seminars."
+            bio: "Workshop coordination and guest seminar management."
         },
         {
             name: "Member 4",
-            role: "Design & Creative Studio",
-            dept: "B.Pharm 2nd Year",
+            role: "Design Studio",
+            dept: "B.Pharm Batch 2025–26",
             initials: "M4",
-            bio: "Crafting visual identities, social posters, UI graphics, and video media."
+            bio: "Visual assets, graphics, and social outreach media."
         },
         {
             name: "Member 5",
-            role: "Research & Sci-Tech Desk",
-            dept: "B.Pharm 2nd Year",
+            role: "Research Desk",
+            dept: "B.Pharm Batch 2025–26",
             initials: "M5",
-            bio: "Exploring computational drug design, meta-analysis, and scientific writing."
+            bio: "Literature reviews, meta-analysis, and scientific writing."
         },
         {
             name: "Member 6",
-            role: "Core Team Member",
-            dept: "B.Pharm 1st Year",
+            role: "Core Member",
+            dept: "B.Pharm Batch 2025–26",
             initials: "M6",
-            bio: "Enthusiastic beginner exploring programming, hardware, and club initiatives."
+            bio: "Active member contributing to campus club activities."
         }
     ],
 
@@ -146,9 +284,10 @@ const clubMembersData = {
 };
 
 // Aliases for alternate dropdown formats
-clubMembersData["2025"] = clubMembersData["2024-25"];
+clubMembersData["2026"] = clubMembersData["2026-27"];
+clubMembersData["2027"] = clubMembersData["2026-27"];
+clubMembersData["2025"] = clubMembersData["2025-26"];
 clubMembersData["2024"] = clubMembersData["2023-24"];
-clubMembersData["2026"] = clubMembersData["2025-26"];
 
 /**
  * Render the member cards into #members-list
