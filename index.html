@@ -367,129 +367,41 @@
                     </div>
                     <div class="event-filters">
                         <button type="button" class="event-filter-btn active" data-filter="all">All Events</button>
-                        <button type="button" class="event-filter-btn" data-filter="workshops"><i class="fas fa-laptop-code"></i> Workshops</button>
-                        <button type="button" class="event-filter-btn" data-filter="meets"><i class="fas fa-comments"></i> Meets & Talks</button>
-                        <button type="button" class="event-filter-btn" data-filter="competitions"><i class="fas fa-trophy"></i> Competitions</button>
+                        <button type="button" class="event-filter-btn" data-filter="meets"><i class="fas fa-video"></i> Meets &amp; Talks</button>
                         <button type="button" class="event-filter-btn" data-filter="upcoming"><i class="fas fa-clock"></i> Upcoming</button>
                         <button type="button" class="event-filter-btn" data-filter="past"><i class="fas fa-history"></i> Past Archive</button>
                     </div>
                 </div>
 
                 <!-- ===================================================================
-                     HOW TO ADD A NEW EVENT ENTRY:
-                     Option A: Edit or add event objects inside catalystEventsData in script.js (RECOMMENDED).
-                     Option B: Duplicate the semantic fallback template below inside .events-list:
+                     CATALYST EVENTS & MEETS
+                     Primary source: catalystEventsData in script.js
+                     Fallback semantic card below for offline/static rendering
                      =================================================================== -->
-
-                     <div class="event-row upcoming-event" data-status="upcoming">
-                         <div class="event-date">
-                             <span class="date-day">DD</span>
-                             <span class="date-month">MONTH</span>
-                             <span class="date-year">2026</span>
-                         </div>
-                         <div class="event-content">
-                             <div class="event-badges">
-                                 <span class="badge-tag">CATEGORY (e.g. WORKSHOP / TECH TALK)</span>
-                                 <span class="badge-status status-upcoming">UPCOMING</span>
-                             </div>
-                             <h3>Event Title Here</h3>
-                             <p>Brief description of what will be covered and who should attend.</p>
-                             <div class="event-location-meta">
-                                 <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
-                                 <span><i class="fas fa-clock"></i> Time duration</span>
-                             </div>
-                         </div>
-                         <div class="event-time">Time Range</div>
-                     </div>
-                     =================================================================== -->
-
                 <div class="events-list">
-                    <!-- EVENT 1: UPCOMING WORKSHOP -->
-                    <div class="event-row upcoming-event" data-status="upcoming">
+                    <!-- EVENT: GOOGLE MEET ON BLOCKCHAIN TECH -->
+                    <div class="event-row upcoming-event" data-status="upcoming" data-category="meets" data-event-id="event-blockchain-meet-2026">
                         <div class="event-date">
-                            <span class="date-day">--</span>
-                            <span class="date-month">TBD</span>
+                            <span class="date-day">21</span>
+                            <span class="date-month">NOV</span>
                             <span class="date-year">2026</span>
                         </div>
                         <div class="event-content">
                             <div class="event-badges">
-                                <span class="badge-tag">HANDS-ON WORKSHOP</span>
+                                <span class="badge-tag">GOOGLE MEET // TECH TALK</span>
                                 <span class="badge-status status-upcoming">UPCOMING</span>
                             </div>
-                            <h3>Workshop on Python 3 for Beginners & Data Science</h3>
-                            <p>Hands-on intensive workshop introducing Python programming, foundational data science, creative coding, and automation workflows.</p>
-                            <div class="event-location-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
-                                <span><i class="fas fa-laptop-code"></i> Bring Your Own Laptop</span>
-                            </div>
-                        </div>
-                        <div class="event-time">Date to be announced</div>
-                    </div>
-
-                    <!-- EVENT 2: VIRTUAL SPACE TALK (PAST) -->
-                    <div class="event-row past-event" data-status="past">
-                        <div class="event-date">
-                            <span class="date-day">12</span>
-                            <span class="date-month">JULY</span>
-                            <span class="date-year">2025</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-badges">
-                                <span class="badge-tag">SPACE SCIENCE & TECH</span>
-                                <span class="badge-status status-past">CONCLUDED</span>
-                            </div>
-                            <h3>Virtual Talk On International Day For Human Space Flight</h3>
-                            <p>Deep exploration into modern space science, satellite engineering, human space exploration, and scientific discovery.</p>
+                            <h3>Google Meet on Blockchain Tech</h3>
+                            <p>Live interactive virtual meet exploring blockchain fundamentals, decentralized ledgers, smart contracts, and Web3 applications.</p>
                             <div class="event-location-meta">
                                 <span><i class="fas fa-video"></i> Google Meet (Online Session)</span>
-                                <span><i class="fas fa-users"></i> Catalyst Members & Faculty</span>
+                                <span><i class="fas fa-user-tie"></i> Catalyst Tech Team &amp; Speakers</span>
                             </div>
                         </div>
-                        <div class="event-time">6:30 PM - 9:15 PM</div>
-                    </div>
-
-                    <!-- EVENT 3: AI & FUTURE TECH TALK (PAST) -->
-                    <div class="event-row past-event" data-status="past">
-                        <div class="event-date">
-                            <span class="date-day">12</span>
-                            <span class="date-month">APRIL</span>
-                            <span class="date-year">2025</span>
+                        <div class="event-action-col">
+                            <div class="event-time">6:15 PM</div>
+                            <span class="event-click-hint">Details <i class="fas fa-arrow-right"></i></span>
                         </div>
-                        <div class="event-content">
-                            <div class="event-badges">
-                                <span class="badge-tag">AI & INNOVATION</span>
-                                <span class="badge-status status-past">CONCLUDED</span>
-                            </div>
-                            <h3>Tech Talk: AI & The Future of Innovation</h3>
-                            <p>Interactive session and presentations by Catalyst members on generative AI, machine learning algorithms, and tech trends.</p>
-                            <div class="event-location-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
-                                <span><i class="fas fa-award"></i> Certificate of Participation</span>
-                            </div>
-                        </div>
-                        <div class="event-time">7:00 PM - 9:00 PM</div>
-                    </div>
-
-                    <!-- EVENT 4: META ANALYSIS TALK (PAST) -->
-                    <div class="event-row past-event" data-status="past">
-                        <div class="event-date">
-                            <span class="date-day">11</span>
-                            <span class="date-month">OCT</span>
-                            <span class="date-year">2024</span>
-                        </div>
-                        <div class="event-content">
-                            <div class="event-badges">
-                                <span class="badge-tag">RESEARCH METHODOLOGY</span>
-                                <span class="badge-status status-past">CONCLUDED</span>
-                            </div>
-                            <h3>Small Talk on Scientific Meta-Analysis</h3>
-                            <p>Focused discussions on systematic reviews, data synthesis techniques, statistical tools, and research methodologies.</p>
-                            <div class="event-location-meta">
-                                <span><i class="fas fa-map-marker-alt"></i> Classroom 3rd Floor, College Building</span>
-                                <span><i class="fas fa-book-reader"></i> Open Discussion</span>
-                            </div>
-                        </div>
-                        <div class="event-time">10:30 AM - 12:00 PM</div>
                     </div>
                 </div>
             </div>
@@ -740,86 +652,28 @@
             });
         }
 
-        // 2. Dynamic Events Loading (Firestore + Offline Cache)
+        // 2. Dynamic Events Sync (Firestore)
         async function loadDynamicEvents() {
-            const eventsList = document.querySelector(".events-list");
-            if (!eventsList) return;
+            // Clear any legacy localStorage events cache
+            try { localStorage.removeItem("catalyst_events"); } catch(e) {}
 
-            // Load any cached events first for instant UI response
-            let cachedEvents = [];
-            try {
-                const stored = localStorage.getItem("catalyst_events");
-                if (stored) cachedEvents = JSON.parse(stored);
-            } catch(e) {}
-
-            // Helper to render an event card into the DOM
-            const renderedIds = new Set();
-            function renderCard(ev, isPrepend = true) {
-                const key = ev.id || `${ev.title}-${ev.sessionDate || ev.day}`;
-                if (renderedIds.has(key)) return;
-                renderedIds.add(key);
-
-                const card = document.createElement("div");
-                const isPast = (ev.status === "past");
-                card.className = `event-row ${isPast ? "past-event" : "upcoming-event"}`;
-                card.setAttribute("data-status", ev.status || "upcoming");
-
-                // Strictly validate location: Classroom 3rd Floor or Google Meet only
-                let loc = ev.location || "Classroom 3rd Floor, College Building";
-                if (!loc.includes("Classroom 3rd Floor") && !loc.includes("Google Meet")) {
-                    loc = "Classroom 3rd Floor, College Building";
-                }
-                const isOnline = loc.includes("Google Meet");
-
-                card.innerHTML = `
-                    <div class="event-date">
-                        <span class="date-day">${safe(ev.day || "15")}</span>
-                        <span class="date-month">${safe((ev.month || "DEC").toUpperCase())}</span>
-                        <span class="date-year">${safe(ev.year || "2026")}</span>
-                    </div>
-                    <div class="event-content">
-                        <div class="event-badges">
-                            <span class="badge-tag">${safe(ev.category || "WORKSHOP")}</span>
-                            <span class="badge-status ${isPast ? "status-past" : "status-upcoming"}">${isPast ? "CONCLUDED" : "UPCOMING"}</span>
-                            <span class="badge-status" style="background: rgba(56,189,248,0.15); color: var(--accent-cyan); border: 1px solid rgba(56,189,248,0.3);">NEW</span>
-                        </div>
-                        <h3>${safe(ev.title)}</h3>
-                        <p>${safe(ev.description)}</p>
-                        <div class="event-location-meta">
-                            <span><i class="${isOnline ? "fas fa-video" : "fas fa-map-marker-alt"}"></i> ${safe(loc)}</span>
-                            ${ev.metaBadge ? `<span><i class="fas fa-tag"></i> ${safe(ev.metaBadge)}</span>` : ""}
-                        </div>
-                    </div>
-                    <div class="event-time">${safe(ev.time || "2:00 PM - 4:00 PM")}</div>
-                `;
-
-                if (isPrepend) {
-                    eventsList.prepend(card);
-                } else {
-                    eventsList.appendChild(card);
-                }
-            }
-
-            // Render local cached events
-            if (Array.isArray(cachedEvents)) {
-                cachedEvents.forEach(ev => renderCard(ev, true));
-            }
-
-            // Fetch live events from Firestore
+            // Optional live events sync from Firestore if collection exists
             try {
                 const q = query(collection(db, "events"), orderBy("createdAt", "desc"), limit(25));
                 const snap = await getDocs(q);
-                if (!snap.empty) {
-                    const freshEvents = [];
+                if (!snap.empty && Array.isArray(window.catalystEventsData)) {
                     snap.forEach(d => {
                         const data = { id: d.id, ...d.data() };
-                        freshEvents.push(data);
-                        renderCard(data, true);
+                        if (!window.catalystEventsData.some(e => e.id === d.id)) {
+                            window.catalystEventsData.unshift(data);
+                        }
                     });
-                    try { localStorage.setItem("catalyst_events", JSON.stringify(freshEvents)); } catch(e) {}
+                    if (typeof window.renderCatalystEvents === "function") {
+                        window.renderCatalystEvents("all");
+                    }
                 }
             } catch(err) {
-                console.warn("Could not load events from Firestore collection, used local cache:", err);
+                // Keep local catalystEventsData
             }
 
             // Refresh event filter handlers so all dynamic cards respond to filters

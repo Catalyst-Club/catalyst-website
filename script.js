@@ -655,120 +655,28 @@ function initActivities() {
    ========================================================================== */
 const catalystEventsData = [
     {
-        id: "event-py-workshop-2026",
-        title: "Workshop on Python 3 for Beginners & Data Science",
-        category: "workshops",
-        categoryLabel: "HANDS-ON WORKSHOP",
-        status: "upcoming",
-        statusLabel: "UPCOMING",
-        day: "--",
-        month: "TBD",
-        year: "2026",
-        time: "Date to be announced",
-        location: "Classroom 3rd Floor, College Building",
-        locationType: "in-person",
-        speaker: "Catalyst Tech Team & Faculty Mentors",
-        shortDesc: "Hands-on intensive workshop introducing Python programming, foundational data science, creative coding, and automation workflows.",
-        fullDesc: "This guided hands-on workshop introduces students to core programming logic, Python syntax, and scientific libraries. Designed specifically for beginners in pharmacy and sciences, participants will build real automation scripts, parse experimental datasets, and visualize insights using modern developer tools. Bring your laptop for guided coding labs.",
-        highlights: [
-            "Introduction to Python programming & script execution",
-            "Scientific libraries overview (NumPy, Pandas, Matplotlib)",
-            "Hands-on interactive coding labs & live debugging",
-            "Official Certificate of Completion awarded to all attendees"
-        ],
-        rsvpLink: "form.html"
-    },
-    {
-        id: "event-hackathon-2026",
-        title: "Catalyst Hackathon & Innovation Challenge 2026",
-        category: "competitions",
-        categoryLabel: "COMPETITION // HACKATHON",
-        status: "upcoming",
-        statusLabel: "UPCOMING",
-        day: "--",
-        month: "Q2",
-        year: "2026",
-        time: "Full-Day Innovation Sprint",
-        location: "HIP Campus Innovation Lab & Virtual Google Meet",
-        locationType: "hybrid",
-        speaker: "Catalyst Club Jury & Industry Mentors",
-        shortDesc: "Interdisciplinary team sprint solving healthcare, computational drug research, and digital utility challenges. Win certificates and awards.",
-        fullDesc: "Catalyst Club's flagship annual student hackathon. Teams will spend 12 hours designing and prototyping functional digital solutions, web applications, or data pipelines that tackle campus challenges and healthcare workflows. Mentors will be present to guide participants through concept validation, design, and code.",
-        highlights: [
-            "Multi-disciplinary teams (Code, Design, Pharmacology, Strategy)",
-            "Live pitch and demonstration before college panel",
-            "Prizes, winner trophies, and project incubation support"
-        ],
-        rsvpLink: "form.html"
-    },
-    {
-        id: "event-space-talk-2025",
-        title: "Virtual Talk On International Day For Human Space Flight",
+        id: "event-blockchain-meet-2026",
+        title: "Google Meet on Blockchain Tech",
         category: "meets",
-        categoryLabel: "SPACE SCIENCE & TECH",
-        status: "past",
-        statusLabel: "CONCLUDED",
-        day: "12",
-        month: "JULY",
-        year: "2025",
-        time: "6:30 PM - 9:15 PM",
+        categoryLabel: "GOOGLE MEET // TECH TALK",
+        status: "upcoming",
+        statusLabel: "UPCOMING",
+        day: "21",
+        month: "NOV",
+        year: "2026",
+        time: "6:15 PM",
         location: "Google Meet (Online Session)",
         locationType: "online",
-        speaker: "Catalyst Core Leads & Space Science Enthusiasts",
-        shortDesc: "Deep exploration into modern space science, satellite engineering, human space exploration, and scientific discovery.",
-        fullDesc: "An inspiring virtual seminar honoring human achievements in orbital science and cosmic exploration. Student presentations explored microgravity pharmacology, satellite telecommunications, life-support biotechnology, and future missions to Mars and deep space.",
+        speaker: "Catalyst Tech Team & Speakers",
+        shortDesc: "Live interactive virtual meet exploring blockchain fundamentals, decentralized ledgers, smart contracts, and Web3 applications.",
+        fullDesc: "Join Catalyst Club for a live interactive virtual session on Google Meet deep-diving into blockchain technology. Topics include decentralized network architecture, cryptographic principles, smart contracts, and potential real-world applications across healthcare supply chains and scientific research. Open to all members.",
         highlights: [
-            "Physiological and pharmacological adaptations in zero gravity",
-            "History and future milestones of human space exploration",
-            "Interactive student Q&A and scientific paper reviews"
+            "Core architecture of blockchains & distributed ledgers",
+            "Smart contracts & cryptographic consensus mechanisms",
+            "Real-world healthcare and digital supply chain use cases",
+            "Live interactive student Q&A and technical discussion"
         ],
-        rsvpLink: ""
-    },
-    {
-        id: "event-ai-talk-2025",
-        title: "Tech Talk: AI & The Future of Innovation",
-        category: "meets",
-        categoryLabel: "AI & INNOVATION",
-        status: "past",
-        statusLabel: "CONCLUDED",
-        day: "12",
-        month: "APRIL",
-        year: "2025",
-        time: "7:00 PM - 9:00 PM",
-        location: "Classroom 3rd Floor, College Building",
-        locationType: "in-person",
-        speaker: "Catalyst Innovation & Software Team",
-        shortDesc: "Interactive session and presentations by Catalyst members on generative AI, machine learning algorithms, and tech trends.",
-        fullDesc: "A lively interactive presentation dissecting modern AI architectures, neural network basics, large language models, and computational molecular prediction. Members demonstrated real-world workflows using automated AI tools and shared prospective opportunities for pharmacy students.",
-        highlights: [
-            "Foundations of Machine Learning & Neural Networks",
-            "Generative AI tools for academic research and code",
-            "Student presentations, live demos, and open debate"
-        ],
-        rsvpLink: ""
-    },
-    {
-        id: "event-meta-analysis-2024",
-        title: "Small Talk on Scientific Meta-Analysis",
-        category: "workshops",
-        categoryLabel: "RESEARCH METHODOLOGY",
-        status: "past",
-        statusLabel: "CONCLUDED",
-        day: "11",
-        month: "OCT",
-        year: "2024",
-        time: "10:30 AM - 12:00 PM",
-        location: "Classroom 3rd Floor, College Building",
-        locationType: "in-person",
-        speaker: "Catalyst Academic Research Desk",
-        shortDesc: "Focused discussions on systematic reviews, data synthesis techniques, statistical tools, and research methodologies.",
-        fullDesc: "Focused workshop detailing systematic literature synthesis, PRISMA guidelines, statistical effect sizing, and forest plots for pharmaceutical research papers and thesis dissertations.",
-        highlights: [
-            "Systematic review design & study qualification",
-            "Statistical software tools for data aggregation",
-            "Publication benchmarks for research journals"
-        ],
-        rsvpLink: ""
+        rsvpLink: "form.html"
     }
 ];
 
